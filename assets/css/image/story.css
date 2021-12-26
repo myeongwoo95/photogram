@@ -1,0 +1,33 @@
+.header{
+    padding: 15px 0px 15px 0px;
+    display: flex;
+}
+
+.header div:nth-child(1) a img{
+    width: 110px;
+}
+
+.header div:nth-child(2){
+    position: relative;
+}
+
+.header div:nth-child(2) i{
+    font-size: 15px;
+    color: gray;
+    position: absolute;
+    left: 5px;
+    top: 10px;
+}
+
+.header div:nth-child(2) input{
+    width: 236px;
+    height: 35px;
+    background: rgba(239, 239, 239, 1.0);
+    border: none;
+    border-radius: 8px;
+}
+
+.header div:nth-child(2) input:focus{
+    outline: none;
+}
+
