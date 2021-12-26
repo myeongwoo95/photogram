@@ -26,7 +26,7 @@
 <body>
 <div class="body__container">
 
-    <div class="section">
+    <div class="section header-wrapper">
         <div class="inner">
             <div class="header">
 
@@ -38,56 +38,148 @@
         
                 <div>
                     <form>
-                        <i class="fas fa-search"></i>
-                        <input type="text" placeholder="     검색">
+                        <button></button>
+                        <input type="search" placeholder="검색">
                     </form>
                 </div>
         
                 <div>
                     <ul>
-                        <li><a href="#">홈</a></li>
-                        <li><a href="#">채팅</a></li>
-                        <li><a href="#">사진</a></li>
-                        <li><a href="#">인기</a></li>
-                        <li><a href="#">알림</a></li>
-                        <li><a href="#">플필</a></li>
+                        <li><a href="#"><i class="fas fa-home"></i></a></li>
+                        <li><a href="#"><i class="fab fa-telegram-plane"></i></a></li>
+                        <li><a href="#"><i class="far fa-plus-square"></i></a></li>
+                        <li><a href="#"><i class="far fa-compass"></i></a></li>
+                        <li><a href="#"><i class="far fa-heart"></i></a></li>
+                        <li><a href="#"><img src="../assets/images/Avatar.png" alt="profile-picture"></a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="section">
+    <div class="section section--story mt-30">
         <div class="inner">
 
-            <div class="visual">
+            <div class="flex">
+                <div class="item-list">
 
-                <div class="visual__image-list">
+                    <div class="item-list__image-item">
+                        <div class="item-list__image-item__header">
+                            <img src="../assets/images/Avatar.png" alt="user">
+                            <span>walle</span>
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
 
-                    <div class="imge-item">
+                        <div class="item-list__image-item__body">
+                            <img src="../assets/images/item.jpg" alt="story-image">
+                        </div>
 
+                        <div class="item-list__image-item__comment-list">
+                            <div>
+                                <ul>
+                                    <li><a href="#"><i class="far fa-heart"></i></a></li>
+                                    <li><a href="#"><i class="far fa-comment"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-telegram-plane"></i></a></li>
+                                    <li><a href="#"><i class="far fa-bookmark"></i></a></li>
+                                </ul>
+                            </div>
+
+                            <span class="like-count">좋아요 71개</span>
+
+                            <div class="image-caption">
+                                <span class="user">walle</span>
+                                <span class="caption">
+                                Merry Christmas Merry<br>
+                                Merry Christmas Merry<br>
+                                Merry Christmas Merry<br>
+                                Merry Christmas Merry<br>
+                                Merry Christmas Merry<br>
+                                </span>
+                            </div>
+
+                            <div class="comments mt-15">
+                                <span class="comment-count cursor-pointer">댓글 10개 모두 보기</span>
+                                
+                                <div class="comments-list">
+                                    <div class="comment-items mt-5">
+                                        <b class="fw-900">walle</b>
+                                        <span>동해물과 백두산이 마르고 닳도록</psan>
+                                        <i class="far fa-heart"></i>
+                                    </div>
+
+                                    <div class="comment-items mt-5">
+                                        <b class="fw-900">walle</b>
+                                        <span>동해물과 백두산이 마르고 닳도록</psan>
+                                        <i class="far fa-heart"></i>
+                                    </div>
+
+                                    <div class="comment-items mt-5">
+                                        <b class="fw-900">walle</b>
+                                        <span>동해물과 백두산이 마르고 닳도록</psan>
+                                        <i class="far fa-heart"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="item-list__image-item__comment-write">
+                            <i class="far fa-smile-wink"></i>
+                            <textarea placeholder="댓글 달기..."></textarea>
+                            <button>게시</button>
+                        </div>
+                       
                     </div>
 
-                    <div class="imge-item">
-                        
-                    </div>
+                    
 
                     <div class="visual__image-list__friend-rec">
 
                     </div>
 
                 </div>
-    
-                <div class="visual__friend-rec">
-    
-                </div>
 
+                <div class="visual__friend-rec">
+
+                </div>
             </div>
 
         </div>
     </div>
 
+    <script>
+        $('.image-caption').each(function(){
+            var content = $(this).children('.caption');
+            var content_txt = content.text();
+            var content_txt_short = content_txt.substring(0,100)+"...";
+            var btn_more = $('<a href="javascript:void(0)" class="more"> 더 보기</a>');
 
+            $(this).append(btn_more);
+            
+            if(content_txt.length >= 100){
+                content.html(content_txt_short)
+            }else{
+                btn_more.hide()
+            }
+            
+            btn_more.click(toggle_content);
+          
+            function toggle_content(){
+                if($(this).hasClass('short')){
+                    // 접기 상태
+                    $(this).html('더보기');
+                    content.html(content_txt_short)
+                    $(this).removeClass('short');
+                }else{
+                    // 더보기 상태
+                    $(this).html('접기');
+                    content.text(content_txt);
+                    $(this).addClass('short');
+
+                }
+            }
+        });
+        
+    </script>
 </div>
 </body>
 </html>

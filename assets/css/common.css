@@ -9,6 +9,11 @@
 .cursor-pointer{
     cursor: pointer;
 }
+
+.flex{
+    display: flex;
+}
+
 .body__container{
     font-size: 14px;
     font-weight: 400;
