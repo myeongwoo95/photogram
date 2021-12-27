@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
     
-    <!-- css -->
+    <!-- css, js -->
     <link rel="stylesheet" href="../assets/css/reset.css">
     <link rel="stylesheet" href="../assets/css/common.css">
     <link rel="stylesheet" href="../assets/css/image/story.css">
@@ -63,15 +63,16 @@
             <div class="flex">
                 <div class="item-list">
 
+                    <!-- item -->
                     <div class="item-list__image-item">
                         <div class="item-list__image-item__header">
                             <img src="../assets/images/Avatar.png" alt="user">
                             <span>walle</span>
-                            <i class="fas fa-ellipsis-h"></i>
+                            <i class="fas fa-ellipsis-h btn-content-option"></i>
                         </div>
 
                         <div class="item-list__image-item__body">
-                            <img src="../assets/images/item.jpg" alt="story-image">
+                            <img src="../assets/images/insta2.jpg" alt="story-image">
                         </div>
 
                         <div class="item-list__image-item__comment-list">
@@ -124,62 +125,337 @@
 
                         <div class="item-list__image-item__comment-write">
                             <i class="far fa-smile-wink"></i>
-                            <textarea placeholder="댓글 달기..."></textarea>
-                            <button>게시</button>
+                            <textarea rows="1" placeholder="댓글 달기..."></textarea>
+                            <button class="upload-comment">게시</button>
+                            
                         </div>
                        
                     </div>
+                    <!-- item -->
 
-                    
+                    <div class="visual__image-list__friend-rec mb-30" style="overflow: hidden;">
+                        <i class="fas fa-chevron-left arrow"></i>
+                        <i class="fas fa-chevron-right arrow"></i>
 
-                    <div class="visual__image-list__friend-rec">
+                        <div class="visual__image-list__friend-rec__header mb-20">
+                            <span>회원님을 위한 추천</span>
+                            <span>모두 보기</span>
+                        </div>
+
+                        <div class="modal-item-list-wrapper">
+                            
+                            <div class="modal-item-list">
+                                <div class="modal-item">
+                                    <img src="../assets/images/item.jpg">
+                                    <p class="name mt-15">JISOO</p>
+                                    <p class="who-following mt-15">tilltof님이 팔로우 합니다.</p>
+                                    <button class="btn-blue">팔로우</button>
+                                </div>
+
+                                <div class="modal-item">
+                                    <img src="../assets/images/item.jpg">
+                                    <p class="name mt-15">JISOO</p>
+                                    <p class="who-following mt-15">tilltof님이 팔로우 합니다.</p>
+                                    <button class="btn-blue">팔로우</button>
+                                </div>
+
+                                <div class="modal-item">
+                                    <img src="../assets/images/item.jpg">
+                                    <p class="name mt-15">JISOO</p>
+                                    <p class="who-following mt-15">tilltof님이 팔로우 합니다.</p>
+                                    <button class="btn-blue">팔로우</button>
+                                </div>
+                            </div>
+
+                            <div class="modal-item-list">
+                                <div class="modal-item">
+                                    <img src="../assets/images/item.jpg">
+                                    <p class="name mt-15">JISOO</p>
+                                    <p class="who-following mt-15">tilltof님이 팔로우 합니다.</p>
+                                    <button class="btn-blue">팔로우</button>
+                                </div>
+
+                                <div class="modal-item">
+                                    <img src="../assets/images/item.jpg">
+                                    <p class="name mt-15">JISOO</p>
+                                    <p class="who-following mt-15">tilltof님이 팔로우 합니다.</p>
+                                    <button class="btn-blue">팔로우</button>
+                                </div>
+
+                                <div class="modal-item">
+                                    <img src="../assets/images/item.jpg">
+                                    <p class="name mt-15">JISOO</p>
+                                    <p class="who-following mt-15">tilltof님이 팔로우 합니다.</p>
+                                    <button class="btn-blue">팔로우</button>
+                                </div>
+                            </div>
+
+                            <div class="modal-item-list">
+                                <div class="modal-item">
+                                    <img src="../assets/images/item.jpg">
+                                    <p class="name mt-15">JISOO</p>
+                                    <p class="who-following mt-15">tilltof님이 팔로우 합니다.</p>
+                                    <button class="btn-blue">팔로우</button>
+                                </div>
+
+                                <div class="modal-item">
+                                    <img src="../assets/images/item.jpg">
+                                    <p class="name mt-15">JISOO</p>
+                                    <p class="who-following mt-15">tilltof님이 팔로우 합니다.</p>
+                                    <button class="btn-blue">팔로우</button>
+                                </div>
+
+                                <div class="modal-item">
+                                    <img src="../assets/images/item.jpg">
+                                    <p class="name mt-15">JISOO</p>
+                                    <p class="who-following mt-15">tilltof님이 팔로우 합니다.</p>
+                                    <button class="btn-blue">팔로우</button>
+                                </div>
+                            </div>
+
+                            <div class="modal-item-list">
+                                <div class="modal-item">
+                                    <img src="../assets/images/item.jpg">
+                                    <p class="name mt-15">JISOO</p>
+                                    <p class="who-following mt-15">tilltof님이 팔로우 합니다.</p>
+                                    <button class="btn-blue">팔로우</button>
+                                </div>
+
+                                <div class="modal-item">
+                                    <img src="../assets/images/item.jpg">
+                                    <p class="name mt-15">JISOO</p>
+                                    <p class="who-following mt-15">tilltof님이 팔로우 합니다.</p>
+                                    <button class="btn-blue">팔로우</button>
+                                </div>
+
+                                <div class="modal-item">
+                                    <img src="../assets/images/item.jpg">
+                                    <p class="name mt-15">JISOO</p>
+                                    <p class="who-following mt-15">tilltof님이 팔로우 합니다.</p>
+                                    <button class="btn-blue">팔로우</button>
+                                </div>
+                            </div>
+
+                            <div class="modal-item-list">
+                                <div class="modal-item">
+                                    <img src="../assets/images/item.jpg">
+                                    <p class="name mt-15">JISOO</p>
+                                    <p class="who-following mt-15">tilltof님이 팔로우 합니다.</p>
+                                    <button class="btn-blue">팔로우</button>
+                                </div>
+
+                                <div class="modal-item">
+                                    <img src="../assets/images/item.jpg">
+                                    <p class="name mt-15">JISOO</p>
+                                    <p class="who-following mt-15">tilltof님이 팔로우 합니다.</p>
+                                    <button class="btn-blue">팔로우</button>
+                                </div>
+
+                                <div class="modal-item">
+                                    <img src="../assets/images/item.jpg">
+                                    <p class="name mt-15">JISOO</p>
+                                    <p class="who-following mt-15">tilltof님이 팔로우 합니다.</p>
+                                    <button class="btn-blue">팔로우</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                       
 
                     </div>
 
                 </div>
 
-                <div class="visual__friend-rec">
+                <div class="visual__friend-rec ml-30">
+                    <div class="visual__friend-rec__first-div mb-25">
+                        <img src="../assets/images/Avatar.png" alt="profile">
+                        <div>
+                            <span>a_a33a</span>
+                            <span>이명우</span>
+                        </div>
+                    </div>
 
+                    <div class="visual__friend-rec__second-div">
+                        <div class="rec-caption mb-20">
+                            <span>회원님을 위한 추천</span>
+                            <span>모두 보기</span>
+                        </div>
+
+                        
+                        <div class="rec-list">
+                            <!-- item -->
+                            <div class="rec-item mb-15">
+                                <img src="../assets/images/Avatar.png" alt="recommentation-item">
+                                <div>
+                                    <span>songkang_b</span>
+                                    <span>차영준</span>
+                                </div>
+                                <span class="btn-follower float--right">팔로우</span>
+                            </div>
+                            <!-- item -->
+
+                            <div class="rec-item mb-15">
+                                <img src="../assets/images/Avatar.png" alt="recommentation-item">
+                                <div>
+                                    <span>songkang_b</span>
+                                    <span>한동연</span>
+                                </div>
+                                <span class="btn-follower float--right">팔로우</span>
+                            </div>
+
+                            <div class="rec-item mb-15">
+                                <img src="../assets/images/Avatar.png" alt="recommentation-item">
+                                <div>
+                                    <span>songkang_b</span>
+                                    <span>황정환</span>
+                                </div>
+                                <span class="btn-follower float--right">팔로우</span>
+                            </div>
+
+                            <div class="rec-item mb-15">
+                                <img src="../assets/images/Avatar.png" alt="recommentation-item">
+                                <div>
+                                    <span>songkang_b</span>
+                                    <span>이원욱</span>
+                                </div>
+                                <span class="btn-follower float--right">팔로우</span>
+                            </div>
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
-
-    <script>
-        $('.image-caption').each(function(){
-            var content = $(this).children('.caption');
-            var content_txt = content.text();
-            var content_txt_short = content_txt.substring(0,100)+"...";
-            var btn_more = $('<a href="javascript:void(0)" class="more"> 더 보기</a>');
-
-            $(this).append(btn_more);
-            
-            if(content_txt.length >= 100){
-                content.html(content_txt_short)
-            }else{
-                btn_more.hide()
-            }
-            
-            btn_more.click(toggle_content);
-          
-            function toggle_content(){
-                if($(this).hasClass('short')){
-                    // 접기 상태
-                    $(this).html('더보기');
-                    content.html(content_txt_short)
-                    $(this).removeClass('short');
-                }else{
-                    // 더보기 상태
-                    $(this).html('접기');
-                    content.text(content_txt);
-                    $(this).addClass('short');
-
-                }
-            }
-        });
-        
-    </script>
 </div>
+
+<button class="test-model">버튼 열기</button>
+
+
+
+<!-- 컨텐츠 옵션 -->
+<div class="modal-wrapper modal-content-option-wrapper">
+    <div class="modal modal-content-option">
+       <ul>
+            <li><button class="report">신고</button></li>
+            <li><button class="cancel-following">팔로우 취소</button></li>
+            <li><button>링크 복사</button></li>
+            <li><button class="cancle-content-option">취소</button></li>
+       </ul>
+    </div>
+</div>
+
+<!-- 신고 사유 선택-->
+<div class="modal-wrapper modal-reportList-wrapper">
+    <div class="modal modal-reportList">
+        <i class="fas fa-times cancel-reportList"></i>
+        
+        <h1>신고</h1>
+        <h2>이 게시물을 신고하는 이유</h2>
+        <ul>
+            <li>
+                <button>스팸</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li>
+                <button>나체 이미지 또는 성적 행위</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li>
+                <button>혐오 발언 또는 상징</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li>
+                <button>폭력 또는 위험한 단체</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li>
+                <button>불법 또는 규제 상품 판매</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li>
+                <button>따돌림 또는 괴롭힘</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li>
+                <button>지적 재산권 침해</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li>
+                <button>자살 또는 자해</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li>
+                <button>섭식 장애</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li>
+                <button>사기 또는 거짓</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li>
+                <button>거짓 정보</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li>
+                <button>마음에 들지 않습니다</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- 신고 완료 모달-->
+<div class="modal-wrapper modal-reported-wrapper">
+    <div class="modal modal-reported">
+        <i class="far fa-check-circle"></i>
+        <h1>알려주셔서 고맙습니다</h1>
+        <p>회원님의 소중한 의견은 Instagram 커뮤니티를<br>안전하게 유지하는 데 도움이 됩니다</p>
+        <ul>
+            <li><button style="color: #ED4956;">walle님 차단</button></li>
+            <li><button>walle님 팔로우 취소</button></li>
+            <li><button class="btn-close-reported">닫기</button></li>
+        </ul>
+
+    </div>
+</div>
+
+<script>
+    // 콘텐츠 옵션
+    $(".btn-content-option").on("click", function(){
+        $(".modal-content-option-wrapper").css("display", "flex");
+        document.body.classList.add("stop-scroll");
+        document.body.classList.remove("stop-scroll");
+    });
+
+    $(".cancle-content-option").on("click", function(){
+        $(".modal-content-option-wrapper").hide();
+    });
+
+    $(".modal-content-option .report").on("click", function(){
+        $(".modal-content-option-wrapper").hide();
+        $(".modal-reportList-wrapper").css("display", "flex");
+    });
+
+    // 신고 사유 선택
+    $(".cancel-reportList").on("click", function(){
+        $(".modal-reportList-wrapper").hide();
+    });
+
+    // 신고 완료
+    $(".modal-reportList ul li button").on("click", function(){
+        $(".modal-reportList-wrapper").hide();
+        $(".modal-reported-wrapper").css("display", "flex");
+    })
+
+    $(".btn-close-reported").on("click", function(){
+        $(".modal-reported-wrapper").hide();
+    })
+</script>
+
+
+<script src="../assets/js/image/story.js"></script>
 </body>
 </html>

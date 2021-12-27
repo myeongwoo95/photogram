@@ -6,6 +6,8 @@
 /*================================================================
 # common
 =================================================================*/
+
+
 .cursor-pointer{
     cursor: pointer;
 }
@@ -19,6 +21,7 @@
     font-weight: 400;
     font-family: 'Nanum Gothic', sans-serif;
     color: #333;
+    position: relative;
 }
 
 .section{
