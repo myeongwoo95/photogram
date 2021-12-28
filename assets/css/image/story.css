@@ -765,35 +765,47 @@
     width: 100%;
 }
 
-.comment-modal-view__comment-list__body__commentList__item div:hover .modal-comment-dotdotdot{
+.comment-modal-view__comment-list__body__commentList__item div.zpw:hover .modal-comment-dotdotdot{
     display: inline-block;
 }
 
-.comment-modal-view__comment-list__body__commentList__item div span:nth-child(1){
+.comment-modal-view__comment-list__body__commentList__item div.zpw span:nth-child(1){
     font-size: 12px;
     color: #8e8e8e;
     display: inline-block;
 }
 
-.comment-modal-view__comment-list__body__commentList__item div span:nth-child(2){
-    font-size: 12px;
-    color: #8e8e8e;
-    font-weight: bold;
-    display: inline-block;
-}
-
-.comment-modal-view__comment-list__body__commentList__item div span:nth-child(3){
+.comment-modal-view__comment-list__body__commentList__item div.zpw span:nth-child(2){
     font-size: 12px;
     color: #8e8e8e;
     font-weight: bold;
     display: inline-block;
 }
 
-.comment-modal-view__comment-list__body__commentList__item div i{
+.comment-modal-view__comment-list__body__commentList__item div.zpw span:nth-child(3){
     font-size: 12px;
     color: #8e8e8e;
+    font-weight: bold;
     display: inline-block;
+}
+
+.comment-modal-view__comment-list__body__commentList__item div.zpw i{
+    font-size: 12px;
+    color: #8e8e8e;
     display: none;
+}
+
+.comment-modal-view__comment-list__body__commentList__item div.wqd{
+    
+}
+
+.comment-modal-view__comment-list__body__commentList__item div.wqd button{
+    border: 0;
+    background: 0;
+    color: #8e8e8e;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .comment-modal-view__comment-list__footer{
