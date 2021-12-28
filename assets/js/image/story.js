@@ -34,13 +34,13 @@ $(document).ready(function(){
     });
     
     // Textarea 높이 자동조절
-    $('textarea').keyup(function(e) {
+    $('#content-comment-textarea').keyup(function(e) {
         $(this).css('height', 'auto');
         $(this).height(this.scrollHeight);
     });
     
     //Textarea onchange
-    $('textarea').bind('input propertychange', function() {
+    $('#content-comment-textarea').bind('input propertychange', function() {
     
         $(".upload-comment").css("opacity", 0.3);
     
@@ -48,8 +48,7 @@ $(document).ready(function(){
             $(".upload-comment").css("opacity", 1.);
         }
     });
-    
-    
+
     //친구추천 모달
     const standard = 597;
     let count = 1;
@@ -87,5 +86,52 @@ $(document).ready(function(){
             $(".fa-chevron-left").css("display", "flex");
         }
     }
+
+    // 콘텐츠 옵션
+    $(".btn-content-option").on("click", function(){
+        $(".modal-content-option-wrapper").css("display", "flex");
+        document.body.classList.add("stop-scroll");
+        document.body.classList.remove("stop-scroll");
+    });
+
+    $(".cancle-content-option").on("click", function(){
+        $(".modal-content-option-wrapper").hide();
+    });
+
+    $(".modal-content-option .report").on("click", function(){
+        $(".modal-content-option-wrapper").hide();
+        $(".modal-reportList-wrapper").css("display", "flex");
+    });
+
+    // 신고 사유 선택
+    $(".cancel-reportList").on("click", function(){
+        $(".modal-reportList-wrapper").hide();
+    });
+
+    // 신고 완료
+    $(".modal-reportList ul li button").on("click", function(){
+        $(".modal-reportList-wrapper").hide();
+        $(".modal-reported-wrapper").css("display", "flex");
+    })
+
+    $(".btn-close-reported").on("click", function(){
+        $(".modal-reported-wrapper").hide();
+    })
+
+    // 좋아요, 좋아요 취소
+    $(".content-like").on("click", function(e){
+        e.preventDefault();
+
+        if($(this).hasClass("far")){
+            $(this).css("color", "#ED4956");
+            $(this).addClass("fas");
+            $(this).removeClass("far");
+        }else{
+            $(this).css("color", "");
+            $(this).addClass("far");
+            $(this).removeClass("fas");
+        }
+    });
+
 
 });
