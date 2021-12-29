@@ -1,6 +1,7 @@
 // 댓글 더 보기
 $(document).ready(function(){
 
+    // 콘텐츠 caption 더보기 (수정 필요)
     $('.image-caption').each(function(){
         var content = $(this).children('.caption');
         var content_txt = content.text();
@@ -39,7 +40,7 @@ $(document).ready(function(){
         $(this).height(this.scrollHeight);
     });
     
-    //Textarea onchange
+    //Textarea onchange 버튼 활성화
     $('#content-comment-textarea').bind('input propertychange', function() {
     
         $(".upload-comment").css("opacity", 0.3);
@@ -87,7 +88,7 @@ $(document).ready(function(){
         }
     }
 
-    // 콘텐츠 옵션
+    // 콘텐츠 dotdotdot 옵션
     $(".btn-content-option").on("click", function(){
         $(".modal-content-option-wrapper").css("display", "flex");
         document.body.classList.add("stop-scroll");
@@ -133,5 +134,157 @@ $(document).ready(function(){
         }
     });
 
+    // 댓글 좋아요, 좋아요 취소
+    $(".content-comment-like").on("click", function(e){
+        e.preventDefault();
+
+        if($(this).hasClass("far")){
+            $(this).css("color", "#ED4956");
+            $(this).addClass("fas");
+            $(this).removeClass("far");
+        }else{
+            $(this).css("color", "");
+            $(this).addClass("far");
+            $(this).removeClass("fas");
+        }
+        
+    })
+
+    // 대댓글 좋아요, 좋아요 취소
+    $(".comment-comment-like").on("click", function(e){
+        e.preventDefault();
+
+        if($(this).hasClass("far")){
+            $(this).css("color", "#ED4956");
+            $(this).addClass("fas");
+            $(this).removeClass("far");
+        }else{
+            $(this).css("color", "");
+            $(this).addClass("far");
+            $(this).removeClass("fas");
+        }
+    })
+
+    // 북마크, 북마크 취소
+    $(".content-bookmark").on("click", function(e){
+        e.preventDefault();
+
+        if($(this).hasClass("far")){
+            $(this).css("color", "#333");
+            $(this).addClass("fas");
+            $(this).removeClass("far");
+        }else{
+            $(this).css("color", "");
+            $(this).addClass("far");
+            $(this).removeClass("fas");
+        }
+    });
+
+    // 게시글의 댓글 버튼 눌렀을때 (모달)
+    $(".content-class").on("click", function(){
+        $(".modal-comment-wrapper").css("display", "flex");
+    })
+
+    $(".cancel-comment-modal").on("click", function(){
+        $(".modal-comment-wrapper").hide();
+    })
+
+    // 댓글의 댓글 확인 버튼
+    $(".comment-deep-button").on("click", function(){
+        $(this).next().toggle();
+    })
+
+    // 콘텐츠 옵션에서 팔로우 취소 눌렀을때 보여주는 (모달)
+    $(".cancel-following").on("click", function(){
+        $(".modal-content-option-wrapper").hide();
+        $(".modal-requestCancelFollowing-wrapper").css("display", "flex");
+    })
+
+    // 팔로우 취소 모달 닫기 
+    $(".btn-close-requestCancelFollowing").on("click", function(){
+        $(".modal-requestCancelFollowing-wrapper").hide();
+    })
+
+    // 팔로우 취소API
+    $(".btn-cancel-following").on("click", function(){
+        
+        //로직
+
+        alert("팔로우 취소 api 실행");
+    })
+
+    // 콘텐츠 옵션에서 링크 복사 눌렀을때 보여주는 (모달)
+    $(".btn-link-copy").on("click", function(){
+        
+        //로직
+
+        alert("링크가 복사되었습니다.")
+    })
+
+    // 친구추천에서 팔로잉 눌렀을 때
+    $(".btn-friend-rec-following").on("click", function(){
+
+        //로직
+
+        if($(this).hasClass("false")){
+            $(this).removeClass("false")
+            $(this).addClass("true")
+
+            $(this).css("color", "#333")
+        }else{
+            $(this).removeClass("true")
+            $(this).addClass("false")
+            $(this).css("color", "#0095f6")
+        }
+    })
+
+    // 슬라이더
+    const swiperComment = new Swiper('.comment-swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: false,
+
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+    const swiperImage = new Swiper('.image-swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: false,
+
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+    const swiperFriendsRecommendation = new Swiper('.friend-recommentation-swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: false,
+
+        speed : 1000,
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
 
 });

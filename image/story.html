@@ -109,7 +109,7 @@
                                     <li><a href="#"><i class="far fa-heart content-like"></i></a></li>
                                     <li><a href="#"><i class="far fa-comment content-class"></i></a></li>
                                     <li><a href="#"><i class="fab fa-telegram-plane"></i></a></li>
-                                    <li><a href="#"><i class="far fa-bookmark"></i></a></li>
+                                    <li><a href="#"><i class="far fa-bookmark content-bookmark"></i></a></li>
                                 </ul>
                             </div>
 
@@ -130,23 +130,31 @@
                                 <span class="comment-count cursor-pointer">댓글 10개 모두 보기</span>
                                 
                                 <div class="comments-list">
-                                    <div class="comment-items mt-5">
-                                        <b class="fw-900">walle</b>
-                                        <span>동해물과 백두산이 마르고 닳도록</psan>
-                                        <i class="far fa-heart"></i>
-                                    </div>
 
+                                    <!-- item -->
                                     <div class="comment-items mt-5">
                                         <b class="fw-900">walle</b>
                                         <span>동해물과 백두산이 마르고 닳도록</psan>
-                                        <i class="far fa-heart"></i>
+                                        <i class="far fa-heart content-comment-like"></i>
                                     </div>
+                                    <!-- item -->
 
-                                    <div class="comment-items mt-5">
+                                       <!-- item -->
+                                       <div class="comment-items mt-5">
                                         <b class="fw-900">walle</b>
                                         <span>동해물과 백두산이 마르고 닳도록</psan>
-                                        <i class="far fa-heart"></i>
+                                        <i class="far fa-heart content-comment-like"></i>
                                     </div>
+                                    <!-- item -->
+
+                                       <!-- item -->
+                                       <div class="comment-items mt-5">
+                                        <b class="fw-900">walle</b>
+                                        <span>동해물과 백두산이 마르고 닳도록</psan>
+                                        <i class="far fa-heart content-comment-like"></i>
+                                    </div>
+                                    <!-- item -->
+                                   
                                 </div>
                             </div>
                         </div>
@@ -253,6 +261,7 @@
 
                         
                         <div class="rec-list">
+
                             <!-- item -->
                             <div class="rec-item mb-15">
                                 <img src="../assets/images/Avatar.png" alt="recommentation-item">
@@ -260,36 +269,44 @@
                                     <span>songkang_b</span>
                                     <span>차영준</span>
                                 </div>
-                                <span class="btn-follower float--right">팔로우</span>
+                                <span class="btn-friend-rec-following float--right false">팔로우</span>
                             </div>
                             <!-- item -->
 
+                            <!-- item -->
                             <div class="rec-item mb-15">
                                 <img src="../assets/images/Avatar.png" alt="recommentation-item">
                                 <div>
                                     <span>songkang_b</span>
-                                    <span>한동연</span>
+                                    <span>차영준</span>
                                 </div>
-                                <span class="btn-follower float--right">팔로우</span>
+                                <span class="btn-friend-rec-following float--right false">팔로우</span>
                             </div>
+                            <!-- item -->
 
-                            <div class="rec-item mb-15">
-                                <img src="../assets/images/Avatar.png" alt="recommentation-item">
-                                <div>
-                                    <span>songkang_b</span>
-                                    <span>황정환</span>
-                                </div>
-                                <span class="btn-follower float--right">팔로우</span>
-                            </div>
 
+                            <!-- item -->
                             <div class="rec-item mb-15">
                                 <img src="../assets/images/Avatar.png" alt="recommentation-item">
                                 <div>
                                     <span>songkang_b</span>
-                                    <span>이원욱</span>
+                                    <span>차영준</span>
                                 </div>
-                                <span class="btn-follower float--right">팔로우</span>
+                                <span class="btn-friend-rec-following float--right false">팔로우</span>
                             </div>
+                            <!-- item -->
+
+                            <!-- item -->
+                            <div class="rec-item mb-15">
+                                <img src="../assets/images/Avatar.png" alt="recommentation-item">
+                                <div>
+                                    <span>songkang_b</span>
+                                    <span>차영준</span>
+                                </div>
+                                <span class="btn-friend-rec-following float--right false">팔로우</span>
+                            </div>
+                            <!-- item -->
+
                             
                         </div>
                     </div>
@@ -300,20 +317,20 @@
     </div>
 </div>
 
-<!-- 컨텐츠 옵션 -->
-<div class="modal-wrapper modal-content-option-wrapper" style="z-index: 10;">
+<!-- 컨텐츠 옵션 (모달)-->
+<div class="modal-wrapper modal-content-option-wrapper">
     <div class="modal modal-content-option">
        <ul>
             <li><button class="report">신고</button></li>
             <li><button class="cancel-following">팔로우 취소</button></li>
-            <li><button>링크 복사</button></li>
+            <li><button class="btn-link-copy">링크 복사</button></li>
             <li><button class="cancle-content-option">취소</button></li>
        </ul>
     </div>
 </div>
 
-<!-- 신고 사유 선택-->
-<div class="modal-wrapper modal-reportList-wrapper" style="z-index: 10;">
+<!-- 신고 사유 선택 (모달)-->
+<div class="modal-wrapper modal-reportList-wrapper">
     <div class="modal modal-reportList">
         <i class="fas fa-times cancel-reportList"></i>
         
@@ -372,8 +389,8 @@
     </div>
 </div>
 
-<!-- 신고 완료 모달-->
-<div class="modal-wrapper modal-reported-wrapper" style="z-index: 10;">
+<!-- 신고 완료 (모달)-->
+<div class="modal-wrapper modal-reported-wrapper">
     <div class="modal modal-reported">
         <i class="far fa-check-circle"></i>
         <h1>알려주셔서 고맙습니다</h1>
@@ -387,8 +404,22 @@
     </div>
 </div>
 
-<!-- 댓글 버튼 눌렀을때 사진, 댓글 모달 -->
-<div class="modal-wrapper modal-comment-wrapper" style="z-index: 10;">
+<!-- 팔로우 취소하시겠습니까? (모달) -->
+<div class="modal-wrapper modal-requestCancelFollowing-wrapper">
+    <div class="modal modal-requestCancelFollowing">
+        
+        <img class="mt-40 mb-25" src="../assets/images/item.jpg" alt="profile">
+
+        <p class="mb-30">@blahdi_jk님의 팔로우를 취소하시겠습니까?</p>
+
+        <button class="btn-cancel-following">팔로우 취소</button>
+        <button class="btn-close-requestCancelFollowing">취소</button>
+         
+    </div>
+</div>
+
+<!-- 콘텐츠 댓글 버튼 눌렀을때 (모달)-->
+<div class="modal-wrapper modal-comment-wrapper">
     <i class="fas fa-times cancel-comment-modal"></i>
     <div class="modal modal-comment">
 
@@ -442,7 +473,9 @@
 
                     <div class="comment-modal-view__comment-list__body__commentList mt-20 mb-20">
 
+                        <!-- item -->
                         <div class="comment-modal-view__comment-list__body__commentList__item mt-20">
+                            <i class="far fa-heart comment-comment-like"></i>
                             <img src="../assets/images/insta1.jpg" alt="user">
                             <p class="pl-45">
                                 <span>Gsyaw2</span>
@@ -457,45 +490,65 @@
                             </div>
 
                             <div class="wqd pl-40 mt-15">
-                                <button>―――&nbsp&nbsp&nbsp&nbsp답글 보기(10개)</button>
+                                <button class="comment-deep-button">―――&nbsp&nbsp&nbsp&nbsp답글 보기(10개)</button>
                                 
-                                <ul>
-                                    <li>
-                                        <img src="" alt="profile">
+                                <ul style="display: none;">
 
-                                        <div>
-                                            <i class="far fa-heart"></i>
-                                            <span></span>
-                                            <span></span>
-                                            <p></p>
+                                    <!-- item -->
+                                    <li>
+                                        <div class="qwers mt-25">
+                                            <i class="far fa-heart comment-comment-like"></i>
+                                            <img src="../assets/images/insta1.jpg" alt="user">
+                                            <p class="pl-45">
+                                                <span>Gsyaw2</span>
+                                                룰루랄라라라르라라ㅣㅓㄴ야ㅐ러냐ㅐㅇ러ㅑㅐㄴㅇㄹ 소리에 설레 죽어요ㅠㅠㅠㅠㅠ 오빠 같이 보고있는거죠? 오빠 목소리에 설레 죽어요ㅠㅠㅠㅠㅠ 오빠 같이 보고있는거죠? 오빠 목소리에 설레 죽어요ㅠㅠㅠㅠㅠ 오빠 같이 보고있는거죠? 오빠 목소리에 설레 죽어요ㅠㅠㅠㅠㅠ
+                                            </p>
+                                            
                                             <div class="zpw pl-45 mt-10">
                                                 <span class="mr-10 cursor-pointer">1일</span>
                                                 <span class="mr-10 cursor-pointer">좋아요 232개</span>
                                                 <span class="mr-15 cursor-pointer">답글달기</span>
-                                                <i class="fas fa-ellipsis-h modal-comment-dotdotdot cursor-pointer"></i>
+                                                
                                             </div>
                                         </div>
                                     </li>
+                                    <!-- //END item -->
+
+                                    <!-- item -->
+                                    <li>
+                                        <div class="qwers mt-25">
+                                            <i class="far fa-heart comment-comment-like"></i>
+                                            <img src="../assets/images/insta1.jpg" alt="user">
+                                            <p class="pl-45">
+                                                <span>Gsyaw2</span>
+                                                룰루랄라라라르라라ㅣㅓㄴ야ㅐ러냐ㅐㅇ러ㅑㅐㄴㅇㄹ 소리에 설레 죽어요ㅠㅠㅠㅠㅠ 오빠 같이 보고있는거죠? 오빠 목소리에 설레 죽어요ㅠㅠㅠㅠㅠ 오빠 같이 보고있는거죠? 오빠 목소리에 설레 죽어요ㅠㅠㅠㅠㅠ 오빠 같이 보고있는거죠? 오빠 목소리에 설레 죽어요ㅠㅠㅠㅠㅠ
+                                            </p>
+                                            
+                                            <div class="zpw pl-45 mt-10">
+                                                <span class="mr-10 cursor-pointer">1일</span>
+                                                <span class="mr-10 cursor-pointer">좋아요 232개</span>
+                                                <span class="mr-15 cursor-pointer">답글달기</span>
+                                                
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- //END item -->
                                 </ul>
                             </div>
-                            
                         </div>
-
-                        
+                         <!-- //END item -->
 
                     </div>
-
                     <i class="far fa-plus-square more-comment-modal"></i>
-                   
                 </div>
 
                 <div class="comment-modal-view__comment-list__footer item-list__image-item__comment-list">
                     <div>
                         <ul>
                             <li><a href="#"><i class="far fa-heart content-like"></i></a></li>
-                            <li><a href="#"><i class="far fa-comment content-class"></i></a></li>
+                            <li><a href="javascript:void(0);"><i class="far fa-comment content-class"></i></a></li>
                             <li><a href="#"><i class="fab fa-telegram-plane"></i></a></li>
-                            <li><a href="#"><i class="far fa-bookmark"></i></a></li>
+                            <li><a href="#"><i class="far fa-bookmark content-bookmark"></i></a></li>
                         </ul>
                     </div>
 
@@ -514,68 +567,7 @@
 
     </div>
 </div>
-
-<script> 
-    // 댓글 버튼 사진, 댓글
-    $(".content-class").on("click", function(){
-        $(".modal-comment-wrapper").css("display", "flex");
-    })
-
-    $(".cancel-comment-modal").on("click", function(){
-        $(".modal-comment-wrapper").hide();
-    })
-</script>
-
-<script>
-    const swiperComment = new Swiper('.comment-swiper', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: false,
-
-        // If we need pagination
-        pagination: {
-            el: '.swiper-pagination',
-        },
-
-        // Navigation arrows
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
-
-    const swiperImage = new Swiper('.image-swiper', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: false,
-
-        // If we need pagination
-        pagination: {
-            el: '.swiper-pagination',
-        },
-
-        // Navigation arrows
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
-
-    const swiperFriendsRecommendation = new Swiper('.friend-recommentation-swiper', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: false,
-
-        speed : 1000,
-
-        // Navigation arrows
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
-</script>
-
+<!-- <script src="../assets/js/common.js"></script> -->
 <script src="../assets/js/image/story.js"></script>
 </body>
 </html>
