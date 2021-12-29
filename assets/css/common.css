@@ -152,6 +152,35 @@ body{
 }
 
 /*================================================================
+# footer
+=================================================================*/
+.footer{
+    margin-top: 90px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+.footer ul{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.footer ul li{
+    color: #8E8E8E;
+    font-size: 12px;
+    margin-right: 20px;
+}
+
+.footer span{
+    color: #8E8E8E;
+    font-size: 12px;
+    display: inline-block;
+    margin: auto;
+    justify-content: center;
+}
+
+/*================================================================
 # common
 =================================================================*/
 .body__container{

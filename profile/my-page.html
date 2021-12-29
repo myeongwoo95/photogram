@@ -16,6 +16,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300&display=swap" rel="stylesheet">
+
     <!-- Swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
@@ -65,23 +69,24 @@
         <div class="section">
             <div class="inner">
                 <div class="user-profile">
-                    <img src="" alt="profile">
+                    <img src="../assets/images/Avatar.png" alt="profile">
 
-                    <div>
-                        <div>
-                            <span>a_a33a</span>
-                            <button>프로필 편집</button>
+                    <div class="user-profile__info-div">
+
+                        <div class="mb-20">
+                            <span class="font-thin mr-20">a_a33a</span>
+                            <button class="mr-20">프로필 편집</button>
                             <i class="fas fa-cog"></i>
                         </div>
 
-                        <div>
-                            <div>게시물 <span class="fw-600">0</span></div>
-                            <div>팔로워 <span class="fw-600">4</span></div>
-                            <div>팔로우 <span class="fw-600">5</span></div>
+                        <div class="mb-20">
+                            <div class="fz-16 mr-40">게시물 <span class="fw-700">0</span></div>
+                            <div class="fz-16 mr-40 cursor-pointer">팔로워 <span class="fw-600">4</span></div>
+                            <div class="fz-16 cursor-pointer">팔로우 <span class="fw-600">5</span></div>
                         </div>
 
                         <div>
-                            <span class="fw-600">walle</span>
+                            <span class="fz-16 fw-600">walle</span>
                         </div>
                     </div>
 
@@ -92,10 +97,10 @@
         <div class="section">
             <div class="inner">
 
-                <ul>
-                    <li><i></i> 게시물</li>
-                    <li><i></i >저장됨</li>
-                    <li><i></i >태그됨</li>
+                <ul class="tag-list">
+                    <li class="btn-photo fw-700 on"><i class="fas fa-image"></i>&nbsp&nbsp게시물</li>
+                    <li class="btn-save fw-700"><i class="far fa-bookmark"></i>&nbsp&nbsp저장됨</li>
+                    <li class="btn-tag fw-700"><i class="fas fa-user-tag"></i>&nbsp&nbsp태그됨</li>
                 </ul>
 
             </div>
@@ -106,28 +111,53 @@
 
                 <div class="tab-wrapper">
 
-                    <div class="my-content-tab">
+                    <div class="my-content-tab" style="display: none;">
 
-                        <div class="no-file">
-                            <div><img src="" alt="random-photos"></div>
+                        <div class="no-data" style="display: none;">
                             <div>
-                                <h3>소중한 순간을 포착하여 공유해보세요.</h3>
-                                <p>앱을 다운로드하고 첫 사진이나 동영상을 공유해보세요.</p>
-                                <img src="" alt="app-download">
+                                <img src="../assets/images/random-photos.png" alt="random-photos">
+                            </div>
+
+                            <div>
+                                <h3 class="fz-18 fw-700 mb-10">소중한 순간을 포착하여 공유해보세요.</h3>
+                                <p class="fz-16 mb-30">앱을 다운로드하고 첫 사진이나 동영상을 공유해보세요.</p>
+                                <img class="cursor-pointer" src="../assets/images/app-download.png" alt="app-download">
                             </div>
                         </div>
 
-                        <div class="exist-file">
+                        <div>
+
+                            <ul class="photo-list">
+
+                                <li class="photo-item">
+                                    <img src="../assets/images/item.jpg" alt="photo">
+
+                                    <div class="photo-info">
+                                        <i class="far fa-comment mr-10"></i>
+                                        <span>3</span>
+                                    </div>
+                                </li>
+
+                            </ul>
 
                         </div>
 
                     </div>
 
-                    <div class="my-save-tab">
-
+                    <div class="my-save-tab" style="display: none;">
+                      
                         <div class="no-save">
-                            <div></div>
-                            <div></div>
+
+                            <div>
+                                <span>저장한 내용은 회원님만 볼 수 있습니다</span>
+                                <button>+ 새 컬렉션</button>
+                            </div>
+
+                            <div>
+                                <i></i>
+                                <h3>저장</h3>
+                                <p>다시 보고 싶은 사진과 동영상을 저장하세요.<br>콘텐츠를 저장해도 다른 사람에게 알림이 전송되지 않으며,<br>저장된 콘텐츠는 회원님만 볼 수 있습니다.</p>
+                            </div>
                         </div>
 
                         <div class="exist-save">
@@ -136,14 +166,21 @@
 
                     </div>
 
-                    <div class="tagged-tab">
+                    <div class="tagged-tab"> 
 
-                        <div class="no-tagged">
-                            <div></div>
-                            <div></div>
+                        <div class="no-data">
+                            <div>
+                                <img src="../assets/images/random-photos.png" alt="random-photos">
+                            </div>
+
+                            <div>
+                                <h3 class="fz-18 fw-700 mb-10">소중한 순간을 포착하여 공유해보세요.</h3>
+                                <p class="fz-16 mb-30">앱을 다운로드하고 첫 사진이나 동영상을 공유해보세요.</p>
+                                <img class="cursor-pointer" src="../assets/images/app-download.png" alt="app-download">
+                            </div>
                         </div>
 
-                        <div class="exist-tagged">
+                        <div class="exist-tagged" style="display: none;">
 
                         </div>
 
@@ -154,8 +191,73 @@
             </div>
         </div>
 
+        <div class="section">
+            <div class="inner">
+                <div class="footer">
+                    <ul>
+                        <li>Meta</li>
+                        <li>소개</li>
+                        <li>블로그</li>
+                        <li>채용 정보</li>
+                        <li>도움말</li>
+                        <li>API</li>
+                        <li>개인정보처리방침</li>
+                        <li>약관</li>
+                        <li>인기계정</li>
+                        <li>해시태그</li>
+                        <li>위치</li>
+                        <li>Instagram Lite</li>
+                    </ul>
+    
+                    <ul>
+                        <li>뷰티</li>
+                        <li>댄스</li>
+                        <li>피트니스</li>
+                        <li>식음료</li>
+                        <li>음악</li>
+                        <li>시각 예술</li>
+                    </ul>
+    
+                    <span>© 2021 Instagram from Meta</span>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
+<script>
+    $(".btn-photo").on("click", function(){
+        $(this).addClass("on")
+        $(".btn-save").removeClass("on")
+        $(".btn-tag").removeClass("on")
+
+        $(".my-content-tab").show();
+        $(".my-save-tab").hide();
+        $(".tagged-tab").hide();
+
+    })
+
+    $(".btn-save").on("click", function(){
+        $(this).addClass("on")
+        $(".btn-photo").removeClass("on")
+        $(".btn-tag").removeClass("on")
+
+        $(".my-save-tab").show();
+        $(".my-content-tab").hide();
+        $(".tagged-tab").hide();
+       
+    })
+
+    $(".btn-tag").on("click", function(){
+        $(this).addClass("on")
+        $(".btn-photo").removeClass("on")
+        $(".btn-save").removeClass("on")
+
+        $(".tagged-tab").show();
+        $(".my-content-tab").hide();
+        $(".my-save-tab").hide();
+    })
+</script>
 <script src="../assets/js/profile/my-page.js"></script>
 </body>
 </html>
