@@ -145,14 +145,181 @@ ul.photo-list{
 .photo-list .photo-item div i{
     color: #fff;
     z-index: 1;
+    font-size: 18px;
+    
 }
 
 .photo-list .photo-item div span{
     font-weight: bold;
     color: #fff;
     z-index: 1;
+    font-size: 18px;
+}
+/* my-save-tab */
+.no-save > div:nth-child(1){
+    margin-top: 25px;
 }
 
-/* my-save-tab */
-/* tagged-tab */
+.no-save > div:nth-child(1) span{
+    font-size: 12px;
+    color: #8e8e8e;
+}
+
+.no-save > div:nth-child(1) button{
+    border: 0;
+    background: 0;
+    color: #0095F6;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.no-save > div:nth-child(2){
+    text-align: center;
+    padding-top: 75px;
+}
+
+.no-save > div:nth-child(2) i{
+    margin: 0 auto;
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    height: 60px;
+    width: 60px;;
+    border: 2px solid #111;
+    border-radius: 50%;
+}
+
+
+.no-save > div:nth-child(2) h3{
+    font-size: 28px;
+}
+
+
+.no-save > div:nth-child(2) p{
+    line-height: 1.5;
+    color: #000;
+}
+
+
+
+/*================================================================
+# modal
+=================================================================*/
+/* modal-collection-step1 */
+.modal-collection-step1 > div{
+    width: 400px;
+    position: relative;
+    text-align: center;
+}
+
+.modal-collection-step1 > div i{
+    position: absolute;
+    right: 2%;
+    top: 4%;
+    font-size: 25px;
+    color: #333;
+    cursor: pointer;
+}
+
+.modal-collection-step1 > div h3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+    height: 42px;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.modal-collection-step1 > div > input{
+    height: 40px;
+    width: 90%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #dbdbdb;
+    border-radius: 4px;
+    background: #fafafa;
+    outline: none;
+    padding-left: 10px;
+}
+
+.modal-collection-step1 > div > button{
+    width: 100%;
+    height: 48px;
+    border: 0px;
+    background: 0;
+    border-top: 1px solid #dbdbdb;
+    cursor: pointer;
+    font-weight: bold;
+    color: gray;
+    font-size: 14px;
+}
+
+/* modal-collection-step2 */
+.modal-collection-step2 > div:nth-child(1){
+    width: 100%;
+    position: relative;
+}
+
+.modal-collection-step2 > div:nth-child(1) h3{
+    color: #262626;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding: 16px;
+}
+
+.modal-collection-step2 > div:nth-child(1) i{
+    position: absolute;
+    cursor: pointer;
+}
+
+.modal-collection-step2 > div:nth-child(1) i.fa-chevron-left{
+    left: 10px;
+    top: 14px;
+    color: #8e8e8e;
+    font-size: 20px;
+}
+
+.modal-collection-step2 > div:nth-child(1) i.fa-times{
+    right: 10px;
+    top: 12px;
+    color: #262626;
+    font-size: 25px;
+}
+
+.modal-collection-step2 .collection-photo-list{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 600px;
+    width: 420px;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.modal-collection-step2 .collection-photo-list .collection-photo-item{
+    width: 33.3333%;
+    height: 134px;
+}
+
+.modal-collection-step2 .collection-photo-list .collection-photo-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.modal-collection-step2 > div:nth-child(3) button{
+    width: 100%;
+    background: 0;
+    border: 0;
+    height: 48px;
+    padding:4px 8px;
+    font-weight: bold;
+    color: #0095F6;
+    cursor: pointer;
+}
+
 

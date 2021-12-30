@@ -111,7 +111,7 @@
 
                 <div class="tab-wrapper">
 
-                    <div class="my-content-tab" style="display: none;">
+                    <div class="my-content-tab">
 
                         <div class="no-data" style="display: none;">
                             <div>
@@ -124,7 +124,7 @@
                                 <img class="cursor-pointer" src="../assets/images/app-download.png" alt="app-download">
                             </div>
                         </div>
-
+ 
                         <div>
 
                             <ul class="photo-list">
@@ -133,7 +133,10 @@
                                     <img src="../assets/images/item.jpg" alt="photo">
 
                                     <div class="photo-info">
-                                        <i class="far fa-comment mr-10"></i>
+                                        <i class="fas fa-heart mr-10"></i>
+                                        <span class="mr-30">2</span>
+
+                                        <i class="fas fa-comment mr-10"></i>
                                         <span>3</span>
                                     </div>
                                 </li>
@@ -148,15 +151,15 @@
                       
                         <div class="no-save">
 
-                            <div>
-                                <span>저장한 내용은 회원님만 볼 수 있습니다</span>
-                                <button>+ 새 컬렉션</button>
+                            <div class="clearfix">
+                                <span class="float--left">저장한 내용은 회원님만 볼 수 있습니다</span>
+                                <button class="btn-collection float--right">+ 새 컬렉션</button>
                             </div>
 
                             <div>
-                                <i></i>
-                                <h3>저장</h3>
-                                <p>다시 보고 싶은 사진과 동영상을 저장하세요.<br>콘텐츠를 저장해도 다른 사람에게 알림이 전송되지 않으며,<br>저장된 콘텐츠는 회원님만 볼 수 있습니다.</p>
+                                <i class="far fa-bookmark"></i>
+                                <h3 class="font-light mt-15">저장</h3>
+                                <p class="mt-15">다시 보고 싶은 사진과 동영상을 저장하세요.<br>콘텐츠를 저장해도 다른 사람에게 알림이 전송되지 않으며,<br>저장된 콘텐츠는 회원님만 볼 수 있습니다.</p>
                             </div>
                         </div>
 
@@ -166,7 +169,7 @@
 
                     </div>
 
-                    <div class="tagged-tab"> 
+                    <div class="tagged-tab"  style="display: none;"> 
 
                         <div class="no-data">
                             <div>
@@ -225,38 +228,108 @@
 
     </div>
 </div>
+
+<!-- 컬렉션 step1 (모달) -->
+<div class="modal-wrapper modal-collection-step1-wrapper">
+    <div class="modal modal-collection-step1">
+        <div>
+            <i class="fas fa-times btn-close-collection1"></i>
+            <h3>새 컬렉션</h3>
+            <input class="collection-naming" type="text" placeholder="컬렉션 이름"><br>
+            <button class="btn-modal-collection-step2 disabled">다음</button>
+        </div>
+    </div>
+</div>
+
+<!-- 컬렉션 step2(모달) -->
+<div class="modal-wrapper modal-collection-step2-wrapper">
+    <div class="modal modal-collection-step2">
+
+        <div>
+            <i class="fas fa-chevron-left btn-back-from2to1"></i>
+            <i class="fas fa-times btn-close-collection2"></i>
+            <h3>저장된 항목에서 추가</h3>
+        </div>
+        
+        <div class="collection-photo-list clearfix">
+            <div class="collection-photo-item float--left">
+                <img src="../assets/images/insta1.jpg" alt="picture">
+            </div>
+
+            <div class="collection-photo-item float--left">
+                <img src="../assets/images/insta2.jpg" alt="picture">
+            </div>
+
+            <div class="collection-photo-item float--left">
+                <img src="../assets/images/item.jpg" alt="picture">
+            </div>
+
+            <div class="collection-photo-item float--left">
+                <img src="../assets/images/item.jpg" alt="picture">
+            </div>
+
+        </div>
+
+        <div>
+            <button>완료</button>
+        </div>
+
+    </div>
+</div>
+
 <script>
-    $(".btn-photo").on("click", function(){
-        $(this).addClass("on")
-        $(".btn-save").removeClass("on")
-        $(".btn-tag").removeClass("on")
-
-        $(".my-content-tab").show();
-        $(".my-save-tab").hide();
-        $(".tagged-tab").hide();
-
+    // btn collection
+    $(".btn-collection").on("click", function(e){
+        e.preventDefault();
+        $(".modal-collection-step1-wrapper").css("display", "flex");
     })
 
-    $(".btn-save").on("click", function(){
-        $(this).addClass("on")
-        $(".btn-photo").removeClass("on")
-        $(".btn-tag").removeClass("on")
-
-        $(".my-save-tab").show();
-        $(".my-content-tab").hide();
-        $(".tagged-tab").hide();
-       
+    // btn close collection1
+    $(".btn-close-collection1").on("click", function(e){
+        e.preventDefault();
+        $(".modal-collection-step1-wrapper").hide();
+        $(".collection-naming").val("");
     })
 
-    $(".btn-tag").on("click", function(){
-        $(this).addClass("on")
-        $(".btn-photo").removeClass("on")
-        $(".btn-save").removeClass("on")
-
-        $(".tagged-tab").show();
-        $(".my-content-tab").hide();
-        $(".my-save-tab").hide();
+    // btn close collection2
+    $(".btn-close-collection2").on("click", function(e){
+        e.preventDefault();
+        $(".modal-collection-step2-wrapper").hide();
     })
+
+    // btn back collection2 -> collection2
+    $(".btn-back-from2to1").on("click", function(){
+        
+        $(".modal-collection-step2-wrapper").hide();
+        $(".modal-collection-step1-wrapper").css("display", "flex");
+    })
+
+    // btn step -> step2
+    $(".btn-modal-collection-step2").on("click", function(){
+        if($(this).hasClass("disabled")){
+            return;
+        }else{
+            $(".modal-collection-step1-wrapper").hide();
+            $(".modal-collection-step2-wrapper").css("display", "flex");
+        }
+    })
+
+    // 컬렉션 naming시 value값 있을 때와 없을 때 처리
+    $(".collection-naming").on("keyup", function(e){
+        if(!$(this).val()){
+            $(".btn-modal-collection-step2").addClass("disabled");
+            $(".btn-modal-collection-step2").css("color", "gray");
+        }else{
+           
+            $(".btn-modal-collection-step2").removeClass("disabled");
+            $(".btn-modal-collection-step2").css("color", "#0095F6");
+        }
+    });
+
+
+
+
+    
 </script>
 <script src="../assets/js/profile/my-page.js"></script>
 </body>
