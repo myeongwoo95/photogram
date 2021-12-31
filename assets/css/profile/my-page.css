@@ -104,19 +104,26 @@ ul.tag-list li.on{
 /* my-content-tab */
 ul.photo-list{
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
 }
+
 .photo-list .photo-item{
     position: relative;
-    width: 293px;
-    height: 293px;
-    margin-bottom: 45px;
+    width: 300px;
+    height: 300px;
+    margin-bottom: 40px;
+    margin-right: 40px;
+    display: inline-block;
+}
+
+.photo-list .photo-item:nth-child(3n){
+    margin-right: 0px;
 }
 
 .photo-list .photo-item img{
     position: absolute;
     width: 100%;
+    height: 100%;
     top: 0;
     right: 0;
     bottom: 0;
@@ -141,12 +148,10 @@ ul.photo-list{
     height: 100%;
 }
 
-
 .photo-list .photo-item div i{
     color: #fff;
     z-index: 1;
     font-size: 18px;
-    
 }
 
 .photo-list .photo-item div span{
@@ -155,6 +160,7 @@ ul.photo-list{
     z-index: 1;
     font-size: 18px;
 }
+
 /* my-save-tab */
 .no-save > div:nth-child(1){
     margin-top: 25px;
@@ -191,18 +197,62 @@ ul.photo-list{
     border-radius: 50%;
 }
 
-
 .no-save > div:nth-child(2) h3{
     font-size: 28px;
 }
-
 
 .no-save > div:nth-child(2) p{
     line-height: 1.5;
     color: #000;
 }
 
+.collection-list{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
 
+.collection-list .collection-item{
+    width: 31.3333%;
+    height: 298px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    cursor: pointer;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-right: 3%;
+    margin-bottom: 30px;
+}
+
+.collection-list .collection-item:nth-child(3n){
+    margin-right: 0%;
+}
+
+.collection-list .collection-item .gradient{
+    position: absolute;
+    background: rgba(1, 1, 1, 0.3);
+    width: 100%;
+    height: 100%;
+}
+
+.collection-list .collection-item .gradient:hover{
+    background: none;
+}
+
+.collection-list .collection-item img{
+    width: 50%;
+    height: 50%;
+}
+
+.collection-list .collection-item span{
+    position: absolute;
+    color: #fff;
+    left: 15px;
+    bottom: 15px;
+    font-size: 18px;
+    font-weight: 800;
+}
 
 /*================================================================
 # modal
@@ -321,5 +371,6 @@ ul.photo-list{
     color: #0095F6;
     cursor: pointer;
 }
+
 
 

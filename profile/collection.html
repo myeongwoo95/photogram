@@ -27,7 +27,7 @@
     <!-- css, js -->
     <link rel="stylesheet" href="../assets/css/reset.css">
     <link rel="stylesheet" href="../assets/css/common.css">
-    <link rel="stylesheet" href="../assets/css/profile/my-page.css">
+    <link rel="stylesheet" href="../assets/css/profile/collection.css">
 
     <title>Photogram</title>
 </head>
@@ -68,182 +68,34 @@
 
         <div class="section">
             <div class="inner">
-                <div class="user-profile">
-                    <img src="../assets/images/Avatar.jpg" alt="profile">
 
-                    <div class="user-profile__info-div">
+                <div class="back-div mt-40 mb-20">
+                    <i class="fas fa-undo-alt"></i>
+                    <span>저장됨</span>
+                </div>
 
-                        <div class="mb-20">
-                            <span class="font-thin mr-20">a_a33a</span>
-                            <button class="mr-20">프로필 편집</button>
-                            <i class="fas fa-cog"></i>
-                        </div>
+                <div>
+                    <h1 class="collection-title">모든 게시물</h1>
 
-                        <div class="mb-20">
-                            <div class="fz-16 mr-40">게시물 <span class="fw-700">0</span></div>
-                            <div class="fz-16 mr-40 cursor-pointer">팔로워 <span class="fw-600">4</span></div>
-                            <div class="fz-16 cursor-pointer">팔로우 <span class="fw-600">5</span></div>
-                        </div>
+                    <ul class="photo-list">
 
-                        <div>
-                            <span class="fz-16 fw-600">walle</span>
-                        </div>
-                    </div>
+                        <li class="photo-item">
+                            <img src="../assets/images/item.jpg" alt="photo">
+
+                            <div class="photo-info">
+                                <i class="fas fa-heart mr-10"></i>
+                                <span class="mr-30">2</span>
+
+                                <i class="fas fa-comment mr-10"></i>
+                                <span>3</span>
+                            </div>
+                        </li>
+
+                       
+
+                    </ul>
 
                 </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="inner">
-
-                <ul class="tag-list">
-                    <li class="btn-photo fw-700 on"><i class="fas fa-image"></i>&nbsp&nbsp게시물</li>
-                    <li class="btn-save fw-700"><i class="far fa-bookmark"></i>&nbsp&nbsp저장됨</li>
-                    <li class="btn-tag fw-700"><i class="fas fa-user-tag"></i>&nbsp&nbsp태그됨</li>
-                </ul>
-
-            </div>
-        </div>
-  
-        <div class="section">
-            <div class="inner">
-
-                <div class="tab-wrapper">
-
-                    <div class="my-content-tab">
-
-                        <div class="no-data" style="display: none;">
-                            <div>
-                                <img src="../assets/images/random-photos.png" alt="random-photos">
-                            </div>
-
-                            <div>
-                                <h3 class="fz-18 fw-700 mb-10">소중한 순간을 포착하여 공유해보세요.</h3>
-                                <p class="fz-16 mb-30">앱을 다운로드하고 첫 사진이나 동영상을 공유해보세요.</p>
-                                <img class="cursor-pointer" src="../assets/images/app-download.png" alt="app-download">
-                            </div>
-                        </div>
- 
-                        <div>
-
-                            <ul class="photo-list">
-
-                                <li class="photo-item">
-                                    <img src="../assets/images/item.jpg" alt="photo">
-
-                                    <div class="photo-info">
-                                        <i class="fas fa-heart mr-10"></i>
-                                        <span class="mr-30">2</span>
-
-                                        <i class="fas fa-comment mr-10"></i>
-                                        <span>3</span>
-                                    </div>
-                                </li>
-
-                            </ul>
-
-                        </div>
-
-                    </div>
-
-                    <div class="my-save-tab" style="display: none;">
-                      
-                        <div class="no-save" style="display: none;" >
-
-                            <div class="clearfix">
-                                <span class="float--left">저장한 내용은 회원님만 볼 수 있습니다</span>
-                                <button class="btn-collection float--right">+ 새 컬렉션</button>
-                            </div>
-
-                            <div>
-                                <i class="far fa-bookmark"></i>
-                                <h3 class="font-light mt-15">저장</h3>
-                                <p class="mt-15">다시 보고 싶은 사진과 동영상을 저장하세요.<br>콘텐츠를 저장해도 다른 사람에게 알림이 전송되지 않으며,<br>저장된 콘텐츠는 회원님만 볼 수 있습니다.</p>
-                            </div>
-                        </div>
-
-                        <div class="exist-save">
-                            
-                            <div class="collection-list">
-
-                                <div class="collection-item">
-                                    <img src="../assets/images/insta1.jpg" alt="photo">
-                                    <img src="../assets/images/insta2.jpg" alt="photo">
-                                    <img src="../assets/images/item.jpg" alt="photo">
-                                    <img src="../assets/images/Avatar.jpg" alt="photo">
-                                    <div class="gradient"></div>
-                                    <span>모든 게시물</span>
-                                </div>
-
-                                <div class="collection-item">
-                                    <img src="../assets/images/insta1.jpg" alt="photo">
-                                    <img src="../assets/images/insta2.jpg" alt="photo">
-                                    <img src="../assets/images/item.jpg" alt="photo">
-                                   
-                                    <div class="gradient"></div>
-                                    <span>모든 게시물</span>
-                                </div>
-
-                                <div class="collection-item">
-                                    <img src="../assets/images/insta1.jpg" alt="photo">
-                                    <img src="../assets/images/insta2.jpg" alt="photo">
-                                   
-                                    <div class="gradient"></div>
-                                    <span>모든 게시물</span>
-                                </div>
-
-                                <div class="collection-item">
-                                    
-                                    <img src="../assets/images/Avatar.jpg" alt="photo">
-                                    <div class="gradient"></div>
-                                    <span>모든 게시물</span>
-                                </div>
-
-                               
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="tagged-tab"  style="display: none;"> 
-
-                        <div class="no-data" style="display: none;">
-                            <div>
-                                <img src="../assets/images/random-photos.png" alt="random-photos">
-                            </div>
-
-                            <div>
-                                <h3 class="fz-18 fw-700 mb-10">소중한 순간을 포착하여 공유해보세요.</h3>
-                                <p class="fz-16 mb-30">앱을 다운로드하고 첫 사진이나 동영상을 공유해보세요.</p>
-                                <img class="cursor-pointer" src="../assets/images/app-download.png" alt="app-download">
-                            </div>
-                        </div>
-
-                        <div>
-
-                            <ul class="photo-list">
-
-                                <li class="photo-item">
-                                    <img src="../assets/images/insta1.jpg" alt="photo">
-
-                                    <div class="photo-info">
-                                        <i class="fas fa-heart mr-10"></i>
-                                        <span class="mr-30">2</span>
-
-                                        <i class="fas fa-comment mr-10"></i>
-                                        <span>3</span>
-                                    </div>
-                                </li>
-                               
-                            </ul>
-
-                        </div>
-
-                    </div>
-
-                </div>
-                
             </div>
         </div>
 
@@ -277,54 +129,6 @@
                     <span>© 2021 Instagram from Meta</span>
                 </div>
             </div>
-        </div>
-
-    </div>
-</div>
-
-<!-- 컬렉션 step1 (모달) -->
-<div class="modal-wrapper modal-collection-step1-wrapper">
-    <div class="modal modal-collection-step1">
-        <div>
-            <i class="fas fa-times btn-close-collection1"></i>
-            <h3>새 컬렉션</h3>
-            <input class="collection-naming" type="text" placeholder="컬렉션 이름"><br>
-            <button class="btn-modal-collection-step2 disabled">다음</button>
-        </div>
-    </div>
-</div>
-
-<!-- 컬렉션 step2(모달) -->
-<div class="modal-wrapper modal-collection-step2-wrapper">
-    <div class="modal modal-collection-step2">
-
-        <div>
-            <i class="fas fa-chevron-left btn-back-from2to1"></i>
-            <i class="fas fa-times btn-close-collection2"></i>
-            <h3>저장된 항목에서 추가</h3>
-        </div>
-        
-        <div class="collection-photo-list clearfix">
-            <div class="collection-photo-item float--left">
-                <img src="../assets/images/insta1.jpg" alt="picture">
-            </div>
-
-            <div class="collection-photo-item float--left">
-                <img src="../assets/images/insta2.jpg" alt="picture">
-            </div>
-
-            <div class="collection-photo-item float--left">
-                <img src="../assets/images/item.jpg" alt="picture">
-            </div>
-
-            <div class="collection-photo-item float--left">
-                <img src="../assets/images/item.jpg" alt="picture">
-            </div>
-
-        </div>
-
-        <div>
-            <button>완료</button>
         </div>
 
     </div>
@@ -480,10 +284,12 @@
     </div>
 </div>
 
+
 <script>
-    
+    $(".photo-item").on("click", function(){
+        $(".modal-comment-wrapper").css("display", "flex");
+    })
 </script>
-<script src="../assets/js/profile/my-page.js"></script>
 <script src="../assets/js/common.js"></script>
 </body>
 </html>
