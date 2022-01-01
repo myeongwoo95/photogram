@@ -35,7 +35,7 @@
             <div class="header">
 
                 <div class="mr-240">
-                    <a href="#">
+                    <a href="/image/story.html">
                         <img src="../assets/images/logo.jpg" alt="logo">
                     </a>
                 </div>
@@ -49,12 +49,21 @@
         
                 <div>
                     <ul>
-                        <li><a href="#"><i class="fas fa-home"></i></a></li>
+                        <li><a href="/image/story.html"><i class="fas fa-home"></i></a></li>
                         <li><a href="#"><i class="fab fa-telegram-plane"></i></a></li>
                         <li><a href="#"><i class="far fa-plus-square"></i></a></li>
                         <li><a href="#"><i class="far fa-compass"></i></a></li>
                         <li><a href="#"><i class="far fa-heart"></i></a></li>
-                        <li><a href="#"><img src="../assets/images/Avatar.png" alt="profile-picture"></a></li>
+                        <li class="header__profile-picture">
+                            <a href="#"><img src="../assets/images/Avatar.png" alt="profile-picture"></a>
+                            <ul class="header__dropdown">
+                                <div class="box-bubble"></div>
+                                <li><a href="/profile/my-page.html"><i class="far fa-user-circle"></i>프로필</a></li>
+                                <li><a href="/profile/my-page.html"><i class="far fa-bookmark"></i>북마크</a></li>
+                                <li><a href="#"><i class="fas fa-cog"></i>설정</a></li>
+                                <li><a href="#">로그아웃</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -450,7 +459,7 @@
                 <div class="comment-modal-view__comment-list__header">
                     <img src="../assets/images/insta2.jpg" alt="user">
                     <span>walle</span>
-                    <i class="fas fa-ellipsis-h"></i>
+                    <i class="fas fa-ellipsis-h btn-content-option"></i>
                 </div>
 
                 <div class="comment-modal-view__comment-list__body">

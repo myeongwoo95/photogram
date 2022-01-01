@@ -157,6 +157,7 @@ $(document).ready(function(){
         //로직
 
         alert("팔로우 취소 api 실행");
+        $(".modal-requestCancelFollowing-wrapper").hide();
     })
 
     // 콘텐츠 옵션에서 링크 복사 눌렀을때 보여주는 (모달)
@@ -165,6 +166,7 @@ $(document).ready(function(){
         //로직
 
         alert("링크가 복사되었습니다.")
+        $(".modal-content-option-wrapper").hide();
     })
 
     // 친구추천에서 팔로잉 눌렀을 때

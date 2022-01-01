@@ -1,5 +1,17 @@
 $(document).ready(function(){
 
+    // 프로필 클릭 드랍다운
+    let dropdownState = 0
+    $(".header__profile-picture").on("click", function(){
+        if(dropdownState == 0 ){
+            $(".header__dropdown").css("display", "flex");
+            dropdownState = 1;
+        }else{
+            $(".header__dropdown").hide();
+            dropdownState = 0;
+        }
+    })
+
     const swiperComment = new Swiper('.comment-swiper', {
         // Optional parameters
         direction: 'horizontal',
