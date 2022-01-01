@@ -1,0 +1,43 @@
+.edit{
+    border: 1px solid #dbdbdb;
+    background: #fff;
+    display: flex;
+}
+
+.edit > div:nth-child(1){
+    width: 25%;
+}
+
+.edit > div:nth-child(1) ul{
+    
+}
+
+.edit > div:nth-child(1) ul li{
+    
+    
+}
+
+.edit > div:nth-child(1) ul li.active{
+    font-weight: bold;
+    border-left: 2px solid #000;
+}
+
+.edit > div:nth-child(1) ul li a{
+    display: inline-block;
+    width: 236px;
+    height: 52px;
+    padding: 16px 16px 16px 30px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.edit > div:nth-child(2){
+    width: 75%;
+}
+
+.edit .edit-profile{
+    
+}
+
+
