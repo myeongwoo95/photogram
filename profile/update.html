@@ -74,16 +74,16 @@
             <div class="edit">
 
                 <div>
-                    <ul class="edit__list-div__">
-                        <li class="active"><a href="www.naver.com">프로필 편집</a></li>
-                        <li><a href="#">비밀번호 변경</a></li>
-                        <li><a href="#">푸쉬 알림</a></li>
+                    <ul class="edit__list-div">
+                        <li class="btn-edit-profile active">프로필 편집</li>
+                        <li class="btn-edit-pw">비밀번호 변경</li>
+                        <li class="btn-edit-push">푸쉬 알림</li>
                     </ul>
                 </div>
 
                 <div>
 
-                    <div class="edit-profile" style="display: none;">
+                    <div class="edit-profile">
 
                         <div class="edit-profile__profile mt-30">
 
@@ -143,7 +143,7 @@
 
                     </div>
 
-                    <div class="edit-pw" style="display: none;">
+                    <div class="edit-pw">
                         <div class="edit-profile__profile mt-30">
 
                             <img src="../assets/images/Avatar.jpg" alt="profile">
@@ -316,6 +316,40 @@
     </div>
 
 </div>
+<script>
+    $(".btn-edit-profile").on("click", function(){
+        $(this).addClass("active");
+        $(".btn-edit-pw").removeClass("active");
+        $(".btn-edit-push").removeClass("active");
+
+
+        $(".edit-profile").show();
+        $(".edit-pw").hide();
+        $(".edit-push").hide();
+    })
+
+    $(".btn-edit-pw").on("click", function(){
+        $(this).addClass("active");
+        $(".btn-edit-profile").removeClass("active");
+        $(".btn-edit-push").removeClass("active");
+
+        $(".edit-profile").hide();
+        $(".edit-pw").show();
+        $(".edit-push").hide();
+        
+    })
+
+    $(".btn-edit-push").on("click", function(){
+        $(this).addClass("active");
+        $(".btn-edit-profile").removeClass("active");
+        $(".btn-edit-pw").removeClass("active");
+
+        $(".edit-profile").hide();
+        $(".edit-pw").hide();
+        $(".edit-push").show();
+        
+    })
+</script>
 <script src="../assets/js/common.js"></script>
 </body>
 </html>

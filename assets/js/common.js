@@ -80,9 +80,29 @@ $(document).ready(function(){
         }
     });
 
-     // 댓글의 댓글 확인 버튼
-     $(".comment-deep-button").on("click", function(){
+    // 댓글의 댓글 확인 버튼
+    $(".comment-deep-button").on("click", function(){
         $(this).next().toggle();
     })
+
+    // 아이디 검색, 태그 검색
+    $(".header__search-input").on("change keyup paste focus", function(e){
+        e.preventDefault();
+        
+        if(!$(this).val()){
+            $(".search-list").hide();
+        }else{
+
+            //api 로직
+            $(".search-list").show();
+        }
+    })
+
+    // 알림
+    $(".notice-heart").on("click", function(e){
+        e.preventDefault();
+        $(".header__notice-box").toggle();
+    })
+    
 
 });

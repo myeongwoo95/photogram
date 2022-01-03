@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <!-- css, js -->
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <link rel="stylesheet" href="../assets/css/chat/chat.css">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.ico">
+
+    <title>Photogram</title>
+</head>
+<body>
+<div class="body__container">
+
+    <div class="section header-wrapper">
+        <div class="inner">
+            <div class="header">
+
+                <div class="mr-240">
+                    <a href="/image/story.html">
+                        <img src="../assets/images/logo.jpg" alt="logo">
+                    </a>
+                </div>
+        
+                <div>
+                    <form>
+                        <button></button>
+                        <input class="header__search-input" type="text" placeholder="검색">
+                        <div class="search-list">
+
+                            <div class="search-item">
+                                <img src="../assets/images/insta2.jpg" alt="profile">
+                                <div class="search-item__info">
+                                    <span class="mb-5">dhdhshdl</span>
+                                    <span>김치타</span>
+                                </div>
+                            </div>
+
+                            <div class="search-item">
+                                <div class="hash">#</div>
+                                <div class="search-item__info">
+                                    <span class="mb-5">#김치</span>
+                                    <span>게시물 1,002</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+        
+                <div>
+                    <ul>
+                        <li><a href="/image/story.html"><i class="fas fa-home"></i></a></li>
+                        <li><a href="/chat/chat.html"><i class="fab fa-telegram-plane"></i></a></li>
+                        <li><a href="#"><i class="far fa-plus-square"></i></a></li>
+                        <li><a href="#"><i class="far fa-compass"></i></a></li>
+                        <li class="header__notice-box-wrapper">
+                            <a class="notice-heart" href="#"><i class="far fa-heart "></i></a>
+
+                            <div class="header__notice-box">
+                                <h3 class="mt-10 ml-15 fw-600">이번 주</h3>
+
+                                <div class="notice-item">
+                                    <img class="notice-item__profile" src="../assets/images/item.jpg" alt="profile">
+                                    <div class="notice-item__info">
+                                        <span class="fw-600">tilltofu</span>
+                                        <span>님이 회원님의 사진을 좋아합니다.</span>
+                                        <span>4일</span>
+                                    </div>
+                                    <img class="notice-item__photo" src="../assets/images/insta2.jpg" alt="photo">
+                                </div>
+                               
+                            </div>
+                        </li>
+                        <li class="header__profile-picture">
+                            <a href="#"><img src="../assets/images/Avatar.png" alt="profile-picture"></a>
+                            <ul class="header__dropdown">
+                                <div class="box-bubble"></div>
+                                <li><a href="/profile/my-page.html"><i class="far fa-user-circle"></i>프로필</a></li>
+                                <li><a href="/profile/my-page.html"><i class="far fa-bookmark"></i>북마크</a></li>
+                                <li><a href="/profile/update.html"><i class="fas fa-cog"></i>설정</a></li>
+                                <li><a href="#">로그아웃</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="inner">
+
+            <div class="chat-wrapper">
+
+                <div class="chat-wrapper__left">
+
+                    <div>
+                        <span>a_a33a</span>
+                        <i class="float--right far fa-edit"></i>
+                    </div>
+
+                    <div class="chat-list pt">
+
+                        <div class="chat-item">
+                            <img src="../assets/images/insta1.jpg" alt="profile">
+                            <div>
+                                <span>Asia posdifjw 님</span>
+                                <span>잘자~! </span>
+                                <span>· 3분 전</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-item">
+                            <img src="../assets/images/insta1.jpg" alt="profile">
+                            <div>
+                                <span>Asia posdifjw 님</span>
+                                <span>잘자~! </span>
+                                <span>· 3분 전</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="chat-wrapper__right">
+
+                    <div class="chat-wrapper__right__new-message">
+                        sdf
+                    </div>
+
+                    <div class="chat-wrapper__right__exist-message" style="display: none;">
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="../assets/js/common.js"></script>
+</body>
+</html>
