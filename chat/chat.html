@@ -154,7 +154,7 @@
                         <button>메세지 보내기</button>
                     </div>
 
-                    <div class="chat-wrapper__right__exist-message">
+                    <div class="chat-wrapper__right__exist-message" style="display: none;">
 
                         <div class="chat-target-profile">
                             <img src="../assets/images/insta2.jpg" alt="profile">
@@ -162,12 +162,13 @@
                             <i class="fas fa-exclamation-circle"></i>
                         </div>
 
-                        <div class="chat-list">
-                            <div class="chat-list__my-chat">
+                        <div class="chat-box">
+
+                            <div class="chat-box__my-chat">
 
                             </div>
 
-                            <div class="chat-list__opponent-chat">
+                            <div class="chat-box__opponent-chat">
 
                             </div>
 
@@ -175,8 +176,60 @@
 
                         <div class="text-box">
 
+                            <div>
+                                <i class="far fa-smile-wink"></i>
+                                <i class="far fa-image"></i>
+                                <i class="far fa-heart"></i>
+                                <textarea class="text-box__textarea" rows="1" name="" placeholder="메세지 입력..."></textarea>
+                            </div>
+
                         </div>
                     </div>
+
+                    <div class="details-info">
+
+                        <div class="details-info__header">
+                            <span>상세 정보</span>
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+
+                        <div class="details-info__message-notice-box">
+                            <input type="checkbox">
+                            <label for="">메세지 알림 해제</label>
+                        </div>
+
+                        <div class="details-info__member-box">
+                            <h3>멤머</h3>
+
+                            <div class="member-list">
+
+                                <div class="member-item mb-15">
+                                    <img src="../assets/images/insta2.jpg" alt="profile">
+                                    <div>
+                                        <span>tilltofu</span>
+                                        <span>Asia shocivsdofe</span>
+                                    </div>
+                                </div>
+
+                                <div class="member-item mb-15">
+                                    <img src="../assets/images/insta2.jpg" alt="profile">
+                                    <div>
+                                        <span>tilltofu</span>
+                                        <span>Asia shocivsdofe</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="details-info__sue">
+                            <div>채팅 삭제</div>
+                            <div>차단</div>
+                            <div>신고</div>
+                        </div>
+
+
+                    </div>
+
                 </div>
 
             </div>
@@ -184,6 +237,13 @@
         </div>
     </div>
 </div>
+<script>
+    // Textarea 높이 자동조절
+    $('.text-box__textarea').keyup(function(e) {
+        $(this).css('height', 'auto');
+        $(this).height(this.scrollHeight);
+    });
+</script>
 <script src="../assets/js/common.js"></script>
 </body>
 </html>

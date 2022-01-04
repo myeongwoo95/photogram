@@ -1,4 +1,3 @@
-// 댓글 더 보기
 $(document).ready(function(){
 
     // 콘텐츠 caption 더보기 (수정 필요)

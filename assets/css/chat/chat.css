@@ -118,9 +118,10 @@
 }
 
 /* exist-message */
-
 .chat-wrapper__right__exist-message{
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 .chat-target-profile{
     border-bottom: 1px solid #dbdbdb;
@@ -153,6 +154,133 @@
     cursor: pointer;
 }
 
+/* chat */
+.chat-box{
+    position: relative;
+    flex-grow: 1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.text-box{
+    padding: 20px;
+    width: 100%;
+    bottom: 0;
+}
+
+/* text */
+.text-box > div{
+    border: 1px solid #dbdbdb;
+    border-radius: 22px;
+    padding: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-box > div i{
+    font-size: 24px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.text-box > div i.fa-smile-wink{
+    left: 0;
+    margin-left: 20px;
+}
+
+.text-box > div i.fa-image{
+    right: 0;
+    margin-right: 55px;
+}
+
+.text-box > div i.fa-heart{
+    right: 0;
+    margin-right: 15px;
+}
+
+.text-box > div textarea{
+    border: 0;
+    width: 83%;
+    outline: 0;
+    padding-right: 30px;
+    resize: none;
+}
+
+/* details-info */
+.details-info__header{
+    border-bottom: 1px solid #dbdbdb;
+    height: 60px;
+    width: 100%;
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.details-info__header span{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.details-info__header i{
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+}
+
+.details-info__message-notice-box{
+    height: 53px;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 20px 16px;
+    display: flex;
+    align-items: center;
+}
+
+.details-info__member-box{
+    border-bottom: 1px solid #dbdbdb;
+    padding: 20px 16px 0px 16px;
+}
+
+.details-info__member-box h3{
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.member-list .member-item{
+    display: flex;
+    align-items: center;
+}
+
+.member-list .member-item img{
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #dbdbdb;
+    margin-right: 10px;
+}
+
+.member-list .member-item > div span{
+    display: block;
+}
+
+.member-list .member-item > div span:nth-child(1){
+    margin-bottom: 5px;
+    font-weight: 800;
+}
+
+.member-list .member-item > div span:nth-child(2){
+    color: #8e8e8e;
+}
+
+.details-info__sue{
+    
+}
 
 
 
