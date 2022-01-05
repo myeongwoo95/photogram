@@ -119,7 +119,7 @@
 
                     <div>
                         <span>a_a33a</span>
-                        <i class="float--right far fa-edit"></i>
+                        <i class="btn-newMessage float--right far fa-edit"></i>
                     </div>
 
                     <div class="chat-list pt">
@@ -147,19 +147,21 @@
 
                 <div class="chat-wrapper__right">
 
-                    <div class="chat-wrapper__right__new-message" style="display: none;">
+                    <!-- new message -->
+                    <div class="chat-wrapper__right__new-message">
                         <i class="fab fa-telegram-plane mb-15"></i>
                         <h3 class="mb-15">내 메세지</h3>
                         <p class="mb-25">친구나 그룹에 비공개 사진과 메세지를 보내세요.</p>
-                        <button>메세지 보내기</button>
+                        <button class="btn-newMessage">메세지 보내기</button>
                     </div>
 
+                    <!-- exist-message -->
                     <div class="chat-wrapper__right__exist-message" style="display: none;">
 
                         <div class="chat-target-profile">
                             <img src="../assets/images/insta2.jpg" alt="profile">
                             <span>Euria chealsid 님</span>
-                            <i class="fas fa-exclamation-circle"></i>
+                            <i class="fas fa-exclamation-circle btn-change-details-info"></i>
                         </div>
 
                         <div class="chat-box">
@@ -186,11 +188,12 @@
                         </div>
                     </div>
 
-                    <div class="details-info">
+                    <!-- chat-info -->
+                    <div class="details-info" style="display: none;">
 
                         <div class="details-info__header">
                             <span>상세 정보</span>
-                            <i class="fas fa-exclamation-circle"></i>
+                            <i class="fas fa-exclamation-circle btn-change-exist-message"></i>
                         </div>
 
                         <div class="details-info__message-notice-box">
@@ -210,21 +213,14 @@
                                         <span>Asia shocivsdofe</span>
                                     </div>
                                 </div>
-
-                                <div class="member-item mb-15">
-                                    <img src="../assets/images/insta2.jpg" alt="profile">
-                                    <div>
-                                        <span>tilltofu</span>
-                                        <span>Asia shocivsdofe</span>
-                                    </div>
-                                </div>
+                               
                             </div>
                         </div>
 
                         <div class="details-info__sue">
-                            <div>채팅 삭제</div>
-                            <div>차단</div>
-                            <div>신고</div>
+                            <div class="btn-delete-chatting">채팅 삭제</div>
+                            <div class="btn-block-user">차단</div>
+                            <div class="btn-sue">신고</div>
                         </div>
 
 
@@ -237,12 +233,212 @@
         </div>
     </div>
 </div>
+
+<!-- 새 메세지 보내기 모달 -->
+<div class="modal-wrapper modal-newMessage-wrapper">
+    <div class="modal modal-newMessage">
+       
+        <div>
+            <i class="fas fa-times btn-close-modal-newMessage"></i>
+            <h3>새로운 메세지</h3>
+            <button>확인</button>
+        </div>
+
+        <div>
+            <h3>받는 사람:</h3>
+            
+            <input type="text" placeholder="검색...">
+        </div>
+
+        <div>
+            <div class="user-item">
+                <img src="../assets/images/insta2.jpg" alt="profile">
+                <div>
+                    <span>dfs</span>
+                    <span>최우제</span>
+                </div>
+                <input type="radio">
+            </div>
+
+           
+        </div>
+    </div>
+</div>
+
+
+<!-- 채팅 삭제 모달 -->
+<div class="modal-wrapper modal-deleteChat-wrapper">
+    <div class="modal modal-deleteChat">
+        <div>
+            <h3>채팅을 삭제하시겠어요?</h3>
+            <p>삭제하면 회원님의 받은 메시지함에서 채팅이 삭제됩니다. 다른 사람의 받은 메시지함에는 계속 표시됩니다.</p>
+        </div>
+
+        <div>
+            <button class="btn-chat-delete">삭제</button>
+            <button class="btn-close-modal-deleteChat">취소</button>
+        </div>
+    </div>
+</div>
+
+<!-- 사용자 차단 모달 -->
+<div class="modal-wrapper modal-blockUser-wrapper">
+    <div class="modal modal-blockUser">
+        <div>
+            <h3>tilltofu님을 차단하시겠어요?</h3>
+            <p>상대방은 Instagram에서 회원님의 프로필, 게시물 또는 스토리를 찾을 수 없습니다. Instagram은 회원님이 차단한 사실을 상대방에게 알리지 않습니다.</p>
+        </div>
+
+        <div>
+            <button class="btn-blockUser">차단</button>
+            <button class="btn-close-blockUser">취소</button>
+        </div>
+    </div>
+</div>
+
+<!-- 신고 모달 -->
+<div class="modal-wrapper modal-reportList-wrapper">
+    <div class="modal modal-reportList">
+        <i class="fas fa-times cancel-reportList"></i>
+        
+        <h1>신고</h1>
+        <p class="mt-20">이 계정을 신고하는 이유를 선택하세요.<br>
+            신고자 정보는 OO님에게 공개되지 않습니다.</p>
+
+        <ul>
+            <li>
+                <button>스팸</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li>
+                <button>나체 이미지 또는 성적 행위</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li>
+                <button>혐오 발언 또는 상징</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li>
+                <button>폭력 또는 위험한 단체</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li>
+                <button>불법 또는 규제 상품 판매</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li>
+                <button>따돌림 또는 괴롭힘</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li>
+                <button>지적 재산권 침해</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li>
+                <button>자살 또는 자해</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li>
+                <button>사기 또는 거짓</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+            <li>
+                <button>마음에 들지 않습니다</button>
+                <i class="fas fa-chevron-right"></i>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- 신고 완료 모달-->
+<div class="modal-wrapper modal-reported-wrapper">
+    <div class="modal modal-reported">
+        <i class="far fa-check-circle"></i>
+        <h1>알려주셔서 고맙습니다</h1>
+        <p>회원님의 소중한 의견은 Instagram 커뮤니티를<br>안전하게 유지하는 데 도움이 됩니다</p>
+        <ul>
+            <li><button style="color: #ED4956;">walle님 차단</button></li>
+            <li><button>walle님 팔로우 취소</button></li>
+            <li><button class="btn-close-reported">닫기</button></li>
+        </ul>
+
+    </div>
+</div>
+
 <script>
+    // new Message
+    $(".btn-newMessage").on("click", function(){
+        $(".modal-newMessage-wrapper").css("display", "flex");
+    })
+
+    $(".btn-close-modal-newMessage").on("click", function(){
+        $(".modal-newMessage-wrapper").hide();
+    })
+
     // Textarea 높이 자동조절
     $('.text-box__textarea').keyup(function(e) {
         $(this).css('height', 'auto');
         $(this).height(this.scrollHeight);
     });
+
+    // 채팅에서 -> 상세정보 전환
+    $(".btn-change-details-info").on("click", function(){
+        $(".chat-wrapper__right__exist-message").hide();
+        $(".details-info").show();
+    })
+
+    // 상세정보에서 -> 채팅 전환
+    $(".btn-change-exist-message").on("click", function(){
+        $(".chat-wrapper__right__exist-message").show();
+        $(".details-info").hide();
+    })
+
+    // 채팅 삭제
+    $(".btn-delete-chatting").on("click", function(){
+        $(".modal-deleteChat-wrapper").css("display", "flex");
+    })
+    
+    $(".btn-chat-delete").on("click", function(){
+        alert("채팅삭제 로직");
+        $(".modal-deleteChat-wrapper").hide();
+    })
+    
+    $(".btn-close-modal-deleteChat").on("click", function(){
+        $(".modal-deleteChat-wrapper").hide();
+    })
+
+    // 차단 
+    $(".btn-block-user").on("click", function(){
+        $(".modal-blockUser-wrapper").css("display", "flex");
+    })
+
+    $(".btn-blockUser").on("click", function(){
+        alert("api 로직");
+        $(".modal-blockUser-wrapper").hide();
+    })
+
+    $(".btn-close-blockUser").on("click", function(){
+        $(".modal-blockUser-wrapper").hide();
+    })
+
+    // 신고
+    $(".btn-sue").on("click", function(){
+        $(".modal-reportList-wrapper").css("display", "flex");
+    })
+
+    $(".cancel-reportList").on("click", function(){
+        $(".modal-reportList-wrapper").hide();
+    })
+
+    $(".modal-reportList ul li").on("click", function(){
+        $(".modal-reportList-wrapper").hide();
+        $(".modal-reported-wrapper").css("display", "flex");
+    })
+
+    $(".btn-close-reported").on("click", function(){
+        $(".modal-reported-wrapper").hide();
+    })
+
 </script>
 <script src="../assets/js/common.js"></script>
 </body>

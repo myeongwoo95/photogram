@@ -278,9 +278,209 @@
     color: #8e8e8e;
 }
 
-.details-info__sue{
+.details-info__sue > div{
+    padding: 16px;
+    color: #ED4956;
+    cursor: pointer;
+}
+
+/*================================================================
+# modal
+=================================================================*/
+/* deleteChat */
+.modal-deleteChat > div:nth-child(1){
+    text-align: center;
+    padding: 16px 32px;
+}
+
+.modal-deleteChat > div:nth-child(1) h3{
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.modal-deleteChat > div:nth-child(1) p{
+    width: 336px;
+    color: #8e8e8e;
+    margin-top: 15px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.modal-deleteChat > div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-deleteChat > div:nth-child(2) button{
+    height: 48px;
+    border: 0;
+    background: 0;
+    border-top: 1px solid #dbdbdb;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.modal-deleteChat > div:nth-child(2) button:nth-child(1){
+    color: #ED4956;
+    font-weight: bold;
+}
+
+/* blockUser */
+.modal-blockUser > div:nth-child(1){
+    text-align: center;
+    padding: 16px 32px;
+}
+.modal-blockUser > div:nth-child(1) h3{
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.modal-blockUser > div:nth-child(1) p{
+    width: 336px;
+    color: #8e8e8e;
+    margin-top: 15px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.modal-blockUser > div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-blockUser > div:nth-child(2) button{
+    height: 48px;
+    border: 0;
+    background: 0;
+    border-top: 1px solid #dbdbdb;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.modal-blockUser > div:nth-child(2) button:nth-child(1){
+    color: #ED4956;
+    font-weight: bold;
+}
+
+
+.modal-reportList-wrapper .modal-reportList p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8e8e8e;
+    text-align: center;
+    font-size: 14px;
+    border-bottom: 1px solid #dbdbdb;
+    padding-bottom: 20px;
+    line-height: 1.4;
+}
+
+/* modal-reportList */
+.modal-reportList-wrapper .modal-reportList p > span{
+    color: #333;
+}
+
+/* new message */
+.modal-newMessage{
+    width: 400px;
+    color: #333;
+}
+
+.modal-newMessage > div:nth-child(1){
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.modal-newMessage > div:nth-child(2){
+    height: 87px;
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 16px 12px;
+}
+
+.modal-newMessage > div:nth-child(3){
+    height: 480px;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.modal-newMessage > div:nth-child(1) i{
+    position: absolute;
+    font-size: 22px;
+    left: 15px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.modal-newMessage > div:nth-child(1) h3{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.modal-newMessage > div:nth-child(1) button{
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    border: 0;
+    background: 0;
+    color: #0095F6;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-newMessage > div:nth-child(2) h3{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.modal-newMessage > div:nth-child(2) input{
+    margin-top: 20px;
+    border: 0;
+    outline: 0;
+    padding-left: 10px;
     
 }
 
+.modal-newMessage > div:nth-child(3) .user-item{
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+}
+
+.modal-newMessage > div:nth-child(3) .user-item img{
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    border: 1px solid #dbdbdb;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.modal-newMessage > div:nth-child(3) .user-item > div span{
+    display: block;
+    font-size: 14px;
+}
+
+.modal-newMessage > div:nth-child(3) .user-item > div span:nth-child(1){
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.modal-newMessage > div:nth-child(3) .user-item > div span:nth-child(2){
+    color: #8e8e8e;
+}
+
+.modal-newMessage > div:nth-child(3) .user-item input[type=radio]{
+    position: absolute;
+    right: 20px;
+    width: 25px;
+    height: 25px;
+}
 
 
