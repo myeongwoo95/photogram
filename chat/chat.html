@@ -245,12 +245,46 @@
         </div>
 
         <div>
-            <h3>받는 사람:</h3>
-            
+            <h3 class="mb-10">받는 사람:</h3>
+
+            <div>
+                <span>sdoifjssdfsdfsdfdf</span>
+                <i class="fas fa-times"></i>
+            </div>
+
+            <div>
+                <span>sfjsdf</span>
+                <i class="fas fa-times"></i>
+            </div>
+
+            <div>
+                <span>fjsdf</span>
+                <i class="fas fa-times"></i>
+            </div>
+
+            <div>
+                <span>ff</span>
+                <i class="fas fa-times"></i>
+            </div>
+
+            <div>
+                <span>ff</span>
+                <i class="fas fa-times"></i>
+            </div>
+
+            <div>
+                <span>ff</span>
+                <i class="fas fa-times"></i>
+            </div>
+
+            <div>
+                <span>ff</span>
+                <i class="fas fa-times"></i>
+            </div>
             <input type="text" placeholder="검색...">
         </div>
 
-        <div>
+        <div class="user-list searched-users" style="display: none;">
             <div class="user-item">
                 <img src="../assets/images/insta2.jpg" alt="profile">
                 <div>
@@ -260,7 +294,38 @@
                 <input type="radio">
             </div>
 
-           
+        </div>
+
+        <div class="user-list rec-users" >
+            <h3>추천</h3>
+
+            <div class="user-item">
+                <img src="../assets/images/insta2.jpg" alt="profile">
+                <div>
+                    <span>zeus</span>
+                    <span>최우제</span>
+                </div>
+                <input type="radio">
+            </div>
+
+            <div class="user-item">
+                <img src="../assets/images/insta2.jpg" alt="profile">
+                <div>
+                    <span>faker</span>
+                    <span>페이커</span>
+                </div>
+                <input type="radio">
+            </div>
+
+            <div class="user-item">
+                <img src="../assets/images/insta2.jpg" alt="profile">
+                <div>
+                    <span>teddy</span>
+                    <span>박진성</span>
+                </div>
+                <input type="radio">
+            </div>
+
         </div>
     </div>
 </div>
@@ -374,6 +439,8 @@
     $(".btn-close-modal-newMessage").on("click", function(){
         $(".modal-newMessage-wrapper").hide();
     })
+
+
 
     // Textarea 높이 자동조절
     $('.text-box__textarea').keyup(function(e) {

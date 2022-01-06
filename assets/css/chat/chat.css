@@ -394,16 +394,24 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    border-bottom: 1px solid #dbdbdb;
 }
 
 .modal-newMessage > div:nth-child(2){
-    height: 87px;
-    border-top: 1px solid #dbdbdb;
-    border-bottom: 1px solid #dbdbdb;
     padding: 16px 12px;
+    width: 303px;
 }
 
 .modal-newMessage > div:nth-child(3){
+    border-top: 1px solid #dbdbdb;
+    height: 480px;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.modal-newMessage > div:nth-child(4){
+    border-top: 1px solid #dbdbdb;
     height: 480px;
     position: relative;
     overflow-y: scroll;
@@ -439,21 +447,53 @@
     font-weight: bold;
 }
 
+.modal-newMessage > div:nth-child(2) > div{
+    border-radius: 4px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    padding: 6px 12px;
+    background: #E0F1FF;
+    margin-right: 5px;
+    margin-bottom: 8px;    
+}
+
+.modal-newMessage > div:nth-child(2) > div span{
+    font-size: 14px;
+    color: #0095F6;
+    margin-right: 8px;
+}
+
+.modal-newMessage > div:nth-child(2) > div i{
+    font-size: 14px;
+    color: #0095F6;
+    cursor: pointer;
+}
+
+
 .modal-newMessage > div:nth-child(2) input{
-    margin-top: 20px;
     border: 0;
     outline: 0;
     padding-left: 10px;
-    
+    width: 200px;
 }
 
-.modal-newMessage > div:nth-child(3) .user-item{
+.modal-newMessage > div.user-list h3{
+    padding-left: 16px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.modal-newMessage > div.user-list .user-item{
     padding: 8px 16px;
     display: flex;
     align-items: center;
 }
 
-.modal-newMessage > div:nth-child(3) .user-item img{
+.modal-newMessage > div.user-list .user-item img{
     width: 44px;
     height: 44px;
     object-fit: cover;
@@ -462,25 +502,26 @@
     margin-right: 10px;
 }
 
-.modal-newMessage > div:nth-child(3) .user-item > div span{
+.modal-newMessage > div.user-list .user-item > div span{
     display: block;
     font-size: 14px;
 }
 
-.modal-newMessage > div:nth-child(3) .user-item > div span:nth-child(1){
+.modal-newMessage > div.user-list .user-item > div span:nth-child(1){
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-.modal-newMessage > div:nth-child(3) .user-item > div span:nth-child(2){
+.modal-newMessage > div.user-list .user-item > div span:nth-child(2){
     color: #8e8e8e;
 }
 
-.modal-newMessage > div:nth-child(3) .user-item input[type=radio]{
+.modal-newMessage > div.user-list .user-item input[type=radio]{
     position: absolute;
     right: 20px;
     width: 25px;
     height: 25px;
+    cursor: pointer;
 }
 
 
