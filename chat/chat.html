@@ -223,7 +223,6 @@
                             <div class="btn-sue">신고</div>
                         </div>
 
-
                     </div>
 
                 </div>
@@ -241,95 +240,68 @@
         <div>
             <i class="fas fa-times btn-close-modal-newMessage"></i>
             <h3>새로운 메세지</h3>
-            <button>확인</button>
+            <button class="btn-make-newMessage">확인</button>
         </div>
 
-        <div>
+        
+        <div class="invite-member-list">
             <h3 class="mb-10">받는 사람:</h3>
 
-            <div>
-                <span>sdoifjssdfsdfsdfdf</span>
-                <i class="fas fa-times"></i>
-            </div>
-
-            <div>
-                <span>sfjsdf</span>
-                <i class="fas fa-times"></i>
-            </div>
-
-            <div>
-                <span>fjsdf</span>
-                <i class="fas fa-times"></i>
-            </div>
-
-            <div>
-                <span>ff</span>
-                <i class="fas fa-times"></i>
-            </div>
-
-            <div>
-                <span>ff</span>
-                <i class="fas fa-times"></i>
-            </div>
-
-            <div>
-                <span>ff</span>
-                <i class="fas fa-times"></i>
-            </div>
-
-            <div>
-                <span>ff</span>
-                <i class="fas fa-times"></i>
-            </div>
-            <input type="text" placeholder="검색...">
+            <!-- <div class="invite-member-item">
+                <span>walle</span>
+                <i class="btn-cancel-chat-member fas fa-times"></i>
+            </div> -->
+            
         </div>
 
+        <input class="search-friend-input" type="text" placeholder="검색...">
+
         <div class="user-list searched-users" style="display: none;">
+
+            <div class="user-item">
+                <img src="../assets/images/insta1.jpg" alt="profile">
+                <div>
+                    <span class="user-item__id">walle</span>
+                    <span>왈레</span>
+                </div>
+                <input data-id="walle" class="red-friend-item" type="checkbox">
+            </div>
+
             <div class="user-item">
                 <img src="../assets/images/insta2.jpg" alt="profile">
                 <div>
-                    <span>dfs</span>
-                    <span>최우제</span>
+                    <span class="user-item__id">xxz32323</span>
+                    <span>sowS_do</span>
                 </div>
-                <input type="radio">
+                <input data-id="xxz32323" class="red-friend-item" type="checkbox">
             </div>
 
         </div>
 
-        <div class="user-list rec-users" >
+        <div class="user-list rec-users">
             <h3>추천</h3>
 
             <div class="user-item">
                 <img src="../assets/images/insta2.jpg" alt="profile">
                 <div>
-                    <span>zeus</span>
+                    <span class="user-item__id">zeus</span>
                     <span>최우제</span>
                 </div>
-                <input type="radio">
+                <input data-id="zeus" class="red-friend-item" type="checkbox">
             </div>
 
             <div class="user-item">
-                <img src="../assets/images/insta2.jpg" alt="profile">
+                <img src="../assets/images/insta1.jpg" alt="profile">
                 <div>
-                    <span>faker</span>
+                    <span class="user-item__id">faker</span>
                     <span>페이커</span>
                 </div>
-                <input type="radio">
-            </div>
-
-            <div class="user-item">
-                <img src="../assets/images/insta2.jpg" alt="profile">
-                <div>
-                    <span>teddy</span>
-                    <span>박진성</span>
-                </div>
-                <input type="radio">
+                <input data-id="faker" class="red-friend-item" type="checkbox">
             </div>
 
         </div>
     </div>
 </div>
-
 
 <!-- 채팅 삭제 모달 -->
 <div class="modal-wrapper modal-deleteChat-wrapper">
@@ -431,6 +403,66 @@
 </div>
 
 <script>
+    // 채팅 유저 추천 선택 추가
+    $(".red-friend-item").change(function(){
+       
+        if($(this).is(":checked")){
+            let data = $(this).prev().children(".user-item__id").text();
+            let div = `<div class="invite-member-item ${data}">
+                            <span>${data}</span>
+                            <i data-id="${data}" class="btn-cancel-chat-member fas fa-times"></i>
+                        </div>`;
+            
+            $(".invite-member-list").append(div);
+            $(".search-friend-input").val("");
+            $(".rec-users").show();
+            $(".searched-users").hide();
+
+        }else{
+            let dataId = $(this).attr("data-id");
+            $(".invite-member-list").children(`.${dataId}`).remove();
+        }
+    })
+
+    // 채팅 유저 선택 삭제
+    $(document).on("click",".btn-cancel-chat-member",function(){
+        $(this).parent().remove();
+        let data = $(this).attr("data-id");
+
+        $(`.red-friend-item[data-id=${data}]`).prop("checked", false);
+    })
+
+    // 채팅으로 이동
+    $(".chat-item").on("click", function(){
+        if($(this).hasClass("active")){
+            return;
+        }
+
+        $(".chat-list").children().removeClass("active")
+
+        //비동기 api로직
+
+        $(this).addClass("active");
+        $(".chat-wrapper__right__new-message").hide();
+        $(".chat-wrapper__right__exist-message").show();
+        $(".details-info").hide();
+    })
+
+    // 1초뒤에 실행되어야함.
+    $(".search-friend-input").on("change keyup paste", function(){
+        //api 로직
+
+        if($(this).val()){
+            $(".rec-users").hide();
+            $(".searched-users").show();
+            
+        }else{
+            $(".rec-users").show();
+            $(".searched-users").hide();
+        }
+      
+    })
+
     // new Message
     $(".btn-newMessage").on("click", function(){
         $(".modal-newMessage-wrapper").css("display", "flex");
@@ -438,9 +470,13 @@
 
     $(".btn-close-modal-newMessage").on("click", function(){
         $(".modal-newMessage-wrapper").hide();
+        $(".search-friend-input").val("");
+        $(".invite-member-list").html("")
+        $(".invite-member-list").append(`<h3 class="mb-10">받는 사람:</h3>`);
+        $(".red-friend-item").prop("checked", false);
+        $(".rec-users").show();
+        $(".searched-users").hide();
     })
-
-
 
     // Textarea 높이 자동조절
     $('.text-box__textarea').keyup(function(e) {

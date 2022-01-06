@@ -51,6 +51,10 @@
     cursor: pointer;
 }
 
+.chat-item.active{
+    background-color: #efefef;
+}
+
 .chat-item img{
     width: 56px;
     height: 56px;
@@ -399,7 +403,7 @@
 
 .modal-newMessage > div:nth-child(2){
     padding: 16px 12px;
-    width: 303px;
+    width: 250px;
 }
 
 .modal-newMessage > div:nth-child(3){
@@ -456,7 +460,7 @@
     padding: 6px 12px;
     background: #E0F1FF;
     margin-right: 5px;
-    margin-bottom: 8px;    
+    margin-bottom: 8px;
 }
 
 .modal-newMessage > div:nth-child(2) > div span{
@@ -472,11 +476,21 @@
 }
 
 
-.modal-newMessage > div:nth-child(2) input{
+input.search-friend-input{
+    display: inline-block;
     border: 0;
+    margin-left: 12px;
     outline: 0;
     padding-left: 10px;
     width: 200px;
+    margin-bottom: 10px;
+}
+
+.modal-newMessage > div.user-list{
+    border-top: 1px solid #dbdbdb;
+    height: 470px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .modal-newMessage > div.user-list h3{
@@ -516,12 +530,18 @@
     color: #8e8e8e;
 }
 
-.modal-newMessage > div.user-list .user-item input[type=radio]{
-    position: absolute;
-    right: 20px;
+.modal-newMessage > div.user-list .user-item input[type="checkbox"]{
     width: 25px;
     height: 25px;
+    border-radius: 50%;
+    appearance: none;
+    border: 1px solid #000;
     cursor: pointer;
+    margin-left: auto;
 }
 
+.modal-newMessage > div.user-list .user-item input[type="checkbox"]:checked{
+    background: #0095F6;
+    border: none;
+}
 
