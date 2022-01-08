@@ -8,7 +8,7 @@ body{
 /* body 스크롤 방지용 body에 달아주면됨 */
 .stop-scroll{
     height: 100%;
-    overflow: hidden;
+    overflow-y: hidden;
 }
 
 /*================================================================
@@ -32,6 +32,215 @@ body{
     border-radius: 10px;
     position: relative;
 }
+
+/* 파일 업로드 */
+.modal-fileupload-wrapper > i.fa-times{
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+    font-size: 30px;
+    color: #fff;
+}
+
+.modal-fileupload{
+    width: 38vw;
+    height: 81vh;
+}
+
+.fileupload-wrapper{
+    height: 100%;
+}
+
+/* 파일 업로드__header */
+.header-file{
+    height: 6%;
+    display: flex;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 20px 0px;
+}
+
+.header-file i{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    cursor: pointer;
+    color: #333;
+    font-size: 18px;
+    display: none;
+}
+
+.header-file h3{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.header-file button{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #0095f6;
+    background: 0;
+    font-weight: bold;
+    border: 0;
+    outline: 0;
+    display: none;
+}
+
+/* 파일 업로드__body */
+.body-file{
+    position: relative;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+    height: 94%;
+}
+
+.body-file > i{
+    position: absolute;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    right: 20px;
+    bottom: 20px;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    z-index: 2;
+}
+
+.body-file > input{
+    display: none;
+}
+
+.body-file__nofile-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.body-file__nofile-box h3{
+    font-size: 22px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 100;
+}
+
+.body-file__nofile-box button{
+    background: #0095f6;
+    color: #fff;
+    border: 0;
+    font-weight: bold;
+    padding: 5px 9px;
+    width: 120px;
+    height: 30px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.file-upload-swiper{
+    display: none;
+    height: 100%;
+    overflow: hidden;
+}
+
+.file-upload-swiper .swiper-wrapper{
+    position: relative;
+}
+
+.file-upload-swiper .swiper-wrapper i.fa-play-circle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-size: 35px;
+    color: #fff;
+    cursor: pointer;
+    
+}
+
+.file-upload-swiper .swiper-wrapper i.fa-stop-circle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    font-size: 35px;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+.file-upload-swiper img{
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.file-upload-swiper video{
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* 파일 업로드 undo */
+.modal-fileupload-undo{
+    width: 400px;
+}
+
+.modal-fileupload-undo > div:nth-child(1){
+    border-bottom: 1px solid #dbdbdb;
+    padding: 16px 32px;
+}
+.modal-fileupload-undo > div:nth-child(1) h3{
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.modal-fileupload-undo > div:nth-child(1) p{
+    color: #8e8e8e;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.modal-fileupload-undo > div:nth-child(2) button{
+    width: 100%;
+    height: 48px;
+    display: block;
+    border: 0;
+    background: 0;
+    cursor: pointer;
+}
+
+.modal-fileupload-undo > div:nth-child(2) button:nth-child(1){
+    color: #ED4956;
+    font-weight: bold;
+    border-bottom: 1px solid #dbdbdb;
+}
+
 
 /* 컨텐츠 옵션 */
 .modal-content-option-wrapper{

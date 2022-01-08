@@ -1,26 +1,42 @@
 $(document).ready(function(){
+    // 사진 상세보기 swiper
     const swiperComment = new Swiper('.comment-swiper', {
-        // Optional parameters
         direction: 'horizontal',
         loop: false,
 
-        // If we need pagination
         pagination: {
             el: '.swiper-pagination',
         },
 
-        // Navigation arrows
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
     });
 
+    // 영역 외 클릭
+    $(document).click(function(e){
+        //로직추가
+    });
+
     // 헤더 프로필 클릭
-    
+    $(".header__profile-picture").on("click", function(){
+        if( $(".header__dropdown").css("display") == "none"){
+            $(".header__dropdown").css("display", "flex");
+
+            $(".header__notice-box").css("display", "none")
+            $(".search-list").css("display", "none");
+        }else{
+            $(".header__dropdown").css("display", "none");
+        }
+    })
 
     // 헤더 알림 클릭 
- 
+    $(".notice-heart").on("click", function(){
+        $(".header__notice-box").toggle();
+        $(".header__dropdown").css("display", "none");
+        $(".search-list").css("display", "none");
+    })
 
     // 헤더 검색
     $(".header__search-input").on("change keyup paste focus", function(e){
@@ -29,9 +45,11 @@ $(document).ready(function(){
         if(!$(this).val()){
             $(".search-list").hide();
         }else{
-
             //api 로직
             $(".search-list").show();
+            $(".header__dropdown").css("display", "none");
+            $(".header__notice-box").css("display", "none");
+            
         }
     })
 

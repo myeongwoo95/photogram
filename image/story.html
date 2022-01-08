@@ -74,7 +74,7 @@
                     <ul>
                         <li><a href="/image/story.html"><i class="fas fa-home"></i></a></li>
                         <li><a href="/chat/chat.html"><i class="fab fa-telegram-plane"></i></a></li>
-                        <li><a href="#"><i class="far fa-plus-square"></i></a></li>
+                        <li><a href="#"><i class="far fa-plus-square btn-fileupload"></i></a></li>
                         <li><a href="#"><i class="far fa-compass"></i></a></li>
                         <li class="header__notice-box-wrapper">
                             <a class="notice-heart" href="#"><i class="far fa-heart fa-heart-notice"></i></a>
@@ -366,6 +366,212 @@
     </div>
 </div>
 
+<!-- 파일 업로드 모달-->
+<div class="modal-wrapper modal-fileupload-wrapper">
+    <i class="fas fa-times btn-close-fileUploadModal"></i>
+    <div class="modal modal-fileupload">
+
+        <div class="fileupload-wrapper">
+
+            <!-- header -->
+            <div class="header-file">
+                <i class="fas fa-arrow-left"></i>
+                <h3>새 게시물 만들기</h3>
+                <button class="">다음</button>
+            </div>
+            
+            <!-- body -->
+            <div class="body-file">
+                <i class="far fa-clone btn-fileupload-multi"></i>
+                <input type="file" id="input_imgs" multiple accept="video/*, image/*"/>
+
+                <div class="body-file__nofile-box">
+                    <img class="mb-20" src="../assets/images/file-image.png" alt="file-image-sample">
+                    <h3 class="mb-25">사진과 동영상을 여기에 끌어다 놓으세요</h3>
+                    <button class="btn-fileupload-multi-first-click">컴퓨터에서 선택</button>
+                </div>
+
+                <div class="file-upload-swiper">
+                    <div class="swiper-wrapper">
+                       
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- 파일 업로드 뒤로가기 -->
+<div class="modal-wrapper modal-fileupload-undo-wrapper">
+    <div class="modal modal-fileupload-undo">
+        <div>
+            <h3>게시물을 삭제하시겠어요?</h3>
+            <p>지금 나가면 수정 내용이 저장되지 않습니다.</p>
+        </div>
+       
+        <div>
+            <button class="btn-fileupload-undo">삭제</button>
+            <button class="btn-fileupload-undo-cancel">취소</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 파일 업로드 swiper
+    var mySwiper = new Swiper ('.file-upload-swiper', {
+
+    pagination: {
+        el: '.swiper-pagination',
+        },
+
+        navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+        },
+
+        scrollbar: {
+        el: '.swiper-scrollbar',
+        },
+        
+        observer: true
+    })
+    
+    // 파일 업로드 모달 켜기
+    $(".btn-fileupload").on("click", function(){
+        $(".modal-fileupload-wrapper").css("display", "flex");
+    })
+
+    // 파일 업로드 모달 끄기
+    $(".btn-close-fileUploadModal").on("click", function(){
+        // input file 초기화
+        $("#input_imgs").val("");
+
+        // swiper 초기화
+        $(".file-upload-swiper .swiper-wrapper").html("");
+
+        // header 변경
+        $(".header-file h3").html("새 게시물 만들기");
+        $(".header-file i").hide();
+        $(".header-file button").hide();
+
+        //body 변경
+        $(".body-file__nofile-box").css("display", "flex")
+        $(".file-upload-swiper").hide();
+        $(".btn-fileupload-multi").hide();
+        
+        $(".modal-fileupload-wrapper").css("display", "none");
+    })
+
+    // 첫번째 input file 클릭
+    $(".btn-fileupload-multi-first-click").on("click", function(){
+        $("#input_imgs").click();
+    })
+
+    // 두번째 이후 input file 클릭
+    $(".btn-fileupload-multi").on("click", function(){
+        $("#input_imgs").click();
+    })
+
+    // 파일 업로드 뒤로가기 모달 켜기
+    $(".header-file i").on("click", function(){
+        $(".modal-fileupload-undo-wrapper").css("display", "flex");
+    })
+
+    // btn video play
+    $(document).on("click", ".btn-video-play", function(){
+        $(this).parent().children("video").get(0).play();
+        $(this).hide();
+        $(".btn-video-stop").show();
+    })
+
+    // btn video stop
+    $(document).on("click", ".btn-video-stop", function(){
+        $(this).parent().children("video").get(0).pause();
+        $(this).hide();
+        $(".btn-video-play").show();
+    })
+
+    // 파일 업로드 취소
+    $(".btn-fileupload-undo").on("click", function(){
+        $(".modal-fileupload-undo-wrapper").hide();
+
+        // input file 초기화
+        $("#input_imgs").val("");
+
+        // swiper 초기화
+        $(".file-upload-swiper .swiper-wrapper").html("");
+
+        // header 변경
+        $(".header-file h3").html("새 게시물 만들기");
+        $(".header-file i").hide();
+        $(".header-file button").hide();
+
+        //body 변경
+        $(".body-file__nofile-box").css("display", "flex")
+        $(".file-upload-swiper").hide();
+        $(".btn-fileupload-multi").hide();
+    })
+
+    $(".btn-fileupload-undo-cancel").on("click", function(){
+        $(".modal-fileupload-undo-wrapper").hide();
+    })
+
+    var sel_files = [];
+    $("#input_imgs").on("change", handleImgsFilesSelect);
+
+    function handleImgsFilesSelect(e) {
+        var files = e.target.files;
+        var filesArr = Array.prototype.slice.call(files);
+
+        filesArr.forEach(function(f) {
+            // 확장자 제한, input에서 accept 처리도 해둠
+            if(f.type.match("image.*") || f.type.match("video.*")) {
+                // do nothing
+            }else{
+                alert("확장자는 이미지 및 비디오만 사용가능합니다.");
+                return;
+            }
+
+            sel_files.push(f);
+
+            var reader = new FileReader();
+            
+            // swiper에 video. image 미리보기 슬라이드 추가
+            reader.onload = function(e) {
+                var img_html = "";
+
+                if(f.type.includes("video")){
+                    img_html += "<div class='swiper-slide'>";
+                    img_html += "<video src=\"" + e.target.result + "\" /></video>"
+                    img_html += `<i class="far fa-play-circle btn-video-play"></i>`;
+                    img_html += `<i class="far fa-stop-circle btn-video-stop"></i>`;
+                    img_html += `</div>`;
+                }else if(f.type.includes("image")){
+                    img_html += "<div class='swiper-slide'>"+"<img src=\"" + e.target.result + "\" />"+"</div>";
+                }
+                $(".file-upload-swiper > .swiper-wrapper").append(img_html);
+            }
+            reader.readAsDataURL(f);
+
+            // header 변경
+            $(".header-file h3").html("자르기");
+            $(".header-file i").css("display", "inline-flex");
+            $(".header-file button").css("display", "flex");
+
+            //body 변경
+            $(".body-file__nofile-box").hide();
+            $(".file-upload-swiper").show();
+            $(".btn-fileupload-multi").css("display", "inline-flex");
+        });
+    }
+
+ 
+</script>
+
 <!-- 컨텐츠 옵션 (모달)-->
 <div class="modal-wrapper modal-content-option-wrapper">
     <div class="modal modal-content-option">
@@ -617,8 +823,8 @@
     </div>
 </div>
 
-<!-- <script src="../assets/js/common.js"></script> -->
-<script src="../assets/js/image/story.js"></script>
 <script src="../assets/js/common.js"></script>
+<script src="../assets/js/image/story.js"></script>
+
 </body>
 </html>
