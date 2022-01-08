@@ -95,7 +95,7 @@
                             </div>
                         </li>
                         <li class="header__profile-picture">
-                            <a href="#"><img src="../assets/images/Avatar.png" alt="profile-picture"></a>
+                            <a href="#"><img class="header__profile-picture-img" src="../assets/images/Avatar.png" alt="profile-picture"></a>
                             <ul class="header__dropdown">
                                 <div class="box-bubble"></div>
                                 <li><a href="/profile/my-page.html"><i class="far fa-user-circle"></i>프로필</a></li>
@@ -166,13 +166,32 @@
 
                         <div class="chat-box">
 
-                            <div class="chat-box__my-chat">
-
+                            <div class="chat-box__timeline">
+                                <span>1일전 오전 1:05</span>
                             </div>
 
                             <div class="chat-box__opponent-chat">
+                                <img src="../assets/images/insta1.jpg" alt="profile">
+                                <span class="chat-content">상대방 메세지</span>
 
+                                <div class="content-option-box-wrapper">
+                                    <i class="fas fa-ellipsis-h btn-content-options"></i>
+
+                                    <div class="content-option-box">
+                                        <span>좋아요</span>
+                                        <span>복사</span>
+                                        <span>신고</span>
+                                    </div>
+                                </div>
+                                
                             </div>
+
+                            <div class="chat-box__my-chat">
+                                <img src="../assets/images/insta2.jpg" alt="profile">
+                                <span>나의 메세지</span>
+                            </div>
+
+                           
 
                         </div>
 
@@ -180,9 +199,10 @@
 
                             <div>
                                 <i class="far fa-smile-wink"></i>
-                                <i class="far fa-image"></i>
-                                <i class="far fa-heart"></i>
+                                <i class="far fa-image emoji-image"></i>
+                                <i class="far fa-heart emoji-heart"></i>
                                 <textarea class="text-box__textarea" rows="1" name="" placeholder="메세지 입력..."></textarea>
+                                <button class="btn-sending-message">보내기</button>
                             </div>
 
                         </div>
@@ -403,6 +423,37 @@
 </div>
 
 <script>
+    // 메세지 옵션
+    $(".btn-content-options").on("click", function(){
+        $(".content-option-box").css("display", "flex");
+    });
+
+    $(document).mouseup(function(e){
+        var LayerPopup = $(".content-option-box");
+        if(LayerPopup.has(e.target).length === 0){
+            LayerPopup.hide();
+        }
+    });
+
+    // 메세지 전송
+    $(".btn-sending-message").on("click", function(e){
+        e.preventDefault();
+        alert("로직추가")
+    });
+
+    //textarea에 글자를 입력했을 경우 button 보내기 보이기
+    $(".text-box__textarea").on("change keyup paste", function(){
+        if($(".text-box__textarea").val()){
+            $(".emoji-heart").hide();
+            $(".emoji-image").hide();
+            $(".btn-sending-message").show();
+        }else{
+            $(".emoji-heart").show();
+            $(".emoji-image").show();
+            $(".btn-sending-message").hide();
+        }
+    })
+
     // 채팅 유저 추천 선택 추가
     $(".red-friend-item").change(function(){
        
@@ -468,6 +519,28 @@
         $(".modal-newMessage-wrapper").css("display", "flex");
     })
 
+
+    // new make chat room
+    $(".btn-make-newMessage").on("click", function(){
+        alert("api 로직 및 대화방 만들기")
+        $(".modal-newMessage-wrapper").hide();
+
+        $(".chat-wrapper__right__new-message").hide();
+        $(".chat-wrapper__right__exist-message").show();
+        $(".details-info").hide();
+
+        let divItem = `<div class="chat-item">
+                            <img src="../assets/images/insta1.jpg" alt="profile">
+                            <div>
+                                <span>Asia posdifjw 님</span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>`;
+
+        $(".chat-list").append(divItem);
+    })
+
     $(".btn-close-modal-newMessage").on("click", function(){
         $(".modal-newMessage-wrapper").hide();
         $(".search-friend-input").val("");
@@ -500,12 +573,10 @@
     $(".btn-delete-chatting").on("click", function(){
         $(".modal-deleteChat-wrapper").css("display", "flex");
     })
-    
     $(".btn-chat-delete").on("click", function(){
         alert("채팅삭제 로직");
         $(".modal-deleteChat-wrapper").hide();
     })
-    
     $(".btn-close-modal-deleteChat").on("click", function(){
         $(".modal-deleteChat-wrapper").hide();
     })
@@ -514,12 +585,10 @@
     $(".btn-block-user").on("click", function(){
         $(".modal-blockUser-wrapper").css("display", "flex");
     })
-
     $(".btn-blockUser").on("click", function(){
         alert("api 로직");
         $(".modal-blockUser-wrapper").hide();
     })
-
     $(".btn-close-blockUser").on("click", function(){
         $(".modal-blockUser-wrapper").hide();
     })
@@ -528,16 +597,13 @@
     $(".btn-sue").on("click", function(){
         $(".modal-reportList-wrapper").css("display", "flex");
     })
-
     $(".cancel-reportList").on("click", function(){
         $(".modal-reportList-wrapper").hide();
     })
-
     $(".modal-reportList ul li").on("click", function(){
         $(".modal-reportList-wrapper").hide();
         $(".modal-reported-wrapper").css("display", "flex");
     })
-
     $(".btn-close-reported").on("click", function(){
         $(".modal-reported-wrapper").hide();
     })

@@ -164,15 +164,126 @@
     flex-grow: 1;
     overflow-y: scroll;
     overflow-x: hidden;
+    padding: 20px 20px 0px 20px;
 }
 
+.chat-box > div{
+    display: flex;
+    height: 54px;
+    position: relative;
+}
+
+.chat-box > div > img{
+    width: 24px;
+    height: 24px;
+    border: 1px solid #dbdbdb;
+    border-radius: 50%;
+    object-fit: cover;
+    align-self: flex-end;
+}
+
+.chat-box > div > span{
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid #dbdbdb;
+    border-radius: 50px;
+    background: #fff;
+}
+
+.content-option-box-wrapper{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.content-option-box-wrapper > i{
+    display: none;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    color: #dbdbdb;
+}
+.content-option-box-wrapper > i:hover{
+    color: #333;
+}
+
+.chat-box > div:hover > .content-option-box-wrapper i{
+    display: block;
+}
+
+.content-option-box{
+    height: 34px;
+    width: 138px;
+    padding: 8px 12px;
+    background: #000;
+    border-radius: 8px;
+    display: none;
+    align-items: center;
+    box-shadow: 3px 3px 3px gray;
+    position: absolute;
+    top: -35px;
+    left: -4px;
+}
+.content-option-box:after {
+    border-top: 10px solid #000;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 0px solid transparent;
+    content:"";
+    position:absolute;
+    top: 31px;
+}
+
+.content-option-box span{
+    color: #fff;
+    font-weight: bold;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.content-option-box span:last-child{
+    margin-right: 0;
+}
+
+
+
+
+
+
+
+
+.chat-box__opponent-chat {
+    justify-content: flex-start;
+}
+
+.chat-box__my-chat {
+    flex-direction: row-reverse;
+}
+
+.chat-box .chat-box__my-chat span{
+    background: rgb(239, 239, 239);
+    border: 0;
+}
+
+
+.chat-box__timeline{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+
+/* text */
 .text-box{
     padding: 20px;
     width: 100%;
     bottom: 0;
 }
 
-/* text */
 .text-box > div{
     border: 1px solid #dbdbdb;
     border-radius: 22px;
@@ -210,6 +321,16 @@
     outline: 0;
     padding-right: 30px;
     resize: none;
+}
+
+.text-box > div button.btn-sending-message{
+    display: none;
+    border: 0;
+    background: 0;
+    color: #0095F6;
+    font-weight: bold;
+    margin-right: -45px;
+    cursor: pointer;
 }
 
 /* details-info */

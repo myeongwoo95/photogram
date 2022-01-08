@@ -47,19 +47,55 @@
                 <div>
                     <form>
                         <button></button>
-                        <input type="search" placeholder="검색">
+                        <input class="header__search-input" type="text" placeholder="검색">
+                        <div class="search-list">
+
+                            <div class="search-item">
+                                <img src="../assets/images/insta2.jpg" alt="profile">
+                                <div class="search-item__info">
+                                    <span class="mb-5">dhdhshdl</span>
+                                    <span>김치타</span>
+                                </div>
+                            </div>
+
+                            <div class="search-item">
+                                <div class="hash">#</div>
+                                <div class="search-item__info">
+                                    <span class="mb-5">#김치</span>
+                                    <span>게시물 1,002</span>
+                                </div>
+                            </div>
+
+                        </div>
                     </form>
                 </div>
         
                 <div>
                     <ul>
                         <li><a href="/image/story.html"><i class="fas fa-home"></i></a></li>
-                        <li><a href="#"><i class="fab fa-telegram-plane"></i></a></li>
+                        <li><a href="/chat/chat.html"><i class="fab fa-telegram-plane"></i></a></li>
                         <li><a href="#"><i class="far fa-plus-square"></i></a></li>
                         <li><a href="#"><i class="far fa-compass"></i></a></li>
-                        <li><a href="#"><i class="far fa-heart"></i></a></li>
+                        <li class="header__notice-box-wrapper">
+                            <a class="notice-heart" href="#"><i class="far fa-heart "></i></a>
+
+                            <div class="header__notice-box">
+                                <h3 class="mt-10 ml-15 fw-600">이번 주</h3>
+
+                                <div class="notice-item">
+                                    <img class="notice-item__profile" src="../assets/images/item.jpg" alt="profile">
+                                    <div class="notice-item__info">
+                                        <span class="fw-600">tilltofu</span>
+                                        <span>님이 회원님의 사진을 좋아합니다.</span>
+                                        <span>4일</span>
+                                    </div>
+                                    <img class="notice-item__photo" src="../assets/images/insta2.jpg" alt="photo">
+                                </div>
+                               
+                            </div>
+                        </li>
                         <li class="header__profile-picture">
-                            <a href="#"><img src="../assets/images/Avatar.png" alt="profile-picture"></a>
+                            <a href="#"><img class="header__profile-picture-img" src="../assets/images/Avatar.png" alt="profile-picture"></a>
                             <ul class="header__dropdown">
                                 <div class="box-bubble"></div>
                                 <li><a href="/profile/my-page.html"><i class="far fa-user-circle"></i>프로필</a></li>

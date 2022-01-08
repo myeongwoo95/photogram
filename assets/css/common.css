@@ -622,7 +622,7 @@ body{
     position: relative;
 }
 
-.header ul.header__dropdown{
+ul.header__dropdown{
     position: absolute;
     right: -20px;
     top: 40px;

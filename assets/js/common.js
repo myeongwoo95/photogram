@@ -1,17 +1,4 @@
 $(document).ready(function(){
-
-    // 프로필 클릭 드랍다운
-    let dropdownState = 0
-    $(".header__profile-picture").on("click", function(){
-        if(dropdownState == 0 ){
-            $(".header__dropdown").css("display", "flex");
-            dropdownState = 1;
-        }else{
-            $(".header__dropdown").hide();
-            dropdownState = 0;
-        }
-    })
-
     const swiperComment = new Swiper('.comment-swiper', {
         // Optional parameters
         direction: 'horizontal',
@@ -28,6 +15,25 @@ $(document).ready(function(){
             prevEl: '.swiper-button-prev',
         },
     });
+
+    // 헤더 프로필 클릭
+    
+
+    // 헤더 알림 클릭 
+ 
+
+    // 헤더 검색
+    $(".header__search-input").on("change keyup paste focus", function(e){
+        e.preventDefault();
+        
+        if(!$(this).val()){
+            $(".search-list").hide();
+        }else{
+
+            //api 로직
+            $(".search-list").show();
+        }
+    })
 
     // btn 이미지 슬라이드 모달 
     $(".cancel-comment-modal").on("click", function(){
@@ -84,25 +90,5 @@ $(document).ready(function(){
     $(".comment-deep-button").on("click", function(){
         $(this).next().toggle();
     })
-
-    // 아이디 검색, 태그 검색
-    $(".header__search-input").on("change keyup paste focus", function(e){
-        e.preventDefault();
-        
-        if(!$(this).val()){
-            $(".search-list").hide();
-        }else{
-
-            //api 로직
-            $(".search-list").show();
-        }
-    })
-
-    // 알림
-    $(".notice-heart").on("click", function(e){
-        e.preventDefault();
-        $(".header__notice-box").toggle();
-    })
-    
 
 });
