@@ -33,7 +33,9 @@ body{
     position: relative;
 }
 
-/* 파일 업로드 */
+/*================================================================
+# 공통 모달 - 파일 업로드
+=================================================================*/
 .modal-fileupload-wrapper > i.fa-times{
     position: absolute;
     right: 20px;
@@ -44,7 +46,9 @@ body{
 }
 
 .modal-fileupload{
+    /* memo 보정시 사이즈 커지게*/
     width: 38vw;
+    /* width: 54vw; */
     height: 81vh;
 }
 
@@ -94,6 +98,10 @@ body{
     border: 0;
     outline: 0;
     display: none;
+}
+
+.header-file button.btn-fileupload-step2{
+    width: 75px;
 }
 
 /* 파일 업로드__body */
@@ -151,10 +159,25 @@ body{
     cursor: pointer;
 }
 
+.file-upload-wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
 .file-upload-swiper{
     display: none;
-    height: 100%;
     overflow: hidden;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.file-upload-options{
+    display: none;
+    flex-basis: 31%;
+    border-left: 1px solid #dbdbdb;
 }
 
 .file-upload-swiper .swiper-wrapper{
@@ -170,7 +193,6 @@ body{
     font-size: 35px;
     color: #fff;
     cursor: pointer;
-    
 }
 
 .file-upload-swiper .swiper-wrapper i.fa-stop-circle{
@@ -201,8 +223,302 @@ body{
     object-fit: cover;
 }
 
+/* 파일 업로드 옵션 */
+.file-upload-options__profile{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    margin: 0px 16px;
+}
 
-/* 파일 업로드 undo */
+.file-upload-options__profile img{
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid #dbdbdb;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.file-upload-options__profile span{
+    font-weight: 600;
+    color: #333;
+    font-size: 16px;
+}
+
+.file-upload-options textarea{
+    border: 0;
+    outline: 0;
+    width: 100%;
+    padding: 6px 16px;
+    height: 168px;
+    resize: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.file-upload-options__letter-count-box{
+    display: flex;
+    align-items: center;
+    height: 44px;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.file-upload-options__letter-count-box i{
+    margin-left: 16px;
+    margin-right: auto;
+    font-size: 20px;
+    color: #8e8e8e;
+    cursor: pointer;
+}
+
+.file-upload-options__letter-count-box span{
+    margin-right: 16px;
+    font-size: 12px;
+    color: #8e8e8e;
+}
+
+.file-upload-options_location{
+    height: 44px;
+    border-bottom: 1px solid #dbdbdb;
+    display: flex;
+    align-items: center;
+    padding: 6px 16px;;
+}
+
+.file-upload-options_location input{
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    margin-right: auto;
+}
+
+.file-upload-options_location i{
+    font-size: 14px;
+    color: #333;
+    margin-right: 2px;
+}
+
+.file-upload-options_accessibility > div:nth-child(1){
+    height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 4px 16px;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.file-upload-options_accessibility > div:nth-child(1) span{
+    margin-right: auto;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.file-upload-options_accessibility > div:nth-child(1) i{
+    cursor: pointer;
+    color: #333;
+}
+
+.file-upload-options_accessibility > div:nth-child(2){
+    display: none;
+    height: 140px;
+    padding: 4px 16px;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.file-upload-options_accessibility > div:nth-child(2) p{
+    font-size: 12px;
+    color: #8e8e8e;
+    line-height: 1.3;
+}
+
+.file-upload-options_accessibility > div:nth-child(2) > div{
+    height: 68px;
+    display: flex;
+    align-items: center;
+}
+
+.file-upload-options_accessibility > div:nth-child(2) > div img{
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.file-upload-options_accessibility > div:nth-child(2) > div input{
+    padding: 4px 12px;
+    border: 1px solid #dbdbdb;
+    height: 44px;
+    font-size: 16px;
+    outline: 0;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.file-upload-options_option > div:nth-child(1){
+    height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 4px 16px;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.file-upload-options_option > div:nth-child(1) span{
+    margin-right: auto;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.file-upload-options_option > div:nth-child(1) i{
+    cursor: pointer;
+    color: #333;
+}
+
+.file-upload-options_option > div:nth-child(2){
+    display: none;
+    border-bottom: 1px solid #dbdbdb;
+    padding-bottom: 6px;
+}
+
+.file-upload-options_option > div:nth-child(2) > div:nth-child(1){
+    padding: 4px 16px;
+    display: flex;
+    align-items: center;
+}
+
+.file-upload-options_option > div:nth-child(2) > div:nth-child(1) span{
+    margin-right: auto;
+    font-size: 16px;
+}
+
+.file-upload-options_option > div:nth-child(2) > p{
+    padding: 4px 16px;
+    font-size: 12px;
+    color: #8e8e8e;
+    line-height: 1.3;
+}
+
+/* input toogle */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 23px;
+  }
+  
+  /* HTML 기본 체크박스 숨기기 */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* 슬라이더 - 실제로 토글될 부분 */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 20px;
+    left: 0px;
+    bottom: 1px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+  }
+  
+  /* 슬라이더를 동그랗게 보여주기 위한 부분 */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+/*================================================================
+# 공통 모달 - 업로드 중
+=================================================================*/
+.modal-fileupload-uploading-wrapper i.btn-close-fileupload-loading-modal{
+    position: absolute;
+    right: 15px;
+    top: 8px;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.modal-fileupload-uploading{
+    width: 37vw;
+    height: 80vh;
+}
+
+.modal-fileupload-uploading > div:nth-child(1){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 42px;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.modal-fileupload-uploading > div:nth-child(1) h3{
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    vertical-align: center;
+}
+
+.modal-fileupload-uploading > div:nth-child(2){
+    height: calc(100% - 42px);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.modal-fileupload-uploading > div:nth-child(2) img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+}
+
+.modal-fileupload-uploading > div:nth-child(2) h4{
+    font-size: 22px;
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+/*================================================================
+# 공통 모달 - 파일 업로드 취소 모달
+=================================================================*/
 .modal-fileupload-undo{
     width: 400px;
 }
@@ -241,8 +557,9 @@ body{
     border-bottom: 1px solid #dbdbdb;
 }
 
-
-/* 컨텐츠 옵션 */
+/*================================================================
+# 공통 모달 - 컨텐츠 옵션
+=================================================================*/
 .modal-content-option-wrapper{
     z-index: 11;
 }
@@ -277,7 +594,9 @@ body{
     font-weight: bold;
 }
 
-/* 신고 사유 선택 */
+/*================================================================
+# 공통 모달 - 신고 사유 선택
+=================================================================*/
 .modal-reportList-wrapper{
     z-index: 11;
 }
@@ -324,7 +643,9 @@ body{
     font-size: 14px;
 }
 
-/* 신고 완료 */
+/*================================================================
+# 공통 모달 - 신고 완료 
+=================================================================*/
 .modal-reported-wrapper{
     z-index: 11;
 }
@@ -383,7 +704,9 @@ body{
     margin-left: 20px;
 }
 
-/* 팔로우 취소하시겠습니까? (모달) */
+/*================================================================
+# 공통 모달 - 팔로우 취소
+=================================================================*/
 .modal-requestCancelFollowing-wrapper{
     z-index: 11;
 }
@@ -423,8 +746,9 @@ body{
     font-weight: bold;
 }
 
-/* 콘텐츠 댓글 버튼 눌렀을때 (모달) */
-/* --00-- */
+/*================================================================
+# 공통 모달 - 이미지 상세
+=================================================================*/
 .item-list__image-item__comment-list{
     padding: 16px 16px;
 }
@@ -450,7 +774,6 @@ body{
 .item-list__image-item__comment-list ul li a i:hover{
     color: #8E8E8E;
 }
-/* --00-- */
 
 .modal-comment-wrapper {
     position: fixed;
@@ -1009,7 +1332,6 @@ li.header__notice-box-wrapper{
     position: absolute;
 }
 
-
 /*================================================================
 # footer
 =================================================================*/
@@ -1074,6 +1396,10 @@ li.header__notice-box-wrapper{
 .flex-column{
     display: flex;
     flex-direction: column;
+}
+
+.hide{
+    display: none;
 }
 
 /*================================================================

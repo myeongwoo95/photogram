@@ -375,10 +375,12 @@
 
             <!-- header -->
             <div class="header-file">
-                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-left back-step1"></i>
+                <i class="fas fa-arrow-left back-step2"></i>
                 <h3>새 게시물 만들기</h3>
-                <button class="">다음</button>
-            </div>
+                <button class="btn-fileupload-step1">다음</button>
+                <button class="btn-fileupload-step2">공유하기</button>
+            </div> 
             
             <!-- body -->
             <div class="body-file">
@@ -391,21 +393,79 @@
                     <button class="btn-fileupload-multi-first-click">컴퓨터에서 선택</button>
                 </div>
 
-                <div class="file-upload-swiper">
-                    <div class="swiper-wrapper">
-                       
+               <div class="file-upload-wrapper">
+                    <div class="file-upload-swiper">
+                        <div class="swiper-wrapper"></div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
                     </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                </div>
+
+                    <div class="file-upload-options">
+
+                        <div class="file-upload-options__profile">
+                            <img src="../assets/images/Avatar.png" alt="profile">
+                            <span>a_a33a</span>
+                        </div>
+
+                        <textarea name="" id="" placeholder="문구 입력..."></textarea>
+
+                        <div class="file-upload-options__letter-count-box">
+                            <i class="far fa-smile-wink"></i>
+                            <span>2/2,000</span>
+                        </div>
+
+                        <div class="file-upload-options_location">
+                            <input type="text" placeholder="위치 추가">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+
+                        <div class="file-upload-options_accessibility">
+                            <div>
+                                <span>접근성</span>
+                                <i class="fas fa-chevron-down btn-toggle-file-upload-options_accessibility"></i>
+                            </div>
+
+                            <div>
+                                <p>대체 텍스트는 시각적으로 사진을 보기 어려운 사람들에게 사진 내용을 설명하는 텍스트입니다. 대체 텍스트는 회원님의 사진에 대해 자동으로 생성되며, 직접 입력할 수도 있습니다.</p>
+
+                                <div>
+                                    <img src="../assets/images/insta2.jpg" alt="photo">
+                                    <input type="text" placeholder="대체 텍스트 추가...">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="file-upload-options_option">
+                            <div>
+                                <span>고급 설정</span>
+                                <i class="fas fa-chevron-down btn-toggle-file-upload-options_option"></i>
+                            </div>
+
+                            <div>
+                                <div>
+                                    <span>댓글 기능 해제</span>
+
+                                    <label class="switch">
+                                        <input type="checkbox" />
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+
+                                <p>나중에 게시물 상단의 메뉴(···)에서 이 설정을 변경할 수 있습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+               </div>
+                
             </div>
 
         </div>
     </div>
 </div>
 
-<!-- 파일 업로드 뒤로가기 -->
+<!-- 파일 업로드 뒤로가기 모달 -->
 <div class="modal-wrapper modal-fileupload-undo-wrapper">
     <div class="modal modal-fileupload-undo">
         <div>
@@ -420,155 +480,23 @@
     </div>
 </div>
 
+<!-- 파일 업로드 중 모달 -->
+<div class="modal-wrapper modal-fileupload-uploading-wrapper">
+    <i class="fas fa-times btn-close-fileupload-loading-modal"></i>
+    <div class="modal modal-fileupload-uploading">
+        <div>
+            <h3>공유 중입니다</h3>
+        </div>
+        
+        <div>
+            <img src="../assets/images/cute-loading-spinner.gif" alt="loading...">
+            <h4>게시물이 공유되었습니다.</h4>
+        </div>
+    </div>
+</div>
+
 <script>
-    // 파일 업로드 swiper
-    var mySwiper = new Swiper ('.file-upload-swiper', {
-
-    pagination: {
-        el: '.swiper-pagination',
-        },
-
-        navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-        },
-
-        scrollbar: {
-        el: '.swiper-scrollbar',
-        },
-        
-        observer: true
-    })
     
-    // 파일 업로드 모달 켜기
-    $(".btn-fileupload").on("click", function(){
-        $(".modal-fileupload-wrapper").css("display", "flex");
-    })
-
-    // 파일 업로드 모달 끄기
-    $(".btn-close-fileUploadModal").on("click", function(){
-        // input file 초기화
-        $("#input_imgs").val("");
-
-        // swiper 초기화
-        $(".file-upload-swiper .swiper-wrapper").html("");
-
-        // header 변경
-        $(".header-file h3").html("새 게시물 만들기");
-        $(".header-file i").hide();
-        $(".header-file button").hide();
-
-        //body 변경
-        $(".body-file__nofile-box").css("display", "flex")
-        $(".file-upload-swiper").hide();
-        $(".btn-fileupload-multi").hide();
-        
-        $(".modal-fileupload-wrapper").css("display", "none");
-    })
-
-    // 첫번째 input file 클릭
-    $(".btn-fileupload-multi-first-click").on("click", function(){
-        $("#input_imgs").click();
-    })
-
-    // 두번째 이후 input file 클릭
-    $(".btn-fileupload-multi").on("click", function(){
-        $("#input_imgs").click();
-    })
-
-    // 파일 업로드 뒤로가기 모달 켜기
-    $(".header-file i").on("click", function(){
-        $(".modal-fileupload-undo-wrapper").css("display", "flex");
-    })
-
-    // btn video play
-    $(document).on("click", ".btn-video-play", function(){
-        $(this).parent().children("video").get(0).play();
-        $(this).hide();
-        $(".btn-video-stop").show();
-    })
-
-    // btn video stop
-    $(document).on("click", ".btn-video-stop", function(){
-        $(this).parent().children("video").get(0).pause();
-        $(this).hide();
-        $(".btn-video-play").show();
-    })
-
-    // 파일 업로드 취소
-    $(".btn-fileupload-undo").on("click", function(){
-        $(".modal-fileupload-undo-wrapper").hide();
-
-        // input file 초기화
-        $("#input_imgs").val("");
-
-        // swiper 초기화
-        $(".file-upload-swiper .swiper-wrapper").html("");
-
-        // header 변경
-        $(".header-file h3").html("새 게시물 만들기");
-        $(".header-file i").hide();
-        $(".header-file button").hide();
-
-        //body 변경
-        $(".body-file__nofile-box").css("display", "flex")
-        $(".file-upload-swiper").hide();
-        $(".btn-fileupload-multi").hide();
-    })
-
-    $(".btn-fileupload-undo-cancel").on("click", function(){
-        $(".modal-fileupload-undo-wrapper").hide();
-    })
-
-    var sel_files = [];
-    $("#input_imgs").on("change", handleImgsFilesSelect);
-
-    function handleImgsFilesSelect(e) {
-        var files = e.target.files;
-        var filesArr = Array.prototype.slice.call(files);
-
-        filesArr.forEach(function(f) {
-            // 확장자 제한, input에서 accept 처리도 해둠
-            if(f.type.match("image.*") || f.type.match("video.*")) {
-                // do nothing
-            }else{
-                alert("확장자는 이미지 및 비디오만 사용가능합니다.");
-                return;
-            }
-
-            sel_files.push(f);
-
-            var reader = new FileReader();
-            
-            // swiper에 video. image 미리보기 슬라이드 추가
-            reader.onload = function(e) {
-                var img_html = "";
-
-                if(f.type.includes("video")){
-                    img_html += "<div class='swiper-slide'>";
-                    img_html += "<video src=\"" + e.target.result + "\" /></video>"
-                    img_html += `<i class="far fa-play-circle btn-video-play"></i>`;
-                    img_html += `<i class="far fa-stop-circle btn-video-stop"></i>`;
-                    img_html += `</div>`;
-                }else if(f.type.includes("image")){
-                    img_html += "<div class='swiper-slide'>"+"<img src=\"" + e.target.result + "\" />"+"</div>";
-                }
-                $(".file-upload-swiper > .swiper-wrapper").append(img_html);
-            }
-            reader.readAsDataURL(f);
-
-            // header 변경
-            $(".header-file h3").html("자르기");
-            $(".header-file i").css("display", "inline-flex");
-            $(".header-file button").css("display", "flex");
-
-            //body 변경
-            $(".body-file__nofile-box").hide();
-            $(".file-upload-swiper").show();
-            $(".btn-fileupload-multi").css("display", "inline-flex");
-        });
-    }
-
  
 </script>
 
