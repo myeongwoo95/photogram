@@ -1,3 +1,12 @@
+let scrollTop;
+function saveScroll(){
+    scrollTop = $(document).scrollTop();
+}
+
+function scroll(){
+    $(document).scrollTop(scrollTop);
+}
+
 $(document).ready(function(){
     // 파일 업로드 swiper
     var mySwiper = new Swiper ('.file-upload-swiper', {
@@ -70,9 +79,18 @@ $(document).ready(function(){
         }
     })
 
-    // btn 이미지 슬라이드 모달 
+    // 스토리 게시글 (모달)
+    $(".content-class").on("click", function(){
+        saveScroll();
+        $("body").addClass("stopScroll");
+        $(".modal-comment-wrapper").css("display", "flex");
+    })
+
+    // btn 스토리 게시글 (모달) 닫기 
     $(".cancel-comment-modal").on("click", function(){
         $(".modal-comment-wrapper").hide();
+        $("body").removeClass("stopScroll");
+        scroll();
     });
 
     // 댓글 좋아요, 좋아요 취소
@@ -125,10 +143,68 @@ $(document).ready(function(){
         $(this).next().toggle();
     })
 
-    // --------------------------------------------------
+    // ---------- 파일 업로드 -------------
+    // 파일 업로드 모달 켜기
+    $(".btn-fileupload").on("click", function(){
+        $("body").addClass("stopScroll");
+        $(".modal-fileupload-wrapper").css("display", "flex");
+    })
+
+    function fileuploadClear(){
+        // input file 초기화
+        $("#input_imgs").val("");
+
+        // swiper 초기화
+        $(".file-upload-swiper .swiper-wrapper").html("");
+
+        // header 변경
+        $(".header-file h3").html("새 게시물 만들기");
+        $(".header-file i").hide();
+        $(".header-file button").hide();
+
+        //body 변경
+        $(".body-file__nofile-box").css("display", "flex")
+        $(".file-upload-swiper").hide();
+        $(".btn-fileupload-multi").hide();
+        
+        $(".modal-fileupload-wrapper").css("display", "none");
+        
+        $(".modal-fileupload").css("width", "38vw");
+        $(".file-upload-options").hide();
+        $(".file-upload-swiper").css("flex-basis", "");
+        $(".file-upload-swiper img").css("border-bottom-right-radius", "9px");
+        $(".btn-fileupload-multi").css("display", "none");
+
+        //input 초기화
+        $(".file-upload-options__input-caption").val("");
+        $(".file-upload-options__input-location").val("");
+        $(".file-upload-options__input-alt").val("");
+        $(".file-upload-options__input-switch").prop('checked', false) ;
+
+        // options 닫기
+        $(".btn-toggle-file-upload-options_option").addClass("fa-chevron-down");
+        $(".btn-toggle-file-upload-options_option").removeClass("fa-chevron-up");
+        $(".file-upload-options_option > div:nth-child(2)").hide();
+        $(".file-upload-options_option > div:nth-child(1)").css("border-bottom", "1px solid #dbdbdb")
+
+        //접근성 닫기
+        $(".btn-toggle-file-upload-options_accessibility").addClass("fa-chevron-down");
+        $(".btn-toggle-file-upload-options_accessibility").removeClass("fa-chevron-up");
+        $(".file-upload-options_accessibility > div:nth-child(2)").hide();
+        $(".file-upload-options_accessibility > div:nth-child(1)").css("border-bottom", "1px solid #dbdbdb");
+    }
+
+    // 파일 업로드 모달 끄기
+    $(".btn-close-fileUploadModal").on("click", function(){
+        fileuploadClear();
+        $("body").removeClass("stopScroll");
+    })
+
     // 파일 업로딩 모달 닫기
     $("i.btn-close-fileupload-loading-modal").on("click", function(){
         $(".modal-fileupload-uploading-wrapper").hide();
+        fileuploadClear();
+        $("body").removeClass("stopScroll");
     })
 
     // 파일 업로드 고급 옵션 토글
@@ -162,6 +238,42 @@ $(document).ready(function(){
         }
     })
 
+     // 파일 업로드 다음 버튼1
+     $(".btn-fileupload-step1").on("click", function(e){
+        e.preventDefault();
+
+        // 뒤로가기, 다음 버튼 step2로 변경
+        $(".header-file h3").text("편집");
+        $(this).hide();
+        $(".btn-fileupload-step2").css("display", "inline-flex");
+
+        $(".header-file i.back-step1").hide();
+        $(".header-file i.back-step2").css("display", "inline-flex");
+
+        // css 변경
+        $(".modal-fileupload").css("width", "54vw");
+        $(".file-upload-options").show();
+        $(".file-upload-swiper").css("flex-basis", "69%");
+        $(".file-upload-swiper img").css("border-bottom-right-radius", "0px");
+        $(".btn-fileupload-multi").hide();
+    })
+
+    // 파일 업로드 다음 버튼2(파일 업로드)
+    $(".btn-fileupload-step2").on("click", function(e){
+        e.preventDefault();
+        //api 로직
+
+        $(".modal-fileupload-uploading-wrapper").css("display", "flex");
+        $(".modal-fileupload-wrapper").hide();
+
+        //파일 업로드 모달 돌려놔야함!!!!!
+    })
+
+    // 파일 업로드 뒤로가기 버튼1 모달 켜기
+    $(".header-file i.back-step1").on("click", function(){
+        $(".modal-fileupload-undo-wrapper").css("display", "flex");
+    })
+
     // 파일 업로드 뒤로가기 버튼2
     $(".header-file i.back-step2").on("click", function(){
 
@@ -181,69 +293,7 @@ $(document).ready(function(){
         $(".btn-fileupload-multi").css("display", "inline-flex");
         
     });
-
-    // 파일 업로드 뒤로가기 버튼1 모달 켜기
-    $(".header-file i.back-step1").on("click", function(){
-        $(".modal-fileupload-undo-wrapper").css("display", "flex");
-    })
-
-    // 파일 업로드 다음 버튼2(파일 업로드)
-    $(".btn-fileupload-step2").on("click", function(e){
-        e.preventDefault();
-        //api 로직
-
-        $(".modal-fileupload-uploading-wrapper").css("display", "flex");
-        $(".modal-fileupload-wrapper").hide();
-
-        //파일 업로드 모달 돌려놔야함!!!!!
-    })
-
-    // 파일 업로드 다음 버튼1
-    $(".btn-fileupload-step1").on("click", function(e){
-        e.preventDefault();
-
-        // 뒤로가기, 다음 버튼 step2로 변경
-        $(".header-file h3").text("편집");
-        $(this).hide();
-        $(".btn-fileupload-step2").css("display", "inline-flex");
-
-        $(".header-file i.back-step1").hide();
-        $(".header-file i.back-step2").css("display", "inline-flex");
-
-        // css 변경
-        $(".modal-fileupload").css("width", "54vw");
-        $(".file-upload-options").show();
-        $(".file-upload-swiper").css("flex-basis", "69%");
-        $(".file-upload-swiper img").css("border-bottom-right-radius", "0px");
-        $(".btn-fileupload-multi").hide();
-    })
     
-    // 파일 업로드 모달 켜기
-    $(".btn-fileupload").on("click", function(){
-        $(".modal-fileupload-wrapper").css("display", "flex");
-    })
-
-    // 파일 업로드 모달 끄기
-    $(".btn-close-fileUploadModal").on("click", function(){
-        // input file 초기화
-        $("#input_imgs").val("");
-
-        // swiper 초기화
-        $(".file-upload-swiper .swiper-wrapper").html("");
-
-        // header 변경
-        $(".header-file h3").html("새 게시물 만들기");
-        $(".header-file i").hide();
-        $(".header-file button").hide();
-
-        //body 변경
-        $(".body-file__nofile-box").css("display", "flex")
-        $(".file-upload-swiper").hide();
-        $(".btn-fileupload-multi").hide();
-        
-        $(".modal-fileupload-wrapper").css("display", "none");
-    })
-
     // 첫번째 input file 클릭
     $(".btn-fileupload-multi-first-click").on("click", function(){
         $("#input_imgs").click();

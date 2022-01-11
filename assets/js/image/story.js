@@ -1,4 +1,36 @@
 $(document).ready(function(){
+    // 스토리 이미지 swiper
+    const swiperImage = new Swiper('.image-swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: false,
+
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+    // 친구 추천 swiper
+    const swiperFriendsRecommendation = new Swiper('.friend-recommentation-swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: false,
+
+        speed : 1000,
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
 
     // 콘텐츠 caption 더보기 (수정 필요)
     $('.image-caption').each(function(){
@@ -41,7 +73,6 @@ $(document).ready(function(){
     
     //Textarea onchange 버튼 활성화
     $('#content-comment-textarea').bind('input propertychange', function() {
-    
         $(".upload-comment").css("opacity", 0.3);
     
         if(this.value.length){
@@ -49,53 +80,15 @@ $(document).ready(function(){
         }
     });
 
-    //친구추천 모달
-    const standard = 597;
-    let count = 1;
-    $(".fa-chevron-right").on("click", function(){
-        if(count==5){
-            return;
-        }else{
-            document.querySelector('.modal-item-list-wrapper').style.transform = `translateX(-${standard*count}px)`;
-            count++;
-            arrowDisplay(count);
-        }
-    });
-    
-    $(".fa-chevron-left").on("click", function(){
-        if(count==1){
-            return;
-        }else{
-            count--;
-            document.querySelector('.modal-item-list-wrapper').style.transform = `translateX(-${standard*(count-1)}px)`;
-            arrowDisplay(count);
-        }
-        
-    });
-
-    function arrowDisplay(count){
-        if(count == 5){
-            $(".fa-chevron-right").css("display", "none");
-        }else{
-            $(".fa-chevron-right").css("display", "flex");
-        }
-
-        if(count == 1){
-            $(".fa-chevron-left").css("display", "none");
-        }else{
-            $(".fa-chevron-left").css("display", "flex");
-        }
-    }
-
     // 콘텐츠 dotdotdot 옵션
     $(".btn-content-option").on("click", function(){
+        $("body").addClass("stopScroll");
         $(".modal-content-option-wrapper").css("display", "flex");
-        document.body.classList.add("stop-scroll");
-        document.body.classList.remove("stop-scroll");
     });
 
     $(".cancle-content-option").on("click", function(){
         $(".modal-content-option-wrapper").hide();
+        $("body").removeClass("stopScroll");
     });
 
     $(".modal-content-option .report").on("click", function(){
@@ -116,6 +109,7 @@ $(document).ready(function(){
 
     $(".btn-close-reported").on("click", function(){
         $(".modal-reported-wrapper").hide();
+        $("body").removeClass("stopScroll");
     })
 
     // 좋아요, 좋아요 취소
@@ -133,12 +127,6 @@ $(document).ready(function(){
         }
     });
 
-    // 게시글의 댓글 버튼 눌렀을때 (모달)
-    $(".content-class").on("click", function(){
-        $(".modal-comment-wrapper").css("display", "flex");
-    })
-
-   
     // 콘텐츠 옵션에서 팔로우 취소 눌렀을때 보여주는 (모달)
     $(".cancel-following").on("click", function(){
         $(".modal-content-option-wrapper").hide();
@@ -148,31 +136,29 @@ $(document).ready(function(){
     // 팔로우 취소 모달 닫기 
     $(".btn-close-requestCancelFollowing").on("click", function(){
         $(".modal-requestCancelFollowing-wrapper").hide();
+        $("body").removeClass("stopScroll");
     })
 
     // 팔로우 취소API
     $(".btn-cancel-following").on("click", function(){
-        
         //로직
-
         alert("팔로우 취소 api 실행");
         $(".modal-requestCancelFollowing-wrapper").hide();
+        $("body").removeClass("stopScroll");
     })
 
     // 콘텐츠 옵션에서 링크 복사 눌렀을때 보여주는 (모달)
     $(".btn-link-copy").on("click", function(){
         
         //로직
-
         alert("링크가 복사되었습니다.")
         $(".modal-content-option-wrapper").hide();
+        $("body").removeClass("stopScroll");
     })
 
     // 친구추천에서 팔로잉 눌렀을 때
     $(".btn-friend-rec-following").on("click", function(){
-
         //로직
-
         if($(this).hasClass("false")){
             $(this).removeClass("false")
             $(this).addClass("true")
@@ -185,36 +171,6 @@ $(document).ready(function(){
         }
     })
 
-    // 슬라이더
-    const swiperImage = new Swiper('.image-swiper', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: false,
-
-        // If we need pagination
-        pagination: {
-            el: '.swiper-pagination',
-        },
-
-        // Navigation arrows
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
-
-    const swiperFriendsRecommendation = new Swiper('.friend-recommentation-swiper', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: false,
-
-        speed : 1000,
-
-        // Navigation arrows
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
+    
 
 });
