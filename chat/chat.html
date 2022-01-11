@@ -170,23 +170,23 @@
                                 <span>1일전 오전 1:05</span>
                             </div>
 
-                            <div class="chat-box__opponent-chat">
+                            <div class="chat-item-box chat-box__opponent-chat">
                                 <img src="../assets/images/insta1.jpg" alt="profile">
-                                <span class="chat-content">상대방 메세지</span>
+                                <span>상대방 메세지</span>
 
                                 <div class="content-option-box-wrapper">
                                     <i class="fas fa-ellipsis-h btn-content-options"></i>
 
                                     <div class="content-option-box">
-                                        <span>좋아요</span>
-                                        <span>복사</span>
-                                        <span>신고</span>
+                                        <span class="btn-message-like">좋아요</span>
+                                        <span class="btn-message-copy">복사</span>
+                                        <span class="btn-message-report">신고</span>
                                     </div>
                                 </div>
                                 
                             </div>
 
-                            <div class="chat-box__my-chat last-my-message">
+                            <div class="chat-item-box chat-box__my-chat last-my-message">
                                 <img src="../assets/images/insta2.jpg" alt="profile">
                                 <span>나의 메세지</span>
 
@@ -194,9 +194,9 @@
                                     <i class="fas fa-ellipsis-h btn-content-options"></i>
 
                                     <div class="content-option-box">
-                                        <span>좋아요</span>
-                                        <span>복사</span>
-                                        <span>신고</span>
+                                        <span class="btn-message-like">좋아요</span>
+                                        <span class="btn-message-copy">복사</span>
+                                        <span class="btn-message-report">신고</span>
                                     </div>
                                 </div>
                             </div>
@@ -204,15 +204,17 @@
                         </div>
 
                         <div class="text-box">
-
                             <div>
-                                <i class="far fa-smile-wink"></i>
+                                <div class="emoticon-container">
+                                    <i class="far fa-smile-wink btn-emoticon-icon"></i>
+                                </div>  
+                                
                                 <i class="far fa-image emoji-image"></i>
                                 <i class="far fa-heart emoji-heart"></i>
                                 <textarea class="text-box__textarea" rows="1" name="" placeholder="메세지 입력..."></textarea>
                                 <button class="btn-sending-message">보내기</button>
+                                <input class="text-box__input-file" type="file">
                             </div>
-
                         </div>
                     </div>
 
@@ -428,7 +430,7 @@
     </div>
 </div>
 
-<script src="../assets/js/chat/chat.js"></script>
 <script src="../assets/js/common.js"></script>
+<script src="../assets/js/chat/chat.js"></script>
 </body>
 </html>

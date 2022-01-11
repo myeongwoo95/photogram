@@ -1,14 +1,27 @@
 
 $(document).ready(function(){
-    // 메세지 옵션
-    $(".btn-content-options").on("click", function(){
-        $(".content-option-box").css("display", "flex");
+
+    // 메세지 hover, leave 했을때 option dotdotdot 보여주고 숨기기
+    $(document).on("mouseover", ".chat-item-box",function () {
+        $(this).children(".content-option-box-wrapper").children("i").css("display", "inline");
     });
 
-    $(document).mouseup(function(e){
-        var LayerPopup = $(".content-option-box");
-        if(LayerPopup.has(e.target).length === 0){
-            LayerPopup.hide();
+    $(document).on("mouseout", ".chat-item-box",function () {
+        if($(this).children(".content-option-box-wrapper").children("i").next().css("display") == "none"){
+            $(this).children(".content-option-box-wrapper").children("i").css("display", "none");
+        }
+    });
+
+    // 메세지 옵션
+    $(document).on("click", ".btn-content-options", function(){
+        if($(this).next().css("display") == "none"){
+            $(this).css("display", "block")
+            $(this).css("color", "#333")
+            $(this).next().css("display", "flex");
+        }else{
+            $(this).css("display", "none")
+            $(this).css("color", "#dbdbdb")
+            $(this).next().css("display", "none");
         }
     });
 
@@ -21,9 +34,20 @@ $(document).ready(function(){
             $(".chat-box > div").last().css("margin-right", "24px");
         }
 
-        let message = `<div class="chat-box__my-chat last-my-message">
+        let data = $(".text-box__textarea").val();
+        let message = `<div class="chat-item-box chat-box__my-chat last-my-message">
                             <img src="../assets/images/insta2.jpg" alt="profile">
-                            <span>나의 메세지</span>
+                            <span>${data}</span>
+
+                            <div class="content-option-box-wrapper">
+                                <i class="fas fa-ellipsis-h btn-content-options"></i>
+
+                                <div class="content-option-box">
+                                    <span class="btn-message-like">좋아요</span>
+                                    <span class="btn-message-copy">복사</span>
+                                    <span class="btn-message-report">신고</span>
+                                </div>
+                            </div>
                         </div>`;
         
         $(".chat-box").append(message);
@@ -32,10 +56,43 @@ $(document).ready(function(){
         $(".emoji-heart").show();
         $(".emoji-image").show();
         $(".btn-sending-message").hide();
-        
     });
 
+    // 파일 전송
+    $(".emoji-image").on("click", function(){
+        $(".text-box__input-file").trigger("click");
+    })
+
+    // btn 메세지 좋아요
+
+    // btn 메세지 복사
+
+    // btn 메세지 신고
+
     // 하트 전송
+    $(".emoji-heart").on("click", function(){
+        if($(".chat-box > div").last().hasClass("last-my-message")){
+            $(".chat-box > div").last().children("img").remove();
+            $(".chat-box > div").last().css("margin-right", "24px");
+        }
+
+        let message = `<div class="chat-box__my-chat last-my-message">
+                            <img src="../assets/images/insta2.jpg" alt="profile">
+                            <span class="emoji-heart-message">❤️</span>
+
+                            <div class="content-option-box-wrapper">
+                                <i class="fas fa-ellipsis-h btn-content-options"></i>
+
+                                <div class="content-option-box">
+                                    <span class="btn-message-like">좋아요</span>
+                                    <span class="btn-message-copy">복사</span>
+                                    <span class="btn-message-report">신고</span>
+                                </div>
+                            </div>
+                        </div>`;
+        $(".chat-box").append(message);
+    })
+    // 메세지 수신
     
 
     //textarea에 글자를 입력했을 경우 button 보내기 보이기

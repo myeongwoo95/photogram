@@ -32,6 +32,19 @@ $(document).ready(function(){
         },
     });
 
+    // btn 게시글 업로드
+    $(".upload-comment").on("click", function(e){
+        e.preventDefault();
+        
+        alert("로직")
+        $("#content-comment-textarea").val("");
+
+        //이모지 닫기
+        if($(this).prev().prev().children(".emoticon-wrapper")){
+            $(this).prev().prev().children(".emoticon-wrapper").remove();
+        }
+    });
+
     // 콘텐츠 caption 더보기 (수정 필요)
     $('.image-caption').each(function(){
         var content = $(this).children('.caption');
@@ -170,7 +183,5 @@ $(document).ready(function(){
             $(this).css("color", "#0095f6")
         }
     })
-
     
-
 });

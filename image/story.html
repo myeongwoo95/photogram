@@ -34,6 +34,7 @@
 <body>
 <div class="body__container">
 
+    <!-- 헤더 -->
     <div class="section header-wrapper">
         <div class="inner">
             <div class="header">
@@ -110,6 +111,7 @@
         </div>
     </div>
 
+    <!-- 스토리 -->
     <div class="section section--story mt-30">
         <div class="inner">
 
@@ -209,14 +211,17 @@
                         </div>
 
                         <div class="item-list__image-item__comment-write">
-                            <i class="far fa-smile-wink"></i>
-                            <textarea id="content-comment-textarea" rows="1" placeholder="댓글 달기..."></textarea>
+                            <div class="emoticon-container">
+                                <i class="far fa-smile-wink btn-emoticon-icon"></i>
+                            </div>
+                            <textarea id="content-comment-textarea" class="modal-write-comment" rows="1" placeholder="댓글 달기..."></textarea>
                             <button class="upload-comment">게시</button>
                         </div>
                        
                     </div>
                     <!-- item -->
 
+                    <!-- 스토리 라인에 친구추천  -->
                     <div class="visual__image-list__friend-rec mb-30" style="overflow: hidden;">
                         <div class="visual__image-list__friend-rec__header mb-20">
                             <span>회원님을 위한 추천</span>
@@ -293,7 +298,10 @@
 
                 </div>
 
+                <!-- 오른쪽에 친구추천 -->
                 <div class="visual__friend-rec ml-30">
+
+                    <!-- my item -->
                     <div class="visual__friend-rec__first-div mb-25">
                         <img src="../assets/images/Avatar.png" alt="profile">
                         <div>
@@ -303,14 +311,13 @@
                     </div>
 
                     <div class="visual__friend-rec__second-div">
+
                         <div class="rec-caption mb-20">
                             <span>회원님을 위한 추천</span>
                             <span>모두 보기</span>
                         </div>
-
                         
                         <div class="rec-list">
-
                             <!-- item -->
                             <div class="rec-item mb-15">
                                 <img src="../assets/images/Avatar.png" alt="recommentation-item">
@@ -333,7 +340,6 @@
                             </div>
                             <!-- item -->
 
-
                             <!-- item -->
                             <div class="rec-item mb-15">
                                 <img src="../assets/images/Avatar.png" alt="recommentation-item">
@@ -355,8 +361,6 @@
                                 <span class="btn-friend-rec-following float--right false">팔로우</span>
                             </div>
                             <!-- item -->
-
-                            
                         </div>
                     </div>
                 </div>
@@ -622,7 +626,6 @@
                 <div id="comment-modal-button-prev" class="swiper-button-next"></div>
             </div>
 
-
             <div class="comment-modal-view__comment-list">
 
                 <div class="comment-modal-view__comment-list__header">
@@ -735,9 +738,11 @@
                 </div>
 
                 <div class="comment-modal-view__comment-list__write-comment">
-                    <i class="far fa-smile-wink"></i>
+                    <div class="emoticon-container">
+                        <i class="far fa-smile-wink btn-emoticon-icon"></i>
+                    </div>
                     <textarea class="modal-write-comment" rows="1" placeholder="댓글 달기..."></textarea>
-                    <button>게시</button>
+                    <button class="btn-comment-upload">게시</button>
                 </div>
 
             </div>

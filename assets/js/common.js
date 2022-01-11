@@ -79,17 +79,29 @@ $(document).ready(function(){
         }
     })
 
-    // 스토리 게시글 (모달)
+    // 스토리 게시글 (모달) 켜기
     $(".content-class").on("click", function(){
         saveScroll();
         $("body").addClass("stopScroll");
         $(".modal-comment-wrapper").css("display", "flex");
+        
+        // textarea 2개가 연동되서 모달 키고 닫을 때 내용 비워주기
+        $(".modal-write-comment").val("");
+
+        // 이모티콘 박스가 켜져있다면 닫기
+        if($(".modal-comment-wrapper").find(".emoticon-wrapper")){
+            $(".modal-comment-wrapper").find(".emoticon-wrapper").remove();
+        }
     })
 
     // btn 스토리 게시글 (모달) 닫기 
     $(".cancel-comment-modal").on("click", function(){
         $(".modal-comment-wrapper").hide();
         $("body").removeClass("stopScroll");
+
+        // textarea 2개가 연동되서 모달 키고 닫을 때 내용 비워주기
+        $(".modal-write-comment").val("");
+
         scroll();
     });
 
@@ -392,5 +404,406 @@ $(document).ready(function(){
             $(".btn-fileupload-multi").css("display", "inline-flex");
         });
     }
+
+    // 이모지
+    $(document).on("click", ".btn-emoticon-icon", function(){
+
+        let emojiDiv = `<div class="emoticon-wrapper">
+                            <div class="emoticon-wrapper__best-emojis"> 
+                                <h3>최고 인기 이모티콘</h3>
+                                <span class="emoticon-item">😂</span>
+                                <span class="emoticon-item">😮</span>
+                                <span class="emoticon-item">😍</span>
+                                <span class="emoticon-item">😢</span>
+                                <span class="emoticon-item">👏</span>
+                                <span class="emoticon-item">🔥</span>
+                                <span class="emoticon-item">🎉</span>
+                                <span class="emoticon-item">💯</span>
+                                <span class="emoticon-item">❤️</span>
+                                <span class="emoticon-item">🤣</span>
+                                <span class="emoticon-item">🥰</span>
+                                <span class="emoticon-item">😘</span>
+                                <span class="emoticon-item">😭</span>
+                                <span class="emoticon-item">😊</span>
+                            </div>
+                            <div class="emoticon-wrapper__smile-and-people"> 
+                                <h3>웃는 얼굴 및 사람</h3>
+                                <span class="emoticon-item">😀</span>
+                                <span class="emoticon-item">😃</span>
+                                <span class="emoticon-item">😄</span>
+                                <span class="emoticon-item">😄</span>
+                                <span class="emoticon-item">😄</span>
+                                <span class="emoticon-item">😄</span>
+                                <span class="emoticon-item">😄</span>
+                                <span class="emoticon-item">😁</span>
+                                <span class="emoticon-item">😆</span>
+                                <span class="emoticon-item">😅</span>
+                                <span class="emoticon-item">🤣</span>
+                                <span class="emoticon-item">😂</span>
+                                <span class="emoticon-item">🙂</span>
+                                <span class="emoticon-item">🙃</span>
+                                <span class="emoticon-item">😉</span>
+                                <span class="emoticon-item">😊</span>
+                                <span class="emoticon-item">😇</span>
+                                <span class="emoticon-item">🥰</span>
+                                <span class="emoticon-item">😍</span>
+                                <span class="emoticon-item">🤩</span>
+                                <span class="emoticon-item">😘</span>
+                                <span class="emoticon-item">😗</span>
+                                <span class="emoticon-item">😚</span>
+                                <span class="emoticon-item">😙</span>
+                                <span class="emoticon-item">😋</span>
+                                <span class="emoticon-item">😛</span>
+                                <span class="emoticon-item">😜</span>
+                                <span class="emoticon-item">🤪</span>
+                                <span class="emoticon-item">😝</span>
+                                <span class="emoticon-item">🤑</span>
+                                <span class="emoticon-item">🤗</span>
+                                <span class="emoticon-item">🤭</span>
+                                <span class="emoticon-item">🤫</span>
+                                <span class="emoticon-item">🤔</span>
+                                <span class="emoticon-item">🤐</span>
+                                <span class="emoticon-item">🤨</span>
+                                <span class="emoticon-item">😐</span>
+                                <span class="emoticon-item">😑</span>
+                                <span class="emoticon-item">😶</span>
+                                <span class="emoticon-item">😏</span>
+                                <span class="emoticon-item">😒</span>
+                                <span class="emoticon-item">🙄</span>
+                                <span class="emoticon-item">😬</span>
+                                <span class="emoticon-item">🤥</span>
+                                <span class="emoticon-item">😌</span>
+                                <span class="emoticon-item">😔</span>
+                                <span class="emoticon-item">😪</span>
+                                <span class="emoticon-item">🤤</span>
+                                <span class="emoticon-item">😴</span>
+                                <span class="emoticon-item">😷</span>
+                                <span class="emoticon-item">🤒</span>
+                                <span class="emoticon-item">🤕</span>
+                                <span class="emoticon-item">🤢</span>
+                                <span class="emoticon-item">🤮</span>
+                                <span class="emoticon-item">🤧</span>
+                                <span class="emoticon-item">🥵</span>
+                                <span class="emoticon-item">🥶</span>
+                                <span class="emoticon-item">🥴</span>
+                                <span class="emoticon-item">😵</span>
+                                <span class="emoticon-item">🤯</span>
+                                <span class="emoticon-item">🤠</span>
+                                <span class="emoticon-item">🥳</span>
+                                <span class="emoticon-item">😎</span>
+                                <span class="emoticon-item">🤓</span>
+                                <span class="emoticon-item">🧐</span>
+                                <span class="emoticon-item">😕</span>
+                                <span class="emoticon-item">😟</span>
+                                <span class="emoticon-item">🙁</span>
+                                <span class="emoticon-item">😮</span>
+                                <span class="emoticon-item">😯</span>
+                                <span class="emoticon-item">😲</span>
+                                <span class="emoticon-item">😳</span>
+                                <span class="emoticon-item">🥺</span>
+                                <span class="emoticon-item">😦</span>
+                                <span class="emoticon-item">😧</span>
+                                <span class="emoticon-item">😨</span>
+                                <span class="emoticon-item">😰</span>
+                                <span class="emoticon-item">😥</span>
+                                <span class="emoticon-item">😢</span>
+                                <span class="emoticon-item">😭</span>
+                                <span class="emoticon-item">😱</span>
+                                <span class="emoticon-item">😖</span>
+                                <span class="emoticon-item">😣</span>
+                                <span class="emoticon-item">😞</span>
+                                <span class="emoticon-item">😓</span>
+                                <span class="emoticon-item">😩</span>
+                                <span class="emoticon-item">😫</span>
+                                <span class="emoticon-item">😤</span>
+                                <span class="emoticon-item">😡</span>
+                                <span class="emoticon-item">😠</span>
+                                <span class="emoticon-item">🤬</span>
+                                <span class="emoticon-item">😈</span>
+                                <span class="emoticon-item">👿</span>
+                                <span class="emoticon-item">💀</span>
+                                <span class="emoticon-item">☠</span>
+                                <span class="emoticon-item">💩</span>
+                                <span class="emoticon-item">🤡</span>
+                                <span class="emoticon-item">👹</span>
+                                <span class="emoticon-item">👺</span>
+                                <span class="emoticon-item">👻</span>
+                                <span class="emoticon-item">👽</span>
+                                <span class="emoticon-item">👾</span>
+                                <span class="emoticon-item">🤖</span>
+                                <span class="emoticon-item">😺</span>
+                                <span class="emoticon-item">😸</span>
+                                <span class="emoticon-item">😹</span>
+                                <span class="emoticon-item">😻</span>
+                                <span class="emoticon-item">😼</span>
+                                <span class="emoticon-item">😽</span>
+                                <span class="emoticon-item">🙀</span>
+                                <span class="emoticon-item">😿</span>
+                                <span class="emoticon-item">😾</span>
+                                <span class="emoticon-item">💋</span>
+                                <span class="emoticon-item">👋</span>
+                                <span class="emoticon-item">🤚</span>
+                                <span class="emoticon-item">🖐</span>
+                                <span class="emoticon-item">✋</span>
+                                <span class="emoticon-item">🖖</span>
+                                <span class="emoticon-item">👌</span>
+                                <span class="emoticon-item">👌</span>
+                                <span class="emoticon-item">✌</span>
+                                <span class="emoticon-item">🤞</span>
+                                <span class="emoticon-item">🤟</span>
+                                <span class="emoticon-item">🤘</span>
+                                <span class="emoticon-item">🤙</span>
+                                <span class="emoticon-item">👈</span>
+                                <span class="emoticon-item">👉</span>
+                                <span class="emoticon-item">👆</span>
+                                <span class="emoticon-item">🖕</span>
+                                <span class="emoticon-item">👇</span>
+                                <span class="emoticon-item">☝</span>
+                                <span class="emoticon-item">👍</span>
+                                <span class="emoticon-item">👎</span>
+                                <span class="emoticon-item">✊</span>
+                                <span class="emoticon-item">👊</span>
+                                <span class="emoticon-item">🤛</span>
+                                <span class="emoticon-item">🤜</span>
+                                <span class="emoticon-item">👏</span>
+                                <span class="emoticon-item">🙌</span>
+                                <span class="emoticon-item">👐</span>
+                                <span class="emoticon-item">🤲</span>
+                                <span class="emoticon-item">🤝</span>
+                                <span class="emoticon-item">🙏</span>
+                                <span class="emoticon-item">✍</span>
+                                <span class="emoticon-item">💅</span>
+                                <span class="emoticon-item">🤳</span>
+                                <span class="emoticon-item">💪</span>
+                                <span class="emoticon-item">🦵</span>
+                                <span class="emoticon-item">🦶</span>
+                                <span class="emoticon-item">👂</span>
+                                <span class="emoticon-item">👃</span>
+                                <span class="emoticon-item">🧠</span>
+                                <span class="emoticon-item">🦷</span>
+                                <span class="emoticon-item">🦴</span>
+                                <span class="emoticon-item">👀</span>
+                                <span class="emoticon-item">👁</span>
+                                <span class="emoticon-item">👅</span>
+                                <span class="emoticon-item">👄</span>
+                                <span class="emoticon-item">👶</span>
+                                <span class="emoticon-item">🧒</span>
+                                <span class="emoticon-item">👦</span>
+                                <span class="emoticon-item">👧</span>
+                                <span class="emoticon-item">🧑</span>
+                                <span class="emoticon-item">👱</span>
+                                <span class="emoticon-item">👨</span>
+                                <span class="emoticon-item">🧔</span>
+                                <span class="emoticon-item">👨</span>
+                                <span class="emoticon-item">👨</span>
+                                <span class="emoticon-item">👨</span>
+                                <span class="emoticon-item">👨</span>
+                                <span class="emoticon-item">👨</span>
+                                <span class="emoticon-item">👩</span>
+                                <span class="emoticon-item">👱</span>
+                                <span class="emoticon-item">🧓</span>
+                                <span class="emoticon-item">👴</span>
+                                <span class="emoticon-item">👵</span>
+                                <span class="emoticon-item">🙍</span>
+                                <span class="emoticon-item">🙍</span>
+                                <span class="emoticon-item">🙎</span>
+                                <span class="emoticon-item">🙅</span>
+                                <span class="emoticon-item">🙆</span>
+                                <span class="emoticon-item">💁</span>
+                                <span class="emoticon-item">🙋</span>
+                                <span class="emoticon-item">🙇</span>
+                                <span class="emoticon-item">🤦</span>
+                                <span class="emoticon-item">🤷</span>
+                                <span class="emoticon-item">👨</span>
+                                <span class="emoticon-item">👩</span>
+                                <span class="emoticon-item">🕵</span>
+                                <span class="emoticon-item">💂</span>
+                                <span class="emoticon-item">👷</span>
+                                <span class="emoticon-item">🤴</span>
+                                <span class="emoticon-item">👸</span>
+                                <span class="emoticon-item">👳</span>
+                                <span class="emoticon-item">👲</span>
+                                <span class="emoticon-item">🧕</span>
+                                <span class="emoticon-item">🤵</span>
+                                <span class="emoticon-item">👰</span>
+                                <span class="emoticon-item">🤰</span>
+                                <span class="emoticon-item">🤱</span>
+                                <span class="emoticon-item">👼</span>
+                                <span class="emoticon-item">🎅</span>
+                                <span class="emoticon-item">🤶</span>
+                                <span class="emoticon-item">🦸</span>
+                                <span class="emoticon-item">🦸</span>
+                                <span class="emoticon-item">🦹</span>
+                                <span class="emoticon-item">🧙</span>
+                                <span class="emoticon-item">🧙</span>
+                                <span class="emoticon-item">🧚</span>
+                                <span class="emoticon-item">🧛</span>
+                                <span class="emoticon-item">🧜</span>
+                                <span class="emoticon-item">🧝</span>
+                                <span class="emoticon-item">🧞</span>
+                                <span class="emoticon-item">🧟</span>
+                                <span class="emoticon-item">💆</span>
+                                <span class="emoticon-item">💇</span>
+                                <span class="emoticon-item">🚶</span>
+                                <span class="emoticon-item">🏃</span>
+                                <span class="emoticon-item">💃</span>
+                                <span class="emoticon-item">🕺</span>
+                                <span class="emoticon-item">🕴</span>
+                                <span class="emoticon-item">👯</span>
+                                <span class="emoticon-item">🧖</span>
+                                <span class="emoticon-item">🧖</span>
+                                <span class="emoticon-item">🧘</span>
+                                <span class="emoticon-item">👭</span>
+                                <span class="emoticon-item">👫</span>
+                                <span class="emoticon-item">👬</span>
+                                <span class="emoticon-item">💏</span>
+                                <span class="emoticon-item">💑</span>
+                                <span class="emoticon-item">👪</span>
+                                <span class="emoticon-item">🗣</span>
+                                <span class="emoticon-item">👤</span>
+                                <span class="emoticon-item">👥</span>
+                                <span class="emoticon-item">👣</span>
+                                <span class="emoticon-item">🧳</span>
+                                <span class="emoticon-item">🌂</span>
+                                <span class="emoticon-item">☂</span>
+                                <span class="emoticon-item">🧵</span>
+                                <span class="emoticon-item">🧶</span>
+                                <span class="emoticon-item">👓</span>
+                                <span class="emoticon-item">🕶</span>
+                                <span class="emoticon-item">🥽</span>
+                                <span class="emoticon-item">🥼</span>
+                                <span class="emoticon-item">👔</span>
+                                <span class="emoticon-item">👕</span>
+                                <span class="emoticon-item">👖</span>
+                                <span class="emoticon-item">🧣</span>
+                                <span class="emoticon-item">🧤</span>
+                                <span class="emoticon-item">🧥</span>
+                                <span class="emoticon-item">🧦</span>
+                                <span class="emoticon-item">👗</span>
+                                <span class="emoticon-item">👘</span>
+                                <span class="emoticon-item">👙</span>
+                                <span class="emoticon-item">👚</span>
+                                <span class="emoticon-item">👛</span>
+                                <span class="emoticon-item">👜</span>
+                                <span class="emoticon-item">👝</span>
+                                <span class="emoticon-item">🎒</span>
+                                <span class="emoticon-item">👞</span>
+                                <span class="emoticon-item">👟</span>
+                                <span class="emoticon-item">🥾</span>
+                                <span class="emoticon-item">🥿</span>
+                                <span class="emoticon-item">👠</span>
+                                <span class="emoticon-item">👡</span>
+                                <span class="emoticon-item">👢</span>
+                                <span class="emoticon-item">👑</span>
+                                <span class="emoticon-item">👒</span>
+                                <span class="emoticon-item">🎩</span>
+                                <span class="emoticon-item">🎓</span>
+                                <span class="emoticon-item">🧢</span>
+                                <span class="emoticon-item">⛑</span>
+                                <span class="emoticon-item">💄</span>
+                                <span class="emoticon-item">💍</span>
+                                <span class="emoticon-item">💼</span>
+                            </div>
+                            <div class="emoticon-wrapper__animal-and-nature"> 
+                                <h3>동물 및 자연</h3>
+                                <span class="emoticon-item">🙈</span>
+                                <span class="emoticon-item">🙉</span>
+                                <span class="emoticon-item">🙊</span>
+                                <span class="emoticon-item">💥</span>
+                                <span class="emoticon-item">💫</span>
+                                <span class="emoticon-item">💦</span>
+                                <span class="emoticon-item">💨</span>
+                                <span class="emoticon-item">🐵</span>
+                                <span class="emoticon-item">🐒</span>
+                                <span class="emoticon-item">🦍</span>
+                                <span class="emoticon-item">🐶</span>
+                                <span class="emoticon-item">🐕</span>
+                                <span class="emoticon-item">🐩</span>
+                                <span class="emoticon-item">🐺</span>
+                                <span class="emoticon-item">🦊</span>
+                                <span class="emoticon-item">🦝</span>
+                                <span class="emoticon-item">🐱</span>
+                                <span class="emoticon-item">🐈</span>
+                                <span class="emoticon-item">🦁</span>
+                                <span class="emoticon-item">🐯</span>
+                                <span class="emoticon-item">🐅</span>
+                                <span class="emoticon-item">🐆</span>
+                                <span class="emoticon-item">🐴</span>
+                                <span class="emoticon-item">🐎</span>
+                                <span class="emoticon-item">🦄</span>
+                                <span class="emoticon-item">🦓</span>
+                                <span class="emoticon-item">🦌</span>
+                                <span class="emoticon-item">🐮</span>
+                                <span class="emoticon-item">🐂</span>
+                                <span class="emoticon-item">🐃</span>
+                                <span class="emoticon-item">🐄</span>
+                                <span class="emoticon-item">🐷</span>
+                                <span class="emoticon-item">🐖</span>
+                                <span class="emoticon-item">🐗</span>
+                                <span class="emoticon-item">🐽</span>
+                                <span class="emoticon-item">🐏</span>
+                                <span class="emoticon-item">🐑</span>
+                                <span class="emoticon-item">🐐</span>
+                                <span class="emoticon-item">🐪</span>
+                                <span class="emoticon-item">🐫</span>
+                                <span class="emoticon-item">🦙</span>
+                                <span class="emoticon-item">🦙</span>
+                                <span class="emoticon-item">🦒</span>
+                                <span class="emoticon-item">🐘</span>
+                                <span class="emoticon-item">🦏</span>
+                                <span class="emoticon-item">🦛</span>
+                                <span class="emoticon-item">🐭</span>
+                                <span class="emoticon-item">🐁</span>
+                                <span class="emoticon-item">🐀</span>
+                                <span class="emoticon-item">🐹</span>
+                                <span class="emoticon-item">🐰</span>
+                                <span class="emoticon-item">🐇</span>
+                                <span class="emoticon-item">🐿</span>
+                                <span class="emoticon-item">🦔</span>
+                                <span class="emoticon-item">🦇</span>
+                                <span class="emoticon-item">🐻</span>
+                                <span class="emoticon-item">🐨</span>
+                                <span class="emoticon-item">🐼</span>
+                                <span class="emoticon-item">🦘</span>
+                                <span class="emoticon-item">🦡</span>
+                                <span class="emoticon-item">🐾</span>
+                                <span class="emoticon-item">🦃</span>
+                                <span class="emoticon-item">🐔</span>
+                            </div>
+                        </div>`;
+    
+        if($(this).next().hasClass("emoticon-wrapper")){
+            $(this).next().remove();
+        }else{
+            $(this).parent().append(emojiDiv);
+        }
+    })
+
+    // 이모지 클릭 시 해당 이모지 textarea에 삽입
+    $(document).on("click", ".emoticon-item", function(){
+        let data = $(this).text();
+        let dataTextArea = $(".modal-write-comment").val();
+     
+        $(".modal-write-comment").val(dataTextArea+data)
+    })
+
+    // textarea에 focus시 이모지 박스 닫기, 이건 개별 js로 넣는게 나을듯 
+    $(".modal-write-comment").on("focus", function(){
+        console.log("test")
+        if($(this).prev().children(".emoticon-wrapper")){
+            $(this).prev().children(".emoticon-wrapper").remove();
+        }
+    })
+
+    // 스토리 모달 댓글 업로드
+    $(".btn-comment-upload").on("click", function(){
+        alert("로직")
+        $(".modal-write-comment").val("");
+
+        //이모지 닫기   
+        if($(this).prev().prev().children(".emoticon-wrapper")){
+            $(this).prev().prev().children(".emoticon-wrapper").remove();
+        }
+    })
 
 });
