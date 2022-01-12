@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
     // 탭 전환 
     $(".btn-photo").on("click", function(){
         $(this).addClass("on")

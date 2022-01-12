@@ -119,18 +119,21 @@
 
                     <div class="mb-20">
                         <span class="font-thin mr-20">a_a33a</span>
-                        <button class="mr-20">프로필 편집</button>
-                        <i class="fas fa-cog"></i>
+                        <button class="mr-20" onclick="location.href='/profile/update.html'">프로필 편집</button>
+                        <i class="fas fa-cog btn-edit-profile-gear"></i>
                     </div>
 
                     <div class="mb-20">
                         <div class="fz-16 mr-40">게시물 <span class="fw-700">0</span></div>
-                        <div class="fz-16 mr-40 cursor-pointer">팔로워 <span class="fw-600">4</span></div>
-                        <div class="fz-16 cursor-pointer">팔로우 <span class="fw-600">5</span></div>
+                        <div class="btn-followers-modal-open fz-16 mr-40 cursor-pointer">팔로워 <span class="fw-600">4</span></div>
+                        <div class="btn-followings-modal-open fz-16 cursor-pointer">팔로우 <span class="fw-600">5</span></div>
                     </div>
 
                     <div>
                         <span class="fz-16 fw-600">walle</span>
+                        <p class="user-profile__info-div__caption mt-10">
+                            안녕하십니까~<br>
+                        </p>
                     </div>
                 </div>
 
@@ -524,8 +527,68 @@
     </div>
 </div>
 
+<!-- 팔로워, 팔로우 (모달) -->
+<div class="modal-wrapper modal-mypage-following-wrapper">
+    <div class="modal modal-mypage-following">
+        
+        <div>
+            <h3>팔로워</h3>
+            <i class="fas fa-times btn-close-modal-mypage-following"></i>
+        </div>
+
+        <div class="modal-mypage-following__user-list">
+            <div class="modal-mypage-following__user-list__item">
+                <img src="../assets/images/insta2.jpg" alt="profile">
+                <div>
+                    <span>tilltofu</span>
+                    <span>Asia Chrisdosizjsk</span>
+                </div>
+
+                <button class="modal-mypage-following__user-list__btn-delete">삭제</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 톱니바퀴 (모달) -->
+<div class="modal-wrapper modal-gear-wrapper">
+    <div class="modal modal-gear">
+       <button>로그아웃</button> 
+       <button>취소</button>
+    </div>
+</div>
+
 <script>
-    
+    // btn 팔로워 모달 켜기
+    $(".btn-followers-modal-open").on("click", function(){
+        $(".modal-mypage-following-wrapper").find("h3").text("팔로워")
+        $(".modal-mypage-following-wrapper").css("display", "flex");
+    })
+
+     // btn 팔로우 모달 켜기
+     $(".btn-followings-modal-open").on("click", function(){
+        $(".modal-mypage-following-wrapper").find("h3").text("팔로우")
+        $(".modal-mypage-following-wrapper").css("display", "flex");
+    })
+
+    // btn 팔로워 모달 끄기
+    $(".btn-close-modal-mypage-following").on("click", function(){
+        $(".modal-mypage-following-wrapper").hide();
+    })
+
+    // btn 삭제
+    $(".modal-mypage-following__user-list__btn-delete").on("click", function(){
+        alert("test")
+    })
+
+    // btn 설정 톱니바퀴 모달 켜기
+    $(".btn-edit-profile-gear").on("click", function(){
+        alert("test3")
+    })
+
+    //btn 설정 톱니바퀴 모달 끄기
+
+    //btn 로그아웃 run
 </script>
 <script src="../assets/js/profile/my-page.js"></script>
 <script src="../assets/js/common.js"></script>

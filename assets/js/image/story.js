@@ -32,17 +32,33 @@ $(document).ready(function(){
         },
     });
 
+    // 이모지 클릭 시 해당 이모지 textarea에 삽입
+    $(document).on("click", ".emoticon-item", function(){
+        let data = $(this).text();
+        let dataTextArea = $("#content-comment-textarea").val();
+     
+        $("#content-comment-textarea").val(dataTextArea+data)
+    })
+
+    // textarea에 focus시 이모지 박스 닫기
+    $("#content-comment-textarea").on("focus", function(){
+        $(".emoticon-wrapper").remove();
+    })
+
     // btn 게시글 업로드
     $(".upload-comment").on("click", function(e){
         e.preventDefault();
         
+        if($("#content-comment-textarea").val() === ""){
+            alert("내용이 없습니다.")
+            return;
+        }
+
         alert("로직")
         $("#content-comment-textarea").val("");
 
         //이모지 닫기
-        if($(this).prev().prev().children(".emoticon-wrapper")){
-            $(this).prev().prev().children(".emoticon-wrapper").remove();
-        }
+        $(".emoticon-wrapper").remove();
     });
 
     // 콘텐츠 caption 더보기 (수정 필요)
@@ -93,37 +109,8 @@ $(document).ready(function(){
         }
     });
 
-    // 콘텐츠 dotdotdot 옵션
-    $(".btn-content-option").on("click", function(){
-        $("body").addClass("stopScroll");
-        $(".modal-content-option-wrapper").css("display", "flex");
-    });
 
-    $(".cancle-content-option").on("click", function(){
-        $(".modal-content-option-wrapper").hide();
-        $("body").removeClass("stopScroll");
-    });
-
-    $(".modal-content-option .report").on("click", function(){
-        $(".modal-content-option-wrapper").hide();
-        $(".modal-reportList-wrapper").css("display", "flex");
-    });
-
-    // 신고 사유 선택
-    $(".cancel-reportList").on("click", function(){
-        $(".modal-reportList-wrapper").hide();
-    });
-
-    // 신고 완료
-    $(".modal-reportList ul li button").on("click", function(){
-        $(".modal-reportList-wrapper").hide();
-        $(".modal-reported-wrapper").css("display", "flex");
-    })
-
-    $(".btn-close-reported").on("click", function(){
-        $(".modal-reported-wrapper").hide();
-        $("body").removeClass("stopScroll");
-    })
+   
 
     // 좋아요, 좋아요 취소
     $(".content-like").on("click", function(e){
@@ -139,35 +126,6 @@ $(document).ready(function(){
             $(this).removeClass("fas");
         }
     });
-
-    // 콘텐츠 옵션에서 팔로우 취소 눌렀을때 보여주는 (모달)
-    $(".cancel-following").on("click", function(){
-        $(".modal-content-option-wrapper").hide();
-        $(".modal-requestCancelFollowing-wrapper").css("display", "flex");
-    })
-
-    // 팔로우 취소 모달 닫기 
-    $(".btn-close-requestCancelFollowing").on("click", function(){
-        $(".modal-requestCancelFollowing-wrapper").hide();
-        $("body").removeClass("stopScroll");
-    })
-
-    // 팔로우 취소API
-    $(".btn-cancel-following").on("click", function(){
-        //로직
-        alert("팔로우 취소 api 실행");
-        $(".modal-requestCancelFollowing-wrapper").hide();
-        $("body").removeClass("stopScroll");
-    })
-
-    // 콘텐츠 옵션에서 링크 복사 눌렀을때 보여주는 (모달)
-    $(".btn-link-copy").on("click", function(){
-        
-        //로직
-        alert("링크가 복사되었습니다.")
-        $(".modal-content-option-wrapper").hide();
-        $("body").removeClass("stopScroll");
-    })
 
     // 친구추천에서 팔로잉 눌렀을 때
     $(".btn-friend-rec-following").on("click", function(){

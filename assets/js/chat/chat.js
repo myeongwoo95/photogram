@@ -1,6 +1,20 @@
 
 $(document).ready(function(){
 
+    // 이모지 클릭 시 해당 이모지 textarea에 삽입
+    $(document).on("click", ".emoticon-item", function(){
+        let data = $(this).text();
+        let dataTextArea = $(".text-box__textarea").val();
+     
+        $(".text-box__textarea").val(dataTextArea+data)
+    })
+
+    // textarea에 focus시 이모지 박스 닫기
+    $(".text-box__textarea").on("focus", function(){
+        $(".emoticon-wrapper").remove();
+    })
+
+
     // 메세지 hover, leave 했을때 option dotdotdot 보여주고 숨기기
     $(document).on("mouseover", ".chat-item-box",function () {
         $(this).children(".content-option-box-wrapper").children("i").css("display", "inline");
@@ -56,18 +70,37 @@ $(document).ready(function(){
         $(".emoji-heart").show();
         $(".emoji-image").show();
         $(".btn-sending-message").hide();
+
+        //이모지 닫기   
+        $(".emoticon-wrapper").remove();
+
+        //스크롤 맨 아래로 내리기
+        $('.chat-box').scrollTop($('.chat-box')[0].scrollHeight);
+        
     });
 
     // 파일 전송
     $(".emoji-image").on("click", function(){
         $(".text-box__input-file").trigger("click");
+
+        //스크롤 맨 아래로 내리기
+        $('.chat-box').scrollTop($('.chat-box')[0].scrollHeight);
     })
 
     // btn 메세지 좋아요
+    $(document).on("click", ".btn-message-like", function(){
+        alert("test1")
+    })
 
     // btn 메세지 복사
+    $(document).on("click", ".btn-message-copy", function(){
+        alert("test2")
+    })
 
     // btn 메세지 신고
+    $(document).on("click", ".btn-message-report", function(){
+        alert("복사 되었습니다.")
+    })
 
     // 하트 전송
     $(".emoji-heart").on("click", function(){
@@ -91,7 +124,11 @@ $(document).ready(function(){
                             </div>
                         </div>`;
         $(".chat-box").append(message);
+
+        //스크롤 맨 아래로 내리기
+        $('.chat-box').scrollTop($('.chat-box')[0].scrollHeight);
     })
+
     // 메세지 수신
     
 
@@ -138,7 +175,7 @@ $(document).ready(function(){
     })
 
     // 채팅으로 이동
-    $(".chat-item").on("click", function(){
+    $(document).on("click", ".chat-item", function(){
         if($(this).hasClass("active")){
             return;
         }
@@ -167,13 +204,21 @@ $(document).ready(function(){
         }
     })
 
-    // new Message
+    // new Message 모달 켜기
     $(".btn-newMessage").on("click", function(){
         $(".modal-newMessage-wrapper").css("display", "flex");
     })
 
     // new make chat room
     $(".btn-make-newMessage").on("click", function(){
+
+        왜 안되지...
+        // if($(".invite-member-list").children(".invite-member-item")){
+        //     alert("존재함")
+        // }else{
+        //     alert("존재안함")
+        // }
+
         alert("api 로직 및 대화방 만들기")
         // 추천목록에서 체크한거 해제, rec-users div 안에 user-item들의 input!
         $(".modal-newMessage-wrapper").hide();
@@ -196,6 +241,7 @@ $(document).ready(function(){
         $(".chat-list").append(divItem);
     })
 
+    // new Message 모달 닫기
     $(".btn-close-modal-newMessage").on("click", function(){
         $(".modal-newMessage-wrapper").hide();
         $(".search-friend-input").val("");

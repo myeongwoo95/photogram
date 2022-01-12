@@ -46,6 +46,20 @@ $(document).ready(function(){
         //로직추가
     });
 
+    // 이미지 상세보기 -> 신고 -> (차단) 및 팔로우 취소
+    $(".modal-reported__btn-block-user").on("click", function(e){
+        e.preventDefault();
+        alert("차단 API로직")
+        $(".modal-reported-wrapper").hide();
+    })
+
+    // 이미지 상세보기 -> 신고 -> 차단 및 (팔로우 취소) 다른 btn이랑 로직이 겹치니까 그거사용
+    $(".modal-reported__btn-cancel-following").on("click", function(e){
+        e.preventDefault();
+        alert("팔로우취소 API로직")
+        $(".modal-reported-wrapper").hide();
+    })
+
     // 헤더 프로필 클릭
     $(".header__profile-picture").on("click", function(){
         if( $(".header__dropdown").css("display") == "none"){
@@ -80,18 +94,13 @@ $(document).ready(function(){
     })
 
     // 스토리 게시글 (모달) 켜기
-    $(".content-class").on("click", function(){
+    $(".content-class, .comment-count").on("click", function(){
         saveScroll();
         $("body").addClass("stopScroll");
         $(".modal-comment-wrapper").css("display", "flex");
         
-        // textarea 2개가 연동되서 모달 키고 닫을 때 내용 비워주기
+        // 모달 밖에서 emoji item을 누르면 모달 textarea에 emoji가 채워져서 비워줘야함
         $(".modal-write-comment").val("");
-
-        // 이모티콘 박스가 켜져있다면 닫기
-        if($(".modal-comment-wrapper").find(".emoticon-wrapper")){
-            $(".modal-comment-wrapper").find(".emoticon-wrapper").remove();
-        }
     })
 
     // btn 스토리 게시글 (모달) 닫기 
@@ -99,8 +108,11 @@ $(document).ready(function(){
         $(".modal-comment-wrapper").hide();
         $("body").removeClass("stopScroll");
 
-        // textarea 2개가 연동되서 모달 키고 닫을 때 내용 비워주기
+        // 댓글 창 비워주기
         $(".modal-write-comment").val("");
+       
+        // 이모지 박스 닫아주기
+        $(".emoticon-wrapper").remove();
 
         scroll();
     });
@@ -787,23 +799,86 @@ $(document).ready(function(){
         $(".modal-write-comment").val(dataTextArea+data)
     })
 
-    // textarea에 focus시 이모지 박스 닫기, 이건 개별 js로 넣는게 나을듯 
+    // textarea에 focus시 이모지 박스 닫기
     $(".modal-write-comment").on("focus", function(){
-        console.log("test")
-        if($(this).prev().children(".emoticon-wrapper")){
-            $(this).prev().children(".emoticon-wrapper").remove();
-        }
+        $(".emoticon-wrapper").remove();
     })
 
     // 스토리 모달 댓글 업로드
     $(".btn-comment-upload").on("click", function(){
+
+        if($(".modal-write-comment").val() == ""){
+            alert("내용이 없습니다.")
+            return;
+        }
+      
         alert("로직")
         $(".modal-write-comment").val("");
 
         //이모지 닫기   
-        if($(this).prev().prev().children(".emoticon-wrapper")){
-            $(this).prev().prev().children(".emoticon-wrapper").remove();
-        }
+        $(".emoticon-wrapper").remove();
     })
 
+    // 스토리 게시물 옵션
+    // 콘텐츠 dotdotdot 옵션 모달 켜기
+    $(".btn-content-option").on("click", function(){
+        $("body").addClass("stopScroll");
+        $(".modal-content-option-wrapper").css("display", "flex");
+    });
+
+    $(".cancle-content-option").on("click", function(){
+        $(".modal-content-option-wrapper").hide();
+        $("body").removeClass("stopScroll");
+    });
+
+    // 콘텐츠 dotdotdot 옵션 모달 닫기
+    $(".modal-content-option .report").on("click", function(){
+        $(".modal-content-option-wrapper").hide();
+        $(".modal-reportList-wrapper").css("display", "flex");
+    });
+
+    // 신고 사유 선택
+    $(".cancel-reportList").on("click", function(){
+        $(".modal-reportList-wrapper").hide();
+    });
+
+    // 신고 완료
+    $(".modal-reportList ul li button").on("click", function(){
+        $(".modal-reportList-wrapper").hide();
+        $(".modal-reported-wrapper").css("display", "flex");
+    })
+
+    $(".btn-close-reported").on("click", function(){
+        $(".modal-reported-wrapper").hide();
+        $("body").removeClass("stopScroll");
+    })
+
+    // 콘텐츠 옵션에서 팔로우 취소 눌렀을때 보여주는 (모달)
+    $(".cancel-following").on("click", function(){
+        $(".modal-content-option-wrapper").hide();
+        $(".modal-requestCancelFollowing-wrapper").css("display", "flex");
+    })
+
+    // 팔로우 취소 모달 닫기 
+    $(".btn-close-requestCancelFollowing").on("click", function(){
+        $(".modal-requestCancelFollowing-wrapper").hide();
+        $("body").removeClass("stopScroll");
+    })
+
+    // 팔로우 취소API
+    $(".btn-cancel-following").on("click", function(){
+        //로직
+        alert("팔로우 취소 api 실행");
+        $(".modal-requestCancelFollowing-wrapper").hide();
+        $("body").removeClass("stopScroll");
+    })
+
+    // 콘텐츠 옵션에서 링크 복사 눌렀을때 보여주는 (모달)
+    $(".btn-link-copy").on("click", function(){
+        
+        //로직
+        alert("링크가 복사되었습니다.")
+        $(".modal-content-option-wrapper").hide();
+        $("body").removeClass("stopScroll");
+    })
 });

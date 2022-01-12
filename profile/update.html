@@ -162,7 +162,7 @@
                             <div class="mb-15">
                                 <label for="">이메일</label>
                                 <input class="input--text" type="email" name="username" id="username" placeholder="이메일">
-                                <button class="mt-15">이메일 확인</button>
+                                <button class="btn-confirm-email-check mt-15">이메일 확인</button>
                             </div>
 
                             <div class="mb-15">
@@ -173,6 +173,11 @@
                             <div class="mb-15">
                                 <label for="">성별</label>
                                 <input class="input--text" type="text" name="username" id="username" placeholder="성별">
+                            </div>
+
+                            <div class="edit-profile__info__last-div mb-15">
+                                <button class="btn-submit-edit-infos">제출</button>
+                                <span class="btn-disable-account">계정을 일시적으로 비활성화</span>
                             </div>
                             
                         </div>
@@ -352,40 +357,46 @@
     </div>
 
 </div>
+
+<div class="modal-wrapper modal-disable-acount-wrapper">
+    <div class="modal modal-disable-acount">
+        <img class="mt-40 mb-25" src="../assets/images/item.jpg" alt="profile">
+
+        <p class="mb-30">@blahdi_jk 계정을 비활성화 하시겠습니까?</p>
+
+        <button class="btn-disable-account-run">계정 비활성화</button>
+        <button class="btn-cancel-disable-account">취소</button>
+    </div>
+</div>
 <script>
-    $(".btn-edit-profile").on("click", function(){
-        $(this).addClass("active");
-        $(".btn-edit-pw").removeClass("active");
-        $(".btn-edit-push").removeClass("active");
-
-
-        $(".edit-profile").show();
-        $(".edit-pw").hide();
-        $(".edit-push").hide();
+    // btn 계정 비활성화 모달 켜기
+    $(".btn-disable-account").on("click", function(){
+        $(".modal-disable-acount-wrapper").css("display", "flex");
     })
 
-    $(".btn-edit-pw").on("click", function(){
-        $(this).addClass("active");
-        $(".btn-edit-profile").removeClass("active");
-        $(".btn-edit-push").removeClass("active");
-
-        $(".edit-profile").hide();
-        $(".edit-pw").show();
-        $(".edit-push").hide();
-        
+    // btn 계정 비활성화 모달 끄기
+    $(".btn-cancel-disable-account").on("click", function(e){
+        e.preventDefault();
+        $(".modal-disable-acount-wrapper").hide();
     })
 
-    $(".btn-edit-push").on("click", function(){
-        $(this).addClass("active");
-        $(".btn-edit-profile").removeClass("active");
-        $(".btn-edit-pw").removeClass("active");
+    // btn 계정 비활성화 API
+    $(".btn-disable-account-run").on("click", function(e){
+        alert("계정 비활성화 API 로직");
+        $(".modal-disable-acount-wrapper").hide();
+    })
 
-        $(".edit-profile").hide();
-        $(".edit-pw").hide();
-        $(".edit-push").show();
-        
+    // btn 제출
+    $(".btn-submit-edit-infos").on("click", function(e){
+        alert("유효성 검사, 프로필 편집 API")
+    })
+
+    // btn 이메일 확인
+    $(".btn-confirm-email-check").on("click", function(e){
+        alert("이메일 확인 API");
     })
 </script>
 <script src="../assets/js/common.js"></script>
+<script src="../assets/js/profile/update.js"></script>
 </body>
 </html>

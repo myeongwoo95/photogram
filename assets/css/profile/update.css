@@ -89,7 +89,6 @@
     font-weight: bold;
     vertical-align:top;
     margin-top: 7px;
-    
 }
 
 .edit-profile__info > div input{
@@ -100,6 +99,9 @@
     width: 355px;
     height: 60px;
     resize: none;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 6px;
 }
 
 .edit-profile__info > div p{
@@ -122,6 +124,28 @@
     border: 0;
     display: block;
     margin-left: 187px;
+    cursor: pointer;
+}
+
+.edit-profile__info__last-div{
+    position: relative;
+    display: flex;
+}
+
+.edit-profile__info__last-div button{
+    width: 70px;
+}
+
+.edit-profile__info__last-div span{
+    padding: 8px;
+    background: #ED4956;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 10px;
     cursor: pointer;
 }
 
@@ -162,6 +186,48 @@
 .edit-push > div > div label{
     font-weight: bold;
     cursor: pointer;
+}
+
+/*================================================================
+# modal
+=================================================================*/
+.modal-disable-acount-wrapper{
+    z-index: 11;
+}
+.modal-disable-acount{
+    width: 400px;
+    text-align: center;
+}
+
+.modal-disable-acount img{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 1px solid #dbdbdb;
+}
+
+.modal-disable-acount p{
+    font-size: 14px;
+}
+
+.modal-disable-acount div{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-disable-acount button{
+    display: block;
+    width: 100%;
+    border: 0;
+    border-top: 1px solid #dbdbdb;
+    background: 0;
+    height: 48px;
+    cursor: pointer;
+}
+
+.modal-disable-acount button.btn-disable-account-run{
+    color: #ED4956;
+    font-weight: bold;
 }
 
 

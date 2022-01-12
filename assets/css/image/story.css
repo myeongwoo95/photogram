@@ -119,6 +119,7 @@
     right: 0px;
     cursor: pointer;
 }
+
 .item-list__image-item .comment-items i:hover{
     color: #8E8E8E;
 }

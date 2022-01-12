@@ -76,7 +76,7 @@
                         <li><a href="/image/story.html"><i class="fas fa-home"></i></a></li>
                         <li><a href="/chat/chat.html"><i class="fab fa-telegram-plane"></i></a></li>
                         <li><a href="#"><i class="far fa-plus-square btn-fileupload"></i></a></li>
-                        <li><a href="#"><i class="far fa-compass"></i></a></li>
+                        <li><a href="/image/explore.html"><i class="far fa-compass"></i></a></li>
                         <li class="header__notice-box-wrapper">
                             <a class="notice-heart" href="#"><i class="far fa-heart fa-heart-notice"></i></a>
 
@@ -214,7 +214,7 @@
                             <div class="emoticon-container">
                                 <i class="far fa-smile-wink btn-emoticon-icon"></i>
                             </div>
-                            <textarea id="content-comment-textarea" class="modal-write-comment" rows="1" placeholder="댓글 달기..."></textarea>
+                            <textarea id="content-comment-textarea" rows="1" placeholder="댓글 달기..."></textarea>
                             <button class="upload-comment">게시</button>
                         </div>
                        
@@ -370,6 +370,7 @@
     </div>
 </div>
 
+<!-- @@파일 업로드 관련@@ -->
 <!-- 파일 업로드 모달-->
 <div class="modal-wrapper modal-fileupload-wrapper">
     <i class="fas fa-times btn-close-fileUploadModal"></i>
@@ -469,7 +470,7 @@
     </div>
 </div>
 
-<!-- 파일 업로드 뒤로가기 모달 -->
+<!-- 파일 업로드 뒤로가기 (모달) -->
 <div class="modal-wrapper modal-fileupload-undo-wrapper">
     <div class="modal modal-fileupload-undo">
         <div>
@@ -484,7 +485,7 @@
     </div>
 </div>
 
-<!-- 파일 업로드 중 모달 -->
+<!-- 파일 업로드 중 (모달) -->
 <div class="modal-wrapper modal-fileupload-uploading-wrapper">
     <i class="fas fa-times btn-close-fileupload-loading-modal"></i>
     <div class="modal modal-fileupload-uploading">
@@ -499,7 +500,8 @@
     </div>
 </div>
 
-<!-- 컨텐츠 옵션 (모달)-->
+<!-- @@이미지 관련@@ -->
+<!-- 컨텐츠 옵션 (모달) -->
 <div class="modal-wrapper modal-content-option-wrapper">
     <div class="modal modal-content-option">
        <ul>
@@ -511,7 +513,7 @@
     </div>
 </div>
 
-<!-- 신고 사유 선택 (모달)-->
+<!-- 신고 사유 선택 (모달) -->
 <div class="modal-wrapper modal-reportList-wrapper">
     <div class="modal modal-reportList">
         <i class="fas fa-times cancel-reportList"></i>
@@ -578,8 +580,8 @@
         <h1>알려주셔서 고맙습니다</h1>
         <p>회원님의 소중한 의견은 Instagram 커뮤니티를<br>안전하게 유지하는 데 도움이 됩니다</p>
         <ul>
-            <li><button style="color: #ED4956;">walle님 차단</button></li>
-            <li><button>walle님 팔로우 취소</button></li>
+            <li><button class="modal-reported__btn-block-user" style="color: #ED4956;">walle님 차단</button></li>
+            <li><button class="modal-reported__btn-cancel-following">walle님 팔로우 취소</button></li>
             <li><button class="btn-close-reported">닫기</button></li>
         </ul>
 
@@ -741,7 +743,7 @@
                     <div class="emoticon-container">
                         <i class="far fa-smile-wink btn-emoticon-icon"></i>
                     </div>
-                    <textarea class="modal-write-comment" rows="1" placeholder="댓글 달기..."></textarea>
+                    <textarea class="modal-write-comment" rows="2" placeholder="댓글 달기..."></textarea>
                     <button class="btn-comment-upload">게시</button>
                 </div>
 
