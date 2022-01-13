@@ -788,7 +788,7 @@ input:checked + .slider:before {
 }
 
 /*================================================================
-# 공통 모달 - 이미지 상세
+# 공통 모달 - 스토리 이미지
 =================================================================*/
 .item-list__image-item__comment-list{
     padding: 16px 16px;
@@ -1105,6 +1105,7 @@ input:checked + .slider:before {
     border-bottom: 1px solid #dbdbdb;
     background: #fff;
 }
+
 .header{
     padding: 12px 0px 5px 0px;
     display: flex;
