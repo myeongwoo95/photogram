@@ -513,6 +513,16 @@
     </div>
 </div>
 
+<!-- 스토리 모달 댓글 dotdotdot 클릭 시 -->
+<div class="modal-wrapper modal-comment-dotdotdot-wrapper">
+    <div class="modal comment-dotdotdot-modal">
+        <button class="report-modal-comment-btn">신고</button>
+        <button class="cancel-modal-comment-delete-btn">삭제</button>
+        <button class="cancel-modal-comment-dotdotdot-option-btn">취소</button>
+    </div>
+</div>
+
+
 <!-- 신고 사유 선택 (모달) -->
 <div class="modal-wrapper modal-reportList-wrapper">
     <div class="modal modal-reportList">
@@ -756,6 +766,12 @@
 
 <script src="../assets/js/common.js"></script>
 <script src="../assets/js/image/story.js"></script>
+
+<script>
+    $(".modal-comment-dotdotdot").on("click", function(e){
+        $(".modal-comment-dotdotdot-wrapper").css("display", "flex");
+    });
+</script>
 
 </body>
 </html>
